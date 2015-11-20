@@ -28,6 +28,7 @@ namespace BillEasy0._1._0
             TipoVentastextBox.Clear();
             DescuentostextBox.Clear();
             TotaltextBox.Clear();
+            VentasdataGridView.Rows.Clear();
         }
 
         private void RegistroVentas_Load(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace BillEasy0._1._0
             float itbis, total;
             float.TryParse(ITBIStextBox.Text, out itbis);
             float.TryParse(TotaltextBox.Text,out total);
-            int id;
+            int id,mierda;
             int.TryParse(VentaIdtextBox.Text, out id);
             venta.VentaId = id;
             venta.ClienteId = (int)ClientecomboBox.SelectedValue;
@@ -60,6 +61,17 @@ namespace BillEasy0._1._0
             venta.Fecha = FechadateTimePicker.Text;
             venta.ITBIS = itbis;
             venta.Total = total;
+            
+            foreach (DataGridViewRow row in VentasdataGridView.Rows)
+            {
+                mierda = Convert.ToInt32(row.Cells["ProductoId"].Value);
+                venta.AgregarProducto(mierda,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),Convert.ToDouble(row.Cells["ITBIS"].Value));
+                int eje = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                venta.AgregarVenta(mierda,eje, Convert.ToDouble(row.Cells["Descuento"].Value));
+                venta.Tamano++;
+
+            }
+
         }
         private void EliminarButton_Click(object sender, EventArgs e)
         {
@@ -103,16 +115,9 @@ namespace BillEasy0._1._0
                 //MessageBox.Show("Producto encontrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PreciotextBox.Text = producto.Precio.ToString();
                 NombretextBox.Text = producto.Nombre;
-                string codigo = "";
                 ITBIStextBox.Text = producto.Costo.ToString();
                 //VentasdataGridView.Rows.Add(producto.ProductoId.ToString(), producto.Nombre, CantidadtextBox.Text, producto.Precio.ToString(), producto.ITBIS.ToString(), DescuentostextBox.Text);
 
-                foreach (DataGridViewRow row in VentasdataGridView.Rows)
-                {
-
-                     codigo += Convert.ToString(row.Cells["ProductoId"].Value);
-
-                }
                
             }
             else
@@ -134,6 +139,16 @@ namespace BillEasy0._1._0
                 FechadateTimePicker.Text = ventas.Fecha;
                 ITBIStextBox.Text = ventas.ITBIS.ToString();
                 TotaltextBox.Text = ventas.Total.ToString();
+
+               /* foreach (var venta in ventas.Producto)
+                {
+                    VentasdataGridView.Rows.Add(venta.ProductoId.ToString(),venta.Nombre,venta.Precio.ToString(),venta.ITBIS.ToString());
+                }*/
+
+                foreach (var venta in ventas.Venta)
+                {
+                    VentasdataGridView.Rows.Add(ventas.Cantidad.ToString(), ventas.Descuento.ToString());
+                }
             }
             else
             {
@@ -145,6 +160,10 @@ namespace BillEasy0._1._0
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, ITBIStextBox.Text, DescuentostextBox.Text);
+            ProductoIdtextBox.Clear();
+            PreciotextBox.Clear();
+            ITBIStextBox.Clear();
+            NombretextBox.Clear();
         }
     }
 }

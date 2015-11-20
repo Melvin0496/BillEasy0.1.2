@@ -17,6 +17,9 @@ Select Count(Nombre) from Ciudades
 select *from Clientes
 drop table Clientes
 
+
+Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId where D.VentaId =30
+
 Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
 select *from Usuarios
 drop table Usuarios
@@ -33,9 +36,9 @@ Create Table Ventas(
 VentaId Int Identity Primary Key,
 UsuarioId Int References Usuarios(UsuarioId),
 ClienteId Int References Clientes(ClienteId),
+ProductoId int references Productos(ProductoId),
 Fecha Varchar(10),
 ITBIS Float,
-Descuentos Float,
 TipoVentas Varchar(9),
 NFC Varchar(20),
 TipoNFC Varchar(20),
@@ -82,13 +85,19 @@ Celular Varchar(12)
 
 Create Table DetallesVentas(
 VentaId Int References Ventas(VentaId),
-UsuarioId Int References Usuarios(UsuarioId),
-ClienteId int references Clientes(ClienteId),
 ProductoId int references Productos(ProductoId),
-Cantidad Int,
-Precio Float
+Precio Float,
+Descuentos Float,
+Cantidad int,
 )
+drop 
+
+
+Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId =3
+ Select  Precio * Cantidad Importe  from DetallesVentas where VentaId =3
+ select (d.Precio * d.Cantidad) + p.ITBIS Total from DetallesVentas d inner join Productos p on p.ProductoId = d.ProductoId where d.VentaId = 3
 drop table DetallesVentas
+drop table Ventas
 
 Create Table DetallesCompras(
 CompraId Int Identity Primary Key,

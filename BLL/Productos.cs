@@ -14,9 +14,9 @@ namespace BLL
         public int MarcaId { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
-        public float Precio { get; set; }
-        public float Costo { get; set; }
-        public float ITBIS { get; set; }
+        public double Precio { get; set; }
+        public double Costo { get; set; }
+        public double ITBIS { get; set; }
 
         public Productos()
         {
@@ -30,7 +30,7 @@ namespace BLL
             this.ITBIS = 0;
         }
 
-        public Productos(int productoId, int proveedorId, int marcaId, string nombre, int cantidad, float precio, float costo, float iTBIS)
+        public Productos(int productoId, int proveedorId, int marcaId, string nombre, int cantidad, double precio, double costo, double iTBIS)
         {
             this.ProductoId = productoId;
             this.ProveedorId = proveedorId;
@@ -41,9 +41,12 @@ namespace BLL
             this.Costo = costo;
             this.ITBIS = iTBIS;
         }
-        public Productos(int productoId)
+        public Productos(int productoId,string nombre,double precio,double itbis)
         {
             this.ProductoId = productoId;
+            this.Nombre = nombre;
+            this.Precio = precio;
+            this.ITBIS = itbis;
         }
 
         public override bool Insertar()

@@ -48,12 +48,6 @@
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.VentasdataGridView = new System.Windows.Forms.DataGridView();
-            this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCtextBox = new System.Windows.Forms.TextBox();
             this.NFCtextBox = new System.Windows.Forms.TextBox();
@@ -70,6 +64,12 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
+            this.ProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -286,42 +286,6 @@
             this.VentasdataGridView.Size = new System.Drawing.Size(705, 134);
             this.VentasdataGridView.TabIndex = 18;
             // 
-            // ProductoId
-            // 
-            this.ProductoId.HeaderText = "ProductoId";
-            this.ProductoId.Name = "ProductoId";
-            this.ProductoId.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // ITBIS
-            // 
-            this.ITBIS.HeaderText = "ITBIS";
-            this.ITBIS.Name = "ITBIS";
-            this.ITBIS.ReadOnly = true;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.ReadOnly = true;
-            // 
             // ClientecomboBox
             // 
             this.ClientecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -469,6 +433,43 @@
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
+            // ProductoId
+            // 
+            this.ProductoId.HeaderText = "ProductoId";
+            this.ProductoId.Name = "ProductoId";
+            this.ProductoId.ReadOnly = true;
+            this.ProductoId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // ITBIS
+            // 
+            this.ITBIS.HeaderText = "ITBIS";
+            this.ITBIS.Name = "ITBIS";
+            this.ITBIS.ReadOnly = true;
+            // 
+            // Descuento
+            // 
+            this.Descuento.HeaderText = "Descuento";
+            this.Descuento.Name = "Descuento";
+            this.Descuento.ReadOnly = true;
+            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -530,16 +531,16 @@
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button EliminarButton;
+        private System.Windows.Forms.TextBox NombretextBox;
+        private System.Windows.Forms.TextBox ITBIStextBox;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
-        private System.Windows.Forms.TextBox NombretextBox;
-        private System.Windows.Forms.TextBox ITBIStextBox;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.Button Agregarbutton;
     }
 }

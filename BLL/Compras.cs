@@ -41,9 +41,9 @@ namespace BLL
             Producto = new List<Productos>();
         }
 
-        public void AgregarProducto(int productoId)
+        public void AgregarProducto(int productoId, string nombre,double precio,double itbis)
         {
-            this.Producto.Add(new Productos(productoId));
+            this.Producto.Add(new Productos(productoId,nombre,precio,itbis));
         }
 
         public override bool Insertar()
@@ -120,10 +120,10 @@ namespace BLL
                 this.Monto = (float)dt.Rows[0]["Monto"];
 
                 this.Producto.Clear();
-                foreach (DataRow row in dtProducto.Rows)
+               /* foreach (DataRow row in dtProducto.Rows)
                 {
-                    this.AgregarProducto((int)row["UsuarioId"]);
-                }
+                    this.AgregarProducto((int)row["UsuarioId"],(float)row["Precio"]);
+                }*/
             }
             return dt.Rows.Count > 0;
         }
