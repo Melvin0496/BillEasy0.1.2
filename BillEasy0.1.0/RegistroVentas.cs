@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,16 +140,18 @@ namespace BillEasy0._1._0
                 FechadateTimePicker.Text = ventas.Fecha;
                 ITBIStextBox.Text = ventas.ITBIS.ToString();
                 TotaltextBox.Text = ventas.Total.ToString();
-
+                int x = 0;
                 foreach (var venta in ventas.Producto)
                 {
                     VentasdataGridView.Rows.Add(venta.ProductoId.ToString(),venta.Nombre,venta.Precio.ToString(),venta.ITBIS.ToString());
+                    //x++;
                 }
 
-                /*foreach (var venta in ventas.Venta)
+                foreach (var venta in ventas.Venta)
                 {
+
                     VentasdataGridView.Rows.Add(ventas.Cantidad.ToString(), ventas.Descuento.ToString());
-                }*/
+                }
             }
             else
             {

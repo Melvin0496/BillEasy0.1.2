@@ -26,6 +26,7 @@ namespace BLL
         public int Tamano { get; set; }
         public List<Productos> Producto { get; set;}
         public List <Ventas>Venta  { get; set; }
+     
 
         public Ventas()
         {
@@ -133,11 +134,9 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
             DataTable dtUsuarios = new DataTable();
-            //double precio, itbis;
 
             dt = conexion.ObtenerDatos(String.Format("Select *from Ventas where VentaId = {0} ",idBuscado));
             dtUsuarios = conexion.ObtenerDatos(String.Format("Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId = {0} ", idBuscado));
-
             if (dt.Rows.Count > 0)
             {
                 this.ClienteId = (int)dt.Rows[0]["ClienteId"];
@@ -152,9 +151,7 @@ namespace BLL
                 this.Producto.Clear();
                 foreach(DataRow row in dtUsuarios.Rows)
                 {
-
-
-                    this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]));
+                  this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]));
                 }
                 foreach (DataRow row in dtUsuarios.Rows)
                 {

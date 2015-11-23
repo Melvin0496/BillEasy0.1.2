@@ -2,12 +2,6 @@
 using System.Data;
 using System.Windows.Forms;
 using BLL;
-
-using System;
-using System.Data;
-using System.Windows.Forms;
-using BLL;
-
 namespace BillEasy0._1._0
 {
     public partial class ConsultaUsuario : Form

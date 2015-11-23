@@ -44,3 +44,5 @@ namespace BillEasy0._1._0
                 DatosDataGridView.DataSource = marca.Listado(" MarcaId, Nombre", condicion, "");
             }
         }
+    }
+}

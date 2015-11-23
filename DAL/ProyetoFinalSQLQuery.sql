@@ -98,7 +98,7 @@ Cantidad int,
 drop table DetallesVentas
 
 
-Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId =3
+Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId =7
  Select  Precio * Cantidad as Importe from DetallesVentas where VentaId =3
  select (d.Precio * d.Cantidad) + p.ITBIS Total from DetallesVentas d inner join Productos p on p.ProductoId = d.ProductoId where d.VentaId = 5
 drop table DetallesVentas
