@@ -50,14 +50,24 @@ namespace BillEasy0._1._0
             retorno += 1;
             return retorno;
         }
-
+        public int Convertir()
+        {
+            int id;
+            int.TryParse(MarcaIdTextBox.Text,out id);
+            return id;
+        }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            int id;
-            int.TryParse(MarcaIdTextBox.Text, out id);
-            marca.Buscar(id);
-            NombreTextBox.Text = marca.Nombre;
+            if (marca.Buscar(Convertir()))
+            {
+                NombreTextBox.Text = marca.Nombre;
+            }
+            else
+            {
+                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -71,9 +81,7 @@ namespace BillEasy0._1._0
             Marcas marca = new Marcas();
             if (MarcaIdTextBox.Text.Length > 0 && Validar() == 1 && Error() == 0)
             {
-                int id;
-                int.TryParse(MarcaIdTextBox.Text, out id);
-                marca.MarcaId = id;
+                Convertir();
                 LlenarDatos(marca);
                 Validar();
                 if (marca.Editar() && Error() == 0 && Validar() == 1 )
@@ -106,7 +114,6 @@ namespace BillEasy0._1._0
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            int id;
             if (MarcaIdTextBox.TextLength == 0)
             {
                 MessageBox.Show("Debe especificar el ID", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -114,8 +121,7 @@ namespace BillEasy0._1._0
             else
             if (MarcaIdTextBox.Text.Length > 0)
             {
-                int.TryParse(MarcaIdTextBox.Text, out id);
-                marca.MarcaId = id;
+                marca.MarcaId = Convertir();
                 if (marca.Eliminar())
                 {
                     MessageBox.Show("Marca Eliminada correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

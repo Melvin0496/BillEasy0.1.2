@@ -18,11 +18,13 @@ namespace BLL
         public int Cantidad { get; set; }
         public string TipoCompra { get; set; }
         public string NFC { get; set; }
-        public string TiopNFC { get; set; }
+        public string TipoNFC { get; set; }
         public float Flete { get; set; }
         public float Monto { get; set; }
         public float Costo { get; set; }
         public List<Productos> Producto { get; set; }
+        public List<Compras> Compra { get; set; }
+
 
         public Compras()
         {
@@ -34,7 +36,7 @@ namespace BLL
             this.Cantidad = 0;
             this.TipoCompra = "";
             this.NFC = "";
-            this.TiopNFC = "";
+            this.TipoNFC = "";
             this.Flete = 0f;
             this.Costo = 0f;
             this.Monto = 0f;
@@ -52,7 +54,7 @@ namespace BLL
             bool retorno;
             StringBuilder comando = new StringBuilder();
 
-            retorno = conexion.Ejecutar(String.Format("Insert Into Compras(ProveedorId,UsuarioId ,Fecha ,Cantidad ,TipoCompra ,NFC ,TiopNFC ,Flete , Costo, Monto ) Values({0},{1},'{2}',{3},'{4}','{5}','{6}',{7},{8},{9})",this.ProveedorId,this.UsuarioId,this.Fecha,this.Cantidad,this.TipoCompra,this.NFC,this.TiopNFC,this.Flete ,this.Costo,this.Monto ));
+            retorno = conexion.Ejecutar(String.Format("Insert Into Compras(ProveedorId,Fecha ,Cantidad ,TipoCompra ,NFC ,TipoNFC ,Flete, Monto ) Values({0},'{1}',{2},'{3}','{4}','{5}',{6},{7})",this.ProveedorId,this.Fecha,this.Cantidad,this.TipoCompra,this.NFC,this.TipoNFC,this.Flete ,this.Monto ));
 
             if (retorno)
             {
@@ -60,7 +62,7 @@ namespace BLL
 
                 foreach (var producto in Producto)
                 {
-                    comando.AppendLine(String.Format("Insert into DetallesVentas(ProductoId) values({0})", producto.ProductoId));
+                    comando.AppendLine(String.Format("Insert into DetallesCompras(ProductoId) values({0})", producto.ProductoId));
                 }
 
                 retorno = conexion.Ejecutar(comando.ToString());
@@ -74,7 +76,7 @@ namespace BLL
             bool retorno = false;
             StringBuilder comando = new StringBuilder();
 
-            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0}, UsuarioId = {1},Fecha = '{2}',Cantidad = {3},TipoCompra = '{4}' ,NFC = '{5}' ,TiopNFC ='{6}' ,Flete ={7} , Costo ={8}, Monto = {9} Where CompraId = {10}", this.ProveedorId, this.UsuarioId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TiopNFC, this.Flete, this.Costo, this.Monto,this.CompraId));
+            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0}, UsuarioId = {1},Fecha = '{2}',Cantidad = {3},TipoCompra = '{4}' ,NFC = '{5}' ,TiopNFC ='{6}' ,Flete ={7} , Costo ={8}, Monto = {9} Where CompraId = {10}", this.ProveedorId, this.UsuarioId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TipoNFC, this.Flete, this.Costo, this.Monto,this.CompraId));
             if (retorno)
             {
                 conexion.Ejecutar("Delete from DetallesCompras where CompraId = " + this.CompraId);
@@ -86,7 +88,7 @@ namespace BLL
                 retorno = conexion.Ejecutar(comando.ToString());
             }
             return retorno;
-            return retorno;
+            
         }
 
         public override bool Eliminar()
@@ -114,7 +116,7 @@ namespace BLL
                 this.Cantidad = (int)dt.Rows[0]["Cantidad"];
                 this.TipoCompra = dt.Rows[0]["TipoCompra"].ToString();
                 this.NFC = dt.Rows[0]["NFC"].ToString();
-                this.TiopNFC = dt.Rows[0]["TipoNFC"].ToString();
+                this.TipoNFC = dt.Rows[0]["TipoNFC"].ToString();
                 this.Flete = (float)dt.Rows[0]["Flete"];
                 this.Costo = (float)dt.Rows[0]["Costo"];
                 this.Monto = (float)dt.Rows[0]["Monto"];

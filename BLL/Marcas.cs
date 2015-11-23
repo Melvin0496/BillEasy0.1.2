@@ -44,7 +44,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete  Marcas where MarcaId = {0}", this.MarcaId));
+            retorno = conexion.Ejecutar("Delete Marcas where MarcaId = " + this.MarcaId);
             return retorno;
         }
 

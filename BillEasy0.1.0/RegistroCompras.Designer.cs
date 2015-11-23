@@ -46,7 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.DescuentosTextBox = new System.Windows.Forms.TextBox();
+            this.FleteTextBox = new System.Windows.Forms.TextBox();
             this.CantidadTextBox = new System.Windows.Forms.TextBox();
             this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClienteComboBox = new System.Windows.Forms.ComboBox();
+            this.ProveedorComboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCTextBox = new System.Windows.Forms.TextBox();
             this.NFCTextBox = new System.Windows.Forms.TextBox();
             this.TipoCompraTextBox = new System.Windows.Forms.TextBox();
@@ -108,7 +108,7 @@
             this.DatosVentasGroupBox.Controls.Add(this.FechaDateTimePicker);
             this.DatosVentasGroupBox.Controls.Add(this.label10);
             this.DatosVentasGroupBox.Controls.Add(this.CompraDataGridView);
-            this.DatosVentasGroupBox.Controls.Add(this.ClienteComboBox);
+            this.DatosVentasGroupBox.Controls.Add(this.ProveedorComboBox);
             this.DatosVentasGroupBox.Controls.Add(this.TipoNFCTextBox);
             this.DatosVentasGroupBox.Controls.Add(this.NFCTextBox);
             this.DatosVentasGroupBox.Controls.Add(this.TipoCompraTextBox);
@@ -149,7 +149,7 @@
             this.ProductoGroupBox.Controls.Add(this.label7);
             this.ProductoGroupBox.Controls.Add(this.label8);
             this.ProductoGroupBox.Controls.Add(this.label3);
-            this.ProductoGroupBox.Controls.Add(this.DescuentosTextBox);
+            this.ProductoGroupBox.Controls.Add(this.FleteTextBox);
             this.ProductoGroupBox.Controls.Add(this.CantidadTextBox);
             this.ProductoGroupBox.Location = new System.Drawing.Point(9, 96);
             this.ProductoGroupBox.Name = "ProductoGroupBox";
@@ -258,16 +258,17 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(440, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Descuento:";
+            this.label3.Text = "Flete:";
             // 
-            // DescuentosTextBox
+            // FleteTextBox
             // 
-            this.DescuentosTextBox.Location = new System.Drawing.Point(508, 54);
-            this.DescuentosTextBox.Name = "DescuentosTextBox";
-            this.DescuentosTextBox.Size = new System.Drawing.Size(143, 20);
-            this.DescuentosTextBox.TabIndex = 3;
+            this.FleteTextBox.Location = new System.Drawing.Point(508, 54);
+            this.FleteTextBox.Name = "FleteTextBox";
+            this.FleteTextBox.Size = new System.Drawing.Size(143, 20);
+            this.FleteTextBox.TabIndex = 3;
+            this.FleteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FleteTextBox_KeyPress);
             // 
             // CantidadTextBox
             // 
@@ -275,6 +276,7 @@
             this.CantidadTextBox.Name = "CantidadTextBox";
             this.CantidadTextBox.Size = new System.Drawing.Size(143, 20);
             this.CantidadTextBox.TabIndex = 2;
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
             // 
             // FechaDateTimePicker
             // 
@@ -348,14 +350,14 @@
             this.Descuento.Name = "Descuento";
             this.Descuento.ReadOnly = true;
             // 
-            // ClienteComboBox
+            // ProveedorComboBox
             // 
-            this.ClienteComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ClienteComboBox.FormattingEnabled = true;
-            this.ClienteComboBox.Location = new System.Drawing.Point(74, 65);
-            this.ClienteComboBox.Name = "ClienteComboBox";
-            this.ClienteComboBox.Size = new System.Drawing.Size(143, 21);
-            this.ClienteComboBox.TabIndex = 1;
+            this.ProveedorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProveedorComboBox.FormattingEnabled = true;
+            this.ProveedorComboBox.Location = new System.Drawing.Point(74, 65);
+            this.ProveedorComboBox.Name = "ProveedorComboBox";
+            this.ProveedorComboBox.Size = new System.Drawing.Size(143, 21);
+            this.ProveedorComboBox.TabIndex = 1;
             // 
             // TipoNFCTextBox
             // 
@@ -417,9 +419,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Cliente:";
+            this.label2.Text = "Proveedor:";
             // 
             // label1
             // 
@@ -518,7 +520,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox DescuentosTextBox;
+        private System.Windows.Forms.TextBox FleteTextBox;
         private System.Windows.Forms.TextBox CantidadTextBox;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
         private System.Windows.Forms.Label label10;
@@ -529,7 +531,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.ComboBox ClienteComboBox;
+        private System.Windows.Forms.ComboBox ProveedorComboBox;
         private System.Windows.Forms.TextBox TipoNFCTextBox;
         private System.Windows.Forms.TextBox NFCTextBox;
         private System.Windows.Forms.TextBox TipoCompraTextBox;

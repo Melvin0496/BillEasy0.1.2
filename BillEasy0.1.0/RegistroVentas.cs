@@ -140,15 +140,15 @@ namespace BillEasy0._1._0
                 ITBIStextBox.Text = ventas.ITBIS.ToString();
                 TotaltextBox.Text = ventas.Total.ToString();
 
-               /* foreach (var venta in ventas.Producto)
+                foreach (var venta in ventas.Producto)
                 {
                     VentasdataGridView.Rows.Add(venta.ProductoId.ToString(),venta.Nombre,venta.Precio.ToString(),venta.ITBIS.ToString());
-                }*/
+                }
 
-                foreach (var venta in ventas.Venta)
+                /*foreach (var venta in ventas.Venta)
                 {
                     VentasdataGridView.Rows.Add(ventas.Cantidad.ToString(), ventas.Descuento.ToString());
-                }
+                }*/
             }
             else
             {
@@ -164,6 +164,26 @@ namespace BillEasy0._1._0
             PreciotextBox.Clear();
             ITBIStextBox.Clear();
             NombretextBox.Clear();
+        }
+
+        private void CantidadtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("No es una cantidad valida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void DescuentostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Valor no valido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

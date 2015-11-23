@@ -122,17 +122,21 @@ namespace BillEasy0._1._0
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Proveedores proveedor = new Proveedores();
-            int id;
-            int.TryParse(ProveedorIdTextBox.Text, out id);
-            proveedor.Buscar(id);
-            ProveedorIdTextBox.Text = proveedor.ProveedorId.ToString();
-            NombreEmpresaTextBox.Text = proveedor.NombreEmpresa;
-            DireccionTextBox.Text = proveedor.Direccion;
-            TelefonoTextBox.Text = proveedor.Telefono;
-            EmailTextBox.Text = proveedor.Email;
-            RNCTextBox.Text = proveedor.RNC;
-            NombreRepresentanteTextBox.Text = proveedor.NombreRepresentante;
-            CelularTextBox.Text = proveedor.Celular;
+            if (proveedor.Buscar(Convertidor()))
+            {
+                ProveedorIdTextBox.Text = proveedor.ProveedorId.ToString();
+                NombreEmpresaTextBox.Text = proveedor.NombreEmpresa;
+                DireccionTextBox.Text = proveedor.Direccion;
+                TelefonoTextBox.Text = proveedor.Telefono;
+                EmailTextBox.Text = proveedor.Email;
+                RNCTextBox.Text = proveedor.RNC;
+                NombreRepresentanteTextBox.Text = proveedor.NombreRepresentante;
+                CelularTextBox.Text = proveedor.Celular;
+            }
+            else
+            {
+                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -185,18 +189,23 @@ namespace BillEasy0._1._0
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             Proveedores proveedor = new Proveedores();
-            if (ProveedorIdTextBox.TextLength > 0)
+            if (ProveedorIdTextBox.TextLength == 0)
             {
-                int id;
-                int.TryParse(ProveedorIdTextBox.Text, out id);
-                proveedor.ProveedorId = id;
-                if (proveedor.Eliminar())
-                    MessageBox.Show("Proveedor Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NuevoButton.PerformClick();
+                MessageBox.Show("Puto");
             }
             else
             {
-                MessageBox.Show("Error al eliminar el proveedor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                proveedor.ProveedorId = Convertidor();
+                if (!proveedor.Eliminar())
+                {
+                    MessageBox.Show("Puto");
+                    //MessageBox.Show("Proveedor Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

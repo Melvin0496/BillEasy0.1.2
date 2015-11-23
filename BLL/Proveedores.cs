@@ -68,7 +68,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete Proveedores where ProveedorId = {0}", this.ProveedorId));
+            retorno = conexion.Ejecutar("Delete Productos where ProveedorId = "+ this.ProveedorId + ";" + "Delete Proveedores where ProveedorId = " + this.ProveedorId);
             return retorno;
         }
 

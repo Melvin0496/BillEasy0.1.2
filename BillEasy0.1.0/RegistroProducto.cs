@@ -148,15 +148,19 @@ namespace BillEasy0._1._0
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Productos producto = new Productos();
-            int id;
-            int.TryParse(ProductoIdTextBox.Text, out id);
-            producto.Buscar(id);
-            ProductoIdTextBox.Text = producto.ProductoId.ToString();
-            NombreTextBox.Text = producto.Nombre.ToString();
-            CantidadTextBox.Text = producto.Cantidad.ToString();
-            PrecioTextBox.Text = producto.Precio.ToString();
-            CostoTextBox.Text = producto.Costo.ToString();
-            ITBISTextBox.Text = producto.ITBIS.ToString();
+            if (producto.Buscar(Convertidor()))
+            {
+                ProductoIdTextBox.Text = producto.ProductoId.ToString();
+                NombreTextBox.Text = producto.Nombre.ToString();
+                CantidadTextBox.Text = producto.Cantidad.ToString();
+                PrecioTextBox.Text = producto.Precio.ToString();
+                CostoTextBox.Text = producto.Costo.ToString();
+                ITBISTextBox.Text = producto.ITBIS.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -206,16 +210,16 @@ namespace BillEasy0._1._0
             Productos producto = new Productos();
             if (ProductoIdTextBox.TextLength > 0)
             {
-                int id;
-                int.TryParse(ProductoIdTextBox.Text, out id);
-                producto.ProveedorId = id;
+                producto.ProveedorId = Convertidor();
                 if (producto.Eliminar())
+                {
                     MessageBox.Show("Producto Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NuevoButton.PerformClick();
-            }
-            else
-            {
-                MessageBox.Show("Error al eliminar el producto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    NuevoButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
     }

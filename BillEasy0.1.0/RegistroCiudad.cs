@@ -73,15 +73,25 @@ namespace BillEasy0._1._0
             
             return retorno;
         }
+        public int Convertir()
+        {
+            int id;
+            int.TryParse(CiudadIdTextBox.Text,out id);
+            return id;
+        }
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Ciudades ciudad = new Ciudades();
-            int id;
-            int.TryParse(CiudadIdTextBox.Text, out id);
-            ciudad.Buscar(id);
-            CiudadIdTextBox.Text = ciudad.CiudadId.ToString();
-            NombreTextBox.Text = ciudad.Nombre;
-            CodigoPostalTextBox.Text = ciudad.CodigoPostal.ToString();
+            if (ciudad.Buscar(Convertir()))
+            {
+                CiudadIdTextBox.Text = ciudad.CiudadId.ToString();
+                NombreTextBox.Text = ciudad.Nombre;
+                CodigoPostalTextBox.Text = ciudad.CodigoPostal.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -96,10 +106,7 @@ namespace BillEasy0._1._0
             Ciudades ciudad = new Ciudades();
             if (CiudadIdTextBox.Text.Length > 0 && Error() == 0 && Validar() == 1)
             {
-
-                int id;
-                int.TryParse(CiudadIdTextBox.Text, out id);
-                ciudad.CiudadId = id;
+                ciudad.CiudadId = Convertir();
                 LlenarDatos(ciudad);
                 if (ciudad.Editar() && Validar() == 1 && Error() == 0)
                 {
@@ -129,7 +136,6 @@ namespace BillEasy0._1._0
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             Ciudades ciudad = new Ciudades();
-            int id;
             if (CiudadIdTextBox.TextLength == 0)
             {
                 MessageBox.Show("Debe especificar el ID", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -137,8 +143,8 @@ namespace BillEasy0._1._0
             else
             if (CiudadIdTextBox.Text.Length > 0)
             {
-                int.TryParse(CiudadIdTextBox.Text, out id);
-                ciudad.CiudadId = id;
+                
+                ciudad.CiudadId = Convertir();
                 if (ciudad.Eliminar())
                 {
                     MessageBox.Show("Ciudad Eliminada correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

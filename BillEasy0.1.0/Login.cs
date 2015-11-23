@@ -29,6 +29,7 @@ namespace BillEasy0._1._0
         private void Accederbutton_Click(object sender, EventArgs e)
         {
             Usuarios usuarios = new Usuarios();
+            
 
             usuarios.NombreUsuario = UsuariotextBox.Text;
             usuarios.Contrasena = ContrasenatextBox.Text;
@@ -46,7 +47,7 @@ namespace BillEasy0._1._0
                     this.Visible = false;
                     this.Hide();
                     BillEasy billEasy = new BillEasy();
-                    billEasy.ShowDialog();
+                    billEasy.ShowDialog();                    
                 }
                 else
                 {
@@ -57,7 +58,12 @@ namespace BillEasy0._1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -18,7 +18,6 @@ namespace BillEasy0._1._0
         public RegistroUsuario()
         {
             InitializeComponent();
-            FechamaskedTextBox.Text = String.Format("{0:dd/MM/yyyy}", DateTime.Now);
             miError = new ErrorProvider();
         }
 
@@ -28,7 +27,7 @@ namespace BillEasy0._1._0
             usuarios.NombreUsuario = NombreUsuarioTextBox.Text;
             usuarios.Contrasena = ContrasenaTextBox.Text;
             usuarios.Area = AreaTextBox.Text;
-            usuarios.Fecha = FechamaskedTextBox.Text;
+            usuarios.Fecha = FechadateTimePicker.Text;
         }
 
         private int Error()
@@ -94,20 +93,27 @@ namespace BillEasy0._1._0
                 }
             return retorno;
         }
-
-        private void BuscarButton_Click(object sender, EventArgs e)
+        public int Convertir()
         {
             int id;
-            Usuarios usuario = new Usuarios();
-
             int.TryParse(UsuarioIdTextBox.Text, out id);
-            usuario.UsuarioId = id;
-            usuario.Buscar(id);
-            NombreTextBox.Text = usuario.Nombre;
-            NombreUsuarioTextBox.Text = usuario.NombreUsuario;
-            ContrasenaTextBox.Text = usuario.Contrasena;
-            AreaTextBox.Text = usuario.Area;
-            FechamaskedTextBox.Text = usuario.Fecha;
+            return id;
+        }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Usuarios usuario = new Usuarios();
+            if (usuario.Buscar(Convertir()))
+            {
+                NombreTextBox.Text = usuario.Nombre;
+                NombreUsuarioTextBox.Text = usuario.NombreUsuario;
+                ContrasenaTextBox.Text = usuario.Contrasena;
+                AreaTextBox.Text = usuario.Area;
+                FechadateTimePicker.Text = usuario.Fecha;
+            }
+            else
+            {
+                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
         private void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -125,9 +131,8 @@ namespace BillEasy0._1._0
 
             if (UsuarioIdTextBox.Text.Length > 0 && Error() == 0 && Validar() == 1)
             {
-                int id;
-                int.TryParse(UsuarioIdTextBox.Text, out id);
-                usuarios.UsuarioId = id;
+
+                usuarios.UsuarioId = Convertir();
                 LlenarDatos(usuarios);
                 if (usuarios.Editar())
                 {
@@ -168,10 +173,8 @@ namespace BillEasy0._1._0
 
                 if (UsuarioIdTextBox.Text.Length > 0)
                 {
-                    int id;
-                    int.TryParse(UsuarioIdTextBox.Text, out id);
-                    usuario.UsuarioId = id;
 
+                    usuario.UsuarioId = Convertir();
                     if (usuario.Eliminar())
                     {
                         MessageBox.Show("Usuario Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -75,7 +75,9 @@ namespace BillEasy0._1._0
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Visible = false;
+            Login login = new Login();
+            login.Visible = true;
         }
 
         private void BillEasy_FormClosed(object sender, FormClosedEventArgs e)
@@ -131,6 +133,11 @@ namespace BillEasy0._1._0
             RegistroCompras registroCompra = new RegistroCompras();
             registroCompra.MdiParent = this;
             registroCompra.Show();
+        }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
