@@ -22,19 +22,16 @@ namespace BillEasy0._1._0
         private void LLenarDatos(Productos producto)
         {
             float precio, costo, itbis;
-            int cantidad;
             Regex espacio = new Regex(@"\s+");
             float.TryParse(PrecioTextBox.Text, out precio);
             float.TryParse(CostoTextBox.Text, out costo);
             float.TryParse(ITBISTextBox.Text, out itbis);
-            int.TryParse(CantidadTextBox.Text, out cantidad);
             producto.ProveedorId = (int)ProveedorComboBox.SelectedValue;
             producto.MarcaId = (int)MarcaComboBox.SelectedValue;
-            producto.Nombre = espacio.Replace(NombreTextBox.Text, " "); ;
-            producto.Cantidad = cantidad;
+            producto.Nombre = espacio.Replace(NombreTextBox.Text, " ");
             producto.Precio = precio;
             producto.Costo = costo;
-            producto.ITBIS = itbis;
+            producto.ITBIS = itbis*precio/100;
         }
         private int Error()
         {
@@ -48,15 +45,6 @@ namespace BillEasy0._1._0
             else
             {
                 miError.SetError(NombreTextBox, "");
-            }
-            if (CantidadTextBox.Text == "")
-            {
-                miError.SetError(CantidadTextBox, "Debe llenar la cantidad");
-                contador = 1;
-            }
-            else
-            {
-                miError.SetError(CantidadTextBox, "");
             }
             if (PrecioTextBox.Text == "")
             {
@@ -117,7 +105,8 @@ namespace BillEasy0._1._0
             {
                 ProductoIdTextBox.Text = producto.ProductoId.ToString();
                 NombreTextBox.Text = producto.Nombre.ToString();
-                CantidadTextBox.Text = producto.Cantidad.ToString();
+                ProveedorComboBox.SelectedValue = producto.ProveedorId;
+                MarcaComboBox.SelectedValue = producto.MarcaId;
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CostoTextBox.Text = producto.Costo.ToString();
                 ITBISTextBox.Text = producto.ITBIS.ToString();
@@ -132,7 +121,6 @@ namespace BillEasy0._1._0
         {
             ProductoIdTextBox.Clear();
             NombreTextBox.Clear();
-            CantidadTextBox.Clear();
             PrecioTextBox.Clear();
             CostoTextBox.Clear();
             ITBISTextBox.Clear();
@@ -216,19 +204,6 @@ namespace BillEasy0._1._0
             }
         }
 
-        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                miError.SetError(CantidadTextBox, "Solo se permiten numeros");
-                e.Handled = true;
-                return;
-            }
-            else
-            {
-                miError.SetError(CantidadTextBox, "");
-            }
-        }
 
         private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -282,24 +257,15 @@ namespace BillEasy0._1._0
 
         private void ITBISTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (ITBISTextBox.Text.Contains("."))
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = true;
-                }
+                miError.SetError(ITBISTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
             }
             else
             {
-                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = true;
-                }
-
-                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = false;
-                }
+                miError.SetError(ITBISTextBox, "");
             }
         }
     }

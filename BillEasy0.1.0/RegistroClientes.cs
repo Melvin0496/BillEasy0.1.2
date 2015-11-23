@@ -142,6 +142,7 @@ namespace BillEasy0._1._0
                 NombresTextBox.Text = clientes.Nombres;
                 ApellidostextBox.Text = clientes.Apellidos;
                 TelefonomaskedTextBox.Text = clientes.Telefono;
+                CiudadcomboBox.SelectedValue = clientes.CiudadId;
                 CelularmaskedTextBox.Text = clientes.Celular;
                 DirecciontextBox.Text = clientes.Direccion;
                 EmailtextBox.Text = clientes.Email;

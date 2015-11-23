@@ -127,6 +127,7 @@ namespace BillEasy0._1._0
             {
                 ProveedorIdTextBox.Text = proveedor.ProveedorId.ToString();
                 NombreEmpresaTextBox.Text = proveedor.NombreEmpresa;
+                CiudadComboBox.SelectedValue = proveedor.CiudadId;
                 DireccionTextBox.Text = proveedor.Direccion;
                 TelefonoMaskedTextBox.Text = proveedor.Telefono;
                 EmailTextBox.Text = proveedor.Email;

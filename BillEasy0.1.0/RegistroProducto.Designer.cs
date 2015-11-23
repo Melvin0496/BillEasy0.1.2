@@ -39,11 +39,9 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
-            this.CantidadTextBox = new System.Windows.Forms.TextBox();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
             this.ProductoIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -167,14 +165,6 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
-            // CantidadTextBox
-            // 
-            this.CantidadTextBox.Location = new System.Drawing.Point(123, 182);
-            this.CantidadTextBox.Name = "CantidadTextBox";
-            this.CantidadTextBox.Size = new System.Drawing.Size(181, 20);
-            this.CantidadTextBox.TabIndex = 4;
-            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
-            // 
             // NombreTextBox
             // 
             this.NombreTextBox.Location = new System.Drawing.Point(123, 149);
@@ -199,15 +189,6 @@
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 76;
             this.label6.Text = "Precio:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 185);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 75;
-            this.label5.Text = "Cantidad:";
             // 
             // label4
             // 
@@ -259,13 +240,11 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.ProveedorComboBox);
             this.groupBox1.Controls.Add(this.GuardarButton);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.EliminarButton);
             this.groupBox1.Controls.Add(this.ProductoIdTextBox);
             this.groupBox1.Controls.Add(this.NuevoButton);
             this.groupBox1.Controls.Add(this.NombreTextBox);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.CantidadTextBox);
             this.groupBox1.Controls.Add(this.BuscarButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
@@ -315,11 +294,9 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button NuevoButton;
-        private System.Windows.Forms.TextBox CantidadTextBox;
         private System.Windows.Forms.TextBox NombreTextBox;
         private System.Windows.Forms.TextBox ProductoIdTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

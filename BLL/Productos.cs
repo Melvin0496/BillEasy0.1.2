@@ -56,7 +56,7 @@ namespace BLL
         {
             bool retorno;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert Into Productos(ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS) Values({0},{1},'{2}',{3},{4},{5},{6}) ", this.ProveedorId, this.MarcaId, this.Nombre, this.Cantidad, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
+            retorno = conexion.Ejecutar(String.Format("Insert Into Productos(ProveedorId,MarcaId,Nombre,Precio,Costo,ITBIS) Values({0},{1},'{2}',{3},{4},{5}) ", this.ProveedorId, this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
             return retorno;
         }
 
@@ -64,7 +64,7 @@ namespace BLL
         {
             bool retorno;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Productos set ProveedorId = {0}, MarcaId = {1},Nombre  = '{2}', Cantidad = {3},Precio = {4},Costo = {5}, ITBIS = {6} Where ProductoId = {7}", this.ProveedorId, this.Nombre, this.MarcaId, this.Cantidad, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
+            retorno = conexion.Ejecutar(String.Format("Update Productos set ProveedorId = {0}, MarcaId = {1},Nombre  = '{2}',Precio = {3},Costo = {4}, ITBIS = {5} Where ProductoId = {6}", this.ProveedorId, this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
             return retorno;
         }
 
@@ -80,14 +80,13 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(String.Format("Select ProductoId ,ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS From Productos Where ProductoID = {0} ", idBuscado));
+            dt = conexion.ObtenerDatos(String.Format("Select ProductoId ,ProveedorId,MarcaId,Nombre,Precio,Costo,ITBIS From Productos Where ProductoID = {0} ", idBuscado));
             if (dt.Rows.Count > 0)
             {
                 this.ProductoId = (int)dt.Rows[0]["ProductoId"];
                 this.ProveedorId = (int)dt.Rows[0]["ProveedorId"];
                 this.MarcaId = (int)dt.Rows[0]["MarcaId"];
                 this.Nombre = dt.Rows[0]["Nombre"].ToString();
-                this.Cantidad = (int)dt.Rows[0]["Cantidad"];
                 this.Precio = Convert.ToSingle(dt.Rows[0]["Precio"]);
                 this.Costo = Convert.ToSingle(dt.Rows[0]["Costo"]);
                 this.ITBIS = Convert.ToSingle(dt.Rows[0]["ITBIS"]);

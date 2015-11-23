@@ -70,6 +70,7 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
+            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -282,7 +283,8 @@
             this.Cantidad,
             this.Precio,
             this.ITBIS,
-            this.Descuento});
+            this.Descuento,
+            this.ImporteColumn});
             this.VentasdataGridView.Location = new System.Drawing.Point(9, 193);
             this.VentasdataGridView.Name = "VentasdataGridView";
             this.VentasdataGridView.Size = new System.Drawing.Size(705, 134);
@@ -467,6 +469,11 @@
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
+            // ImporteColumn
+            // 
+            this.ImporteColumn.HeaderText = "Importe";
+            this.ImporteColumn.Name = "ImporteColumn";
+            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,5 +546,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteColumn;
     }
 }

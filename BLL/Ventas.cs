@@ -15,19 +15,15 @@ namespace BLL
         public int UsuarioId { get; set; }
         public int ProductoId { get; set; }
         public string Fecha { get; set; }
-        public double ITBIS { get; set; }
-        public double Descuento { get; set; }
         public string TipoVenta { get; set; }
         public string NFC { get; set; }
         public string TipoNFC { get; set; }
         public double Total { get; set; }
         public int Cantidad { get; set; }
         public double Precio { get; set; }
-        public int Tamano { get; set; }
         public List<Productos> Producto { get; set;}
         public List <Ventas>Venta  { get; set; }
-        public int[] CantidadProducto;
-     
+
 
         public Ventas()
         {
@@ -36,8 +32,6 @@ namespace BLL
             this.UsuarioId = 0;
             this.ProductoId = 0;
             this.Fecha = "";
-            this.ITBIS = 0f;
-            this.Descuento = 0f;
             this.TipoVenta = "";
             this.NFC = "";
             this.TipoNFC = "";
@@ -59,7 +53,7 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
             StringBuilder comando = new StringBuilder();
             bool retorno = false;
-            retorno = conexion.Ejecutar(String.Format("Insert into Ventas(ClienteId,Fecha,ITBIS,TipoVentas,NFC,TipoNFC,Total) values({0},'{1}',{2},'{3}','{4}','{5}',{6})", this.ClienteId, this.Fecha, this.ITBIS, this.TipoVenta, this.NFC, this.TipoNFC, this.Total));
+            retorno = conexion.Ejecutar(String.Format("Insert into Ventas(ClienteId,Fecha,TipoVentas,NFC,TipoNFC,Total) values({0},'{1}','{2}','{3}','{4}',{5})", this.ClienteId, this.Fecha, this.TipoVenta, this.NFC, this.TipoNFC, this.Total));
 
             if (retorno)
             {
@@ -119,18 +113,14 @@ namespace BLL
             {
                 this.ClienteId = (int)dt.Rows[0]["ClienteId"];
                 this.Fecha = dt.Rows[0]["Fecha"].ToString();
-                //this.ITBIS = (double)dt.Rows[0]["ITBIS"];
-                //this.Descuento = (double)dt.Rows[0]["Descuento"];
                 this.TipoVenta = dt.Rows[0]["TipoVentas"].ToString();
                 this.NFC = dt.Rows[0]["NFC"].ToString();
                 this.TipoNFC = dt.Rows[0]["TipoNFC"].ToString();
-                //this.Total = (double)dt.Rows[0]["Total"];
-                int x = 0;
+                this.Total = (double)dt.Rows[0]["Total"];
                 this.Producto.Clear();
                 foreach(DataRow row in dtVentas.Rows)
                 {
                   this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]), (int)(row["Cantidad"]), Convert.ToDouble(row["Descuentos"]));
-                    x++;
                 }
 
                     

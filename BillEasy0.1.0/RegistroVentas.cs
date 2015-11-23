@@ -48,11 +48,10 @@ namespace BillEasy0._1._0
             int.TryParse(VentaIdtextBox.Text, out id);
             return id;
         }
+        double total = 0;
         public void LlenarDatos(Ventas venta)
         {
-            float itbis, total;
-            float.TryParse(ITBIStextBox.Text, out itbis);
-            float.TryParse(TotaltextBox.Text,out total);
+            double itbis;
             int id;
             int.TryParse(VentaIdtextBox.Text, out id);
             venta.VentaId = id;
@@ -61,14 +60,16 @@ namespace BillEasy0._1._0
             venta.NFC = NFCtextBox.Text;
             venta.TipoNFC = TipoNFCtextBox.Text;
             venta.Fecha = FechadateTimePicker.Text;
-            venta.ITBIS = itbis;
             venta.Total = total;
 
             foreach (DataGridViewRow row in VentasdataGridView.Rows)
             {
                 id= Convert.ToInt32(row.Cells["ProductoId"].Value);
                 int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),Convert.ToDouble(row.Cells["ITBIS"].Value), cantidad, Convert.ToDouble(row.Cells["Descuento"].Value));
+                itbis = Convert.ToDouble(row.Cells["ITBIS"].Value);
+                double descuentos = Convert.ToDouble(row.Cells["Descuento"].Value);
+                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),itbis, cantidad, descuentos);
+                
 
             }
 
@@ -150,11 +151,9 @@ namespace BillEasy0._1._0
                 NFCtextBox.Text = ventas.NFC;
                 TipoNFCtextBox.Text = ventas.TipoNFC;
                 FechadateTimePicker.Text = ventas.Fecha;
-                ITBIStextBox.Text = ventas.ITBIS.ToString();
                 TotaltextBox.Text = ventas.Total.ToString();
                 foreach (var venta in ventas.Producto)
                 {
-
                     VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString());
                 }
              
@@ -165,14 +164,26 @@ namespace BillEasy0._1._0
             }
 
         }
-
+        
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-            VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, ITBIStextBox.Text, DescuentostextBox.Text);
+
+            int cantidad;
+            double precio, itbis, descuento;
+            double.TryParse(PreciotextBox.Text, out precio);
+            int.TryParse(CantidadtextBox.Text, out cantidad);
+            double.TryParse(ITBIStextBox.Text, out itbis);
+            double importe = (precio * cantidad) + itbis;
+            double.TryParse(DescuentostextBox.Text, out descuento);
+            total += importe - descuento;
+            TotaltextBox.Text = total.ToString();
+            VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
             ProductoIdtextBox.Clear();
             PreciotextBox.Clear();
             ITBIStextBox.Clear();
             NombretextBox.Clear();
+            CantidadtextBox.Clear();
+            DescuentostextBox.Clear();
         }
 
         private void CantidadtextBox_KeyPress(object sender, KeyPressEventArgs e)
