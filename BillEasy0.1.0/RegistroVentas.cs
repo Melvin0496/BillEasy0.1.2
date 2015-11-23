@@ -14,6 +14,7 @@ namespace BillEasy0._1._0
 {
     public partial class RegistroVentas : Form
     {
+        
         public RegistroVentas()
         {
             InitializeComponent();
@@ -52,7 +53,7 @@ namespace BillEasy0._1._0
             float itbis, total;
             float.TryParse(ITBIStextBox.Text, out itbis);
             float.TryParse(TotaltextBox.Text,out total);
-            int id,mierda;
+            int id;
             int.TryParse(VentaIdtextBox.Text, out id);
             venta.VentaId = id;
             venta.ClienteId = (int)ClientecomboBox.SelectedValue;
@@ -62,14 +63,12 @@ namespace BillEasy0._1._0
             venta.Fecha = FechadateTimePicker.Text;
             venta.ITBIS = itbis;
             venta.Total = total;
-            
+
             foreach (DataGridViewRow row in VentasdataGridView.Rows)
             {
-                mierda = Convert.ToInt32(row.Cells["ProductoId"].Value);
-                venta.AgregarProducto(mierda,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),Convert.ToDouble(row.Cells["ITBIS"].Value));
-                int eje = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                venta.AgregarVenta(mierda,eje, Convert.ToDouble(row.Cells["Descuento"].Value));
-                venta.Tamano++;
+                id= Convert.ToInt32(row.Cells["ProductoId"].Value);
+                int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),Convert.ToDouble(row.Cells["ITBIS"].Value), cantidad, Convert.ToDouble(row.Cells["Descuento"].Value));
 
             }
 
@@ -93,15 +92,33 @@ namespace BillEasy0._1._0
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Ventas venta = new Ventas();
-            LlenarDatos(venta);
-            if (venta.Insertar())
+
+            if (VentaIdtextBox.Text.Length == 0)
             {
-                MessageBox.Show("Venta Guardada","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                Nuevobutton.PerformClick();
+                LlenarDatos(venta);
+                if (venta.Insertar())
+                {
+                    MessageBox.Show("Venta Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevobutton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            else if(VentaIdtextBox.Text.Length > 0)
             {
-                MessageBox.Show("Error al guardar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                venta.VentaId = Convertir();
+                LlenarDatos(venta);
+                if (venta.Editar())
+                {
+                    MessageBox.Show("Venta Editada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevobutton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void BuscarProductobutton_Click(object sender, EventArgs e)
@@ -113,19 +130,14 @@ namespace BillEasy0._1._0
             
             if (producto.Buscar(productoId))
             {
-                //MessageBox.Show("Producto encontrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PreciotextBox.Text = producto.Precio.ToString();
                 NombretextBox.Text = producto.Nombre;
                 ITBIStextBox.Text = producto.Costo.ToString();
-                //VentasdataGridView.Rows.Add(producto.ProductoId.ToString(), producto.Nombre, CantidadtextBox.Text, producto.Precio.ToString(), producto.ITBIS.ToString(), DescuentostextBox.Text);
-
-               
             }
             else
             {
                 MessageBox.Show("El producto no existe", "alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-         //VentasdataGridView.Columns.Insert(0,producto.Precio.ToString());
         }
 
         private void BuscarVentabutton_Click(object sender, EventArgs e)
@@ -140,18 +152,12 @@ namespace BillEasy0._1._0
                 FechadateTimePicker.Text = ventas.Fecha;
                 ITBIStextBox.Text = ventas.ITBIS.ToString();
                 TotaltextBox.Text = ventas.Total.ToString();
-                int x = 0;
                 foreach (var venta in ventas.Producto)
                 {
-                    VentasdataGridView.Rows.Add(venta.ProductoId.ToString(),venta.Nombre,venta.Precio.ToString(),venta.ITBIS.ToString());
-                    //x++;
-                }
 
-                foreach (var venta in ventas.Venta)
-                {
-
-                    VentasdataGridView.Rows.Add(ventas.Cantidad.ToString(), ventas.Descuento.ToString());
+                    VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString());
                 }
+             
             }
             else
             {

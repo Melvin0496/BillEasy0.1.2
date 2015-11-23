@@ -87,7 +87,7 @@ namespace BillEasy0._1._0
             foreach (DataGridViewRow row in CompraDataGridView.Rows)
             {
                 int mierda = Convert.ToInt32(row.Cells["ProductoId"].Value);
-                compras.AgregarProducto(mierda, row.Cells["Nombre"].Value.ToString(), Convert.ToDouble(row.Cells["Precio"].Value), Convert.ToDouble(row.Cells["ITBIS"].Value));
+                //compras.AgregarProducto(mierda, row.Cells["Nombre"].Value.ToString(), Convert.ToDouble(row.Cells["Precio"].Value), Convert.ToDouble(row.Cells["ITBIS"].Value));
                 //int eje = Convert.ToInt32(row.Cells["Cantidad"].Value);
                 //venta.AgregarVenta(mierda, eje, Convert.ToDouble(row.Cells["Descuento"].Value));
                 //venta.Tamano++;

@@ -43,9 +43,9 @@ namespace BLL
             Producto = new List<Productos>();
         }
 
-        public void AgregarProducto(int productoId, string nombre,double precio,double itbis)
+        public void AgregarProducto(int productoId, string nombre,double precio,double itbis,int cantidad, double descuentos)
         {
-            this.Producto.Add(new Productos(productoId,nombre,precio,itbis));
+            this.Producto.Add(new Productos(productoId,nombre,precio,itbis,cantidad,descuentos));
         }
 
         public override bool Insertar()

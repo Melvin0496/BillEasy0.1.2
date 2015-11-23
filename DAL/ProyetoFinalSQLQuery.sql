@@ -19,7 +19,7 @@ drop table Clientes
 select *from Ventas
 
 
-Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId where D.VentaId =30
+Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId where D.VentaId =10
 
 Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
 select *from Usuarios

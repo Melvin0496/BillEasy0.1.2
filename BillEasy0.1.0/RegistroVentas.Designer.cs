@@ -285,7 +285,6 @@
             this.Descuento});
             this.VentasdataGridView.Location = new System.Drawing.Point(9, 193);
             this.VentasdataGridView.Name = "VentasdataGridView";
-            this.VentasdataGridView.ReadOnly = true;
             this.VentasdataGridView.Size = new System.Drawing.Size(705, 134);
             this.VentasdataGridView.TabIndex = 18;
             // 
@@ -293,38 +292,32 @@
             // 
             this.ProductoId.HeaderText = "ProductoId";
             this.ProductoId.Name = "ProductoId";
-            this.ProductoId.ReadOnly = true;
             this.ProductoId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
             // 
             // ITBIS
             // 
             this.ITBIS.HeaderText = "ITBIS";
             this.ITBIS.Name = "ITBIS";
-            this.ITBIS.ReadOnly = true;
             // 
             // Descuento
             // 
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
-            this.Descuento.ReadOnly = true;
             // 
             // ClientecomboBox
             // 
