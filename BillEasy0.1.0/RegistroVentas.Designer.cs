@@ -191,6 +191,7 @@
             this.ProductoIdtextBox.Name = "ProductoIdtextBox";
             this.ProductoIdtextBox.Size = new System.Drawing.Size(91, 20);
             this.ProductoIdtextBox.TabIndex = 12;
+            this.ProductoIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductoIdtextBox_KeyPress);
             // 
             // PreciotextBox
             // 
@@ -361,6 +362,7 @@
             this.VentaIdtextBox.Name = "VentaIdtextBox";
             this.VentaIdtextBox.Size = new System.Drawing.Size(91, 20);
             this.VentaIdtextBox.TabIndex = 10;
+            this.VentaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VentaIdtextBox_KeyPress);
             // 
             // label6
             // 

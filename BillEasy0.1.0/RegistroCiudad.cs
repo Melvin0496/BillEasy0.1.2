@@ -22,7 +22,8 @@ namespace BillEasy0._1._0
 
         private void LlenarDatos(Ciudades ciudad)
         {
-            ciudad.Nombre = NombreTextBox.Text;
+            Regex espacio = new Regex(@"\s+");
+            ciudad.Nombre = espacio.Replace(NombreTextBox.Text, " ");
             int codigoPostal;
             int.TryParse(CodigoPostalTextBox.Text, out codigoPostal);
             ciudad.CodigoPostal = codigoPostal;
@@ -58,21 +59,20 @@ namespace BillEasy0._1._0
         private int Validar()
         {
             int retorno = 0;
-            
-                if (!Regex.Match(CodigoPostalTextBox.Text, @"^\d{5}$").Success)
-                {
-                    MessageBox.Show("Codigo postal invalido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CodigoPostalTextBox.Focus();
-                }
-                else
-                {
-                    Regex espacio = new Regex(@"\s+");
-                    NombreTextBox.Text = espacio.Replace(NombreTextBox.Text, " ");
-                    retorno += 1;
-                }
-            
+
+            if (!Regex.Match(CodigoPostalTextBox.Text, @"^\d{5}$").Success)
+            {
+                MessageBox.Show("Codigo postal invalido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CodigoPostalTextBox.Focus();
+            }
+            else
+            {
+                retorno += 1;
+            }
+
             return retorno;
         }
+
         public int Convertir()
         {
             int id;
@@ -154,6 +154,48 @@ namespace BillEasy0._1._0
                 {
                     MessageBox.Show("Error al eliminar la ciudad", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void CiudadIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(CiudadIdTextBox, "Solo se perminten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(CiudadIdTextBox, "");
+            }
+        }
+
+        private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreTextBox, "");
+            }
+        }
+
+        private void CodigoPostalTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(CodigoPostalTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(CodigoPostalTextBox, "");
             }
         }
     }

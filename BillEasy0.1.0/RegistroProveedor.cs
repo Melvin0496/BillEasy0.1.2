@@ -23,14 +23,15 @@ namespace BillEasy0._1._0
 
         private void LlenarDatos(Proveedores proveedor)
         {
+            Regex espacio = new Regex(@"\s+");
             proveedor.CiudadId = (int)CiudadComboBox.SelectedValue;
-            proveedor.NombreEmpresa = NombreEmpresaTextBox.Text;
-            proveedor.Direccion = DireccionTextBox.Text;
-            proveedor.Telefono = TelefonoTextBox.Text;
+            proveedor.NombreEmpresa = espacio.Replace(NombreEmpresaTextBox.Text, " "); ;
+            proveedor.Direccion = espacio.Replace(DireccionTextBox.Text, " ");
+            proveedor.Telefono = TelefonoMaskedTextBox.Text;
             proveedor.Email = EmailTextBox.Text;
             proveedor.RNC = RNCTextBox.Text;
-            proveedor.NombreRepresentante = NombreRepresentanteTextBox.Text;
-            proveedor.Celular = CelularTextBox.Text;
+            proveedor.NombreRepresentante = espacio.Replace(NombreRepresentanteTextBox.Text, " ");
+            proveedor.Celular = CelularMaskedTextBox.Text;
         }
 
         private int Error()
@@ -55,14 +56,14 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(DireccionTextBox, "");
             }
-            if (TelefonoTextBox.Text == "")
+            if (TelefonoMaskedTextBox.Text == "")
             {
-                miError.SetError(TelefonoTextBox, "Debe llenar el numero de telefono");
+                miError.SetError(TelefonoMaskedTextBox, "Debe llenar el numero de telefono");
                 contador = 1;
             }
             else
             {
-                miError.SetError(TelefonoTextBox, "");
+                miError.SetError(TelefonoMaskedTextBox, "");
             }
             if (EmailTextBox.Text == "")
             {
@@ -91,14 +92,14 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(NombreRepresentanteTextBox, "");
             }
-            if (CelularTextBox.Text == "")
+            if (CelularMaskedTextBox.Text == "")
             {
-                miError.SetError(CelularTextBox, "Debe llenar el  numero de telefono");
+                miError.SetError(CelularMaskedTextBox, "Debe llenar el  numero de telefono");
                 contador = 1;
             }
             else
             {
-                miError.SetError(CelularTextBox, "");
+                miError.SetError(CelularMaskedTextBox, "");
             }
             return contador;
         }
@@ -127,15 +128,15 @@ namespace BillEasy0._1._0
                 ProveedorIdTextBox.Text = proveedor.ProveedorId.ToString();
                 NombreEmpresaTextBox.Text = proveedor.NombreEmpresa;
                 DireccionTextBox.Text = proveedor.Direccion;
-                TelefonoTextBox.Text = proveedor.Telefono;
+                TelefonoMaskedTextBox.Text = proveedor.Telefono;
                 EmailTextBox.Text = proveedor.Email;
                 RNCTextBox.Text = proveedor.RNC;
                 NombreRepresentanteTextBox.Text = proveedor.NombreRepresentante;
-                CelularTextBox.Text = proveedor.Celular;
+                CelularMaskedTextBox.Text = proveedor.Celular;
             }
             else
             {
-                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Id incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -144,18 +145,18 @@ namespace BillEasy0._1._0
             ProveedorIdTextBox.Clear();
             NombreEmpresaTextBox.Clear();
             DireccionTextBox.Clear();
-            TelefonoTextBox.Clear();
+            TelefonoMaskedTextBox.Clear();
             EmailTextBox.Clear();
             RNCTextBox.Clear();
             NombreRepresentanteTextBox.Clear();
-            CelularTextBox.Clear();
+            CelularMaskedTextBox.Clear();
         }
-       
+
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Proveedores proveedor = new Proveedores();
-           
-            if(ProveedorIdTextBox.TextLength == 0)
+
+            if (ProveedorIdTextBox.TextLength == 0)
             {
                 LlenarDatos(proveedor);
                 if (proveedor.Insertar() && Error() == 0)
@@ -174,15 +175,15 @@ namespace BillEasy0._1._0
                 LlenarDatos(proveedor);
                 if (proveedor.Editar())
                 {
-                    MessageBox.Show("Proveedor editado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Proveedor editado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
                 }
                 else
                 {
-                    MessageBox.Show("Erro al editar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Erro al editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
 
         }
 
@@ -208,5 +209,60 @@ namespace BillEasy0._1._0
                 }
             }
         }
-    }
+
+        private void ProveedorIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(ProveedorIdTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(ProveedorIdTextBox, "");
+            }
+        }
+
+        private void NombreEmpresaTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreEmpresaTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreEmpresaTextBox, "");
+            }
+        }
+
+        private void NombreRepresentanteTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreRepresentanteTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreRepresentanteTextBox, "");
+            }
+        }
+        private void DireccionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+    {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(DireccionTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(DireccionTextBox, "");
+            }
+        }
+}
 }

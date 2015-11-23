@@ -23,13 +23,14 @@ namespace BillEasy0._1._0
         {
             float precio, costo, itbis;
             int cantidad;
+            Regex espacio = new Regex(@"\s+");
             float.TryParse(PrecioTextBox.Text, out precio);
             float.TryParse(CostoTextBox.Text, out costo);
             float.TryParse(ITBISTextBox.Text, out itbis);
             int.TryParse(CantidadTextBox.Text, out cantidad);
             producto.ProveedorId = (int)ProveedorComboBox.SelectedValue;
             producto.MarcaId = (int)MarcaComboBox.SelectedValue;
-            producto.Nombre = NombreTextBox.Text;
+            producto.Nombre = espacio.Replace(NombreTextBox.Text, " "); ;
             producto.Cantidad = cantidad;
             producto.Precio = precio;
             producto.Costo = costo;
@@ -86,43 +87,7 @@ namespace BillEasy0._1._0
             }
             return contador;
         }
-        private int Validar()
-        {
-            int retorno = 0;
-            if (!Regex.Match(NombreTextBox.Text, "^[A-Z][a-zA-Z]*$").Success)
-            {
-                MessageBox.Show("Nombre  invalido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NombreTextBox.Focus();
-            }
-            if (!Regex.Match(CantidadTextBox.Text, @"(\d+( \.)?\d*)").Success)
-            {
-                MessageBox.Show("la cantidad debe de ser entera", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NombreTextBox.Focus();
-            }
-            if (!Regex.Match(PrecioTextBox.Text, @"(\d+( \.)?\d*)").Success)
-            {
-                MessageBox.Show("El precio debe ser numero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NombreTextBox.Focus();
-            }
-            if (!Regex.Match(CostoTextBox.Text, @"(\d+( \.)?\d*)").Success)
-            {
-                MessageBox.Show("Costo debe ser numero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NombreTextBox.Focus();
-            }
-            if (!Regex.Match(ITBISTextBox.Text, @"(\d+( \.)?\d*)").Success)
-            {
-                MessageBox.Show("ITBIS debe ser numero", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NombreTextBox.Focus();
-            }
-            else
-            {
-                Regex espacio = new Regex(@"\s+");
-                NombreTextBox.Text = espacio.Replace(NombreTextBox.Text, " ");
-                retorno += 1;
-            }
-
-            return retorno;
-        }
+        
 
         public int Convertidor()
         {
@@ -193,7 +158,7 @@ namespace BillEasy0._1._0
             {
                 LLenarDatos(productos);
                 productos.ProductoId = Convertidor();
-                if(productos.Editar())
+                if(productos.Editar() && Error() == 0)
                 {
                     MessageBox.Show("Producto editado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -219,6 +184,121 @@ namespace BillEasy0._1._0
                 else
                 {
                     MessageBox.Show("Error al eliminar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void ProductoIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(ProductoIdTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(ProductoIdTextBox, "");
+            }
+
+        }
+
+        private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreTextBox, "");
+            }
+        }
+
+        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(CantidadTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(CantidadTextBox, "");
+            }
+        }
+
+        private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (PrecioTextBox.Text.Contains("."))
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+                else
+                {
+                    miError.SetError(PrecioTextBox, "");
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+
+                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = false;
+                }
+            }
+        }
+
+        private void CostoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (CostoTextBox.Text.Contains("."))
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+
+                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = false;
+                }
+            }
+        }
+
+        private void ITBISTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (ITBISTextBox.Text.Contains("."))
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+
+                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = false;
                 }
             }
         }

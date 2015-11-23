@@ -68,6 +68,7 @@
             this.ITBISTextBox.Name = "ITBISTextBox";
             this.ITBISTextBox.Size = new System.Drawing.Size(181, 20);
             this.ITBISTextBox.TabIndex = 7;
+            this.ITBISTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ITBISTextBox_KeyPress);
             // 
             // label7
             // 
@@ -93,6 +94,7 @@
             this.PrecioTextBox.Name = "PrecioTextBox";
             this.PrecioTextBox.Size = new System.Drawing.Size(181, 20);
             this.PrecioTextBox.TabIndex = 5;
+            this.PrecioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrecioTextBox_KeyPress);
             // 
             // CostoTextBox
             // 
@@ -100,6 +102,7 @@
             this.CostoTextBox.Name = "CostoTextBox";
             this.CostoTextBox.Size = new System.Drawing.Size(181, 20);
             this.CostoTextBox.TabIndex = 6;
+            this.CostoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CostoTextBox_KeyPress);
             // 
             // label8
             // 
@@ -170,6 +173,7 @@
             this.CantidadTextBox.Name = "CantidadTextBox";
             this.CantidadTextBox.Size = new System.Drawing.Size(181, 20);
             this.CantidadTextBox.TabIndex = 4;
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadTextBox_KeyPress);
             // 
             // NombreTextBox
             // 
@@ -177,6 +181,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(181, 20);
             this.NombreTextBox.TabIndex = 3;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // ProductoIdTextBox
             // 
@@ -184,6 +189,7 @@
             this.ProductoIdTextBox.Name = "ProductoIdTextBox";
             this.ProductoIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.ProductoIdTextBox.TabIndex = 0;
+            this.ProductoIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductoIdTextBox_KeyPress);
             // 
             // label6
             // 

@@ -49,6 +49,7 @@
             this.CodigoPostalTextBox.Name = "CodigoPostalTextBox";
             this.CodigoPostalTextBox.Size = new System.Drawing.Size(191, 20);
             this.CodigoPostalTextBox.TabIndex = 24;
+            this.CodigoPostalTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoPostalTextBox_KeyPress);
             // 
             // NombreTextBox
             // 
@@ -56,6 +57,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(191, 20);
             this.NombreTextBox.TabIndex = 23;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // CiudadIdTextBox
             // 
@@ -63,6 +65,7 @@
             this.CiudadIdTextBox.Name = "CiudadIdTextBox";
             this.CiudadIdTextBox.Size = new System.Drawing.Size(111, 20);
             this.CiudadIdTextBox.TabIndex = 22;
+            this.CiudadIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CiudadIdTextBox_KeyPress);
             // 
             // label3
             // 

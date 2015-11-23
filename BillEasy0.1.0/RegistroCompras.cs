@@ -138,6 +138,39 @@ namespace BillEasy0._1._0
 
         private void FleteTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (FleteTextBox.Text.Contains("."))
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+
+                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = false;
+                }
+            }
+        }
+
+        private void CompraIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Valor no valido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void ProductoIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 MessageBox.Show("Valor no valido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);

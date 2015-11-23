@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using BLL;
 
 namespace BillEasy0._1._0
@@ -22,16 +23,17 @@ namespace BillEasy0._1._0
 
         public void Datos(Clientes clientes)
         {
-            
+
             int id;
             int.TryParse(ClienteIdtextBox.Text, out id);
+            Regex espacio = new Regex(@"\s+");
             clientes.ClienteId = id;
             clientes.CiudadId = (int)CiudadcomboBox.SelectedValue;
-            clientes.Nombres = NombrestextBox.Text;
-            clientes.Apellidos = ApellidostextBox.Text;
+            clientes.Nombres = espacio.Replace(NombresTextBox.Text, " ");
+            clientes.Apellidos = espacio.Replace(ApellidostextBox.Text, " ");
             clientes.Telefono = TelefonomaskedTextBox.Text;
             clientes.Celular = CelularmaskedTextBox.Text;
-            clientes.Direccion = DirecciontextBox.Text;
+            clientes.Direccion = espacio.Replace(DirecciontextBox.Text, " ");
             clientes.Email = EmailtextBox.Text;
             clientes.Cedula = CedulamaskedTextBox.Text;
         }
@@ -40,14 +42,14 @@ namespace BillEasy0._1._0
         {
             int contador = 0;
 
-            if (NombrestextBox.Text == "")
+            if (NombresTextBox.Text == "")
             {
-                miError.SetError(NombrestextBox, "Debe llenar el nombre del cliente");
+                miError.SetError(NombresTextBox, "Debe llenar el nombre del cliente");
                 contador = 1;
             }
             else
             {
-                miError.SetError(NombrestextBox, "");
+                miError.SetError(NombresTextBox, "");
             }
             if (ApellidostextBox.Text == "")
             {
@@ -137,7 +139,7 @@ namespace BillEasy0._1._0
 
             if (clientes.Buscar(ConversionId()))
             {
-                NombrestextBox.Text = clientes.Nombres;
+                NombresTextBox.Text = clientes.Nombres;
                 ApellidostextBox.Text = clientes.Apellidos;
                 TelefonomaskedTextBox.Text = clientes.Telefono;
                 CelularmaskedTextBox.Text = clientes.Celular;
@@ -157,7 +159,7 @@ namespace BillEasy0._1._0
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             ClienteIdtextBox.Clear();
-            NombrestextBox.Clear();
+            NombresTextBox.Clear();
             ApellidostextBox.Clear();
             TelefonomaskedTextBox.Clear();
             CelularmaskedTextBox.Clear();
@@ -210,6 +212,48 @@ namespace BillEasy0._1._0
             {
                 MessageBox.Show("Ese cliente no existe","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-        } 
+        }
+
+        private void ClienteIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(ClienteIdtextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(ClienteIdtextBox, "");
+            }
+        }
+
+        private void NombresTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombresTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombresTextBox, "");
+            }
+        }
+
+        private void ApellidostextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(ApellidostextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(ApellidostextBox, "");
+            }
+        }
     }
 }

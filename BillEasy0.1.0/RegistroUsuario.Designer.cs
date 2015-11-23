@@ -45,8 +45,8 @@
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(191, 20);
             this.NombreTextBox.TabIndex = 1;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // NombreUsuarioTextBox
             // 
@@ -219,6 +220,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Usuarios";
             // 
+            // FechadateTimePicker
+            // 
+            this.FechadateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FechadateTimePicker.Location = new System.Drawing.Point(113, 198);
+            this.FechadateTimePicker.Name = "FechadateTimePicker";
+            this.FechadateTimePicker.Size = new System.Drawing.Size(191, 20);
+            this.FechadateTimePicker.TabIndex = 10;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -228,15 +238,6 @@
             this.label7.Size = new System.Drawing.Size(239, 36);
             this.label7.TabIndex = 10;
             this.label7.Text = "Registro de usuarios";
-            // 
-            // FechadateTimePicker
-            // 
-            this.FechadateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(113, 198);
-            this.FechadateTimePicker.Name = "FechadateTimePicker";
-            this.FechadateTimePicker.Size = new System.Drawing.Size(191, 20);
-            this.FechadateTimePicker.TabIndex = 10;
             // 
             // RegistroUsuario
             // 

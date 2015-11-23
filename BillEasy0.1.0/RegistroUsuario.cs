@@ -23,7 +23,8 @@ namespace BillEasy0._1._0
 
         private void LlenarDatos(Usuarios usuarios)
         {
-            usuarios.Nombre = NombreTextBox.Text;
+            Regex espacio = new Regex(@"\s+");
+            usuarios.Nombre = espacio.Replace(NombreTextBox.Text, " "); ;
             usuarios.NombreUsuario = NombreUsuarioTextBox.Text;
             usuarios.Contrasena = ContrasenaTextBox.Text;
             usuarios.Area = AreaTextBox.Text;
@@ -74,25 +75,6 @@ namespace BillEasy0._1._0
             return contador;
         }
 
-        private int Validar()
-        {
-            int retorno = 0;
-          
-                if (!Regex.Match(NombreTextBox.Text, "^[A-Z][a-zA-Z]*$").Success)
-                {
-                    MessageBox.Show("Nombre  invalido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    NombreTextBox.Focus();
-                }
-                else
-                {
-                    retorno += 1;
-                    Regex espacio = new Regex(@"\s+");
-                    NombreTextBox.Text = espacio.Replace(NombreTextBox.Text, " ");
-                    AreaTextBox.Text = espacio.Replace(AreaTextBox.Text, " ");
-
-                }
-            return retorno;
-        }
         public int Convertir()
         {
             int id;
@@ -129,7 +111,7 @@ namespace BillEasy0._1._0
         {
             Usuarios usuarios = new Usuarios();
 
-            if (UsuarioIdTextBox.Text.Length > 0 && Error() == 0 && Validar() == 1)
+            if (UsuarioIdTextBox.Text.Length > 0 && Error() == 0)
             {
 
                 usuarios.UsuarioId = Convertir();
@@ -144,7 +126,7 @@ namespace BillEasy0._1._0
                     MessageBox.Show("Debe de completar todos los campos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (UsuarioIdTextBox.Text.Length == 0 && Error() == 0  && Validar() == 1)
+            else if (UsuarioIdTextBox.Text.Length == 0 && Error() == 0 )
             {
 
                 LlenarDatos(usuarios);
@@ -191,9 +173,27 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Solo se permiten numeros", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                miError.SetError(UsuarioIdTextBox, "Solo se permiten numeros");
                 e.Handled = true;
                 return;
+            }
+            else
+            {
+                miError.SetError(UsuarioIdTextBox, "");
+            }
+        }
+
+        private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreTextBox, "");
             }
         }
     }

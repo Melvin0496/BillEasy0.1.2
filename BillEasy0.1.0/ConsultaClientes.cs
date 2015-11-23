@@ -14,132 +14,114 @@ namespace BillEasy0._1._0
     public partial class ConsultaClientes : Form
     {
 
-        ErrorProvider miError;
         public ConsultaClientes()
         {
-            miError = new ErrorProvider();
             InitializeComponent();
-            BuscarClientescomboBox.SelectedIndex = 0;
+            BuscarClientesComboBox.SelectedIndex = 0;
         }
 
-        public int Error()
-        {
-            int contador = 0;
-            if (ClientestextBox.TextLength == 0)
-            {
-                miError.SetError(ClientestextBox, "Debe Completar el campo");
-                contador = 1;
-            }
-            else
-            {
-                miError.SetError(ClientestextBox, "");
-            }
-            return contador;
-        }
 
-        private void Buscarbutton_Click(object sender, EventArgs e)
+        private void BuscarButton_Click(object sender, EventArgs e)
         {
             Clientes clientes = new Clientes();
             DataTable dt = new DataTable();
             string condicion;
 
-            if (Error() == 0)
+            if (BuscarClientesComboBox.SelectedIndex == 0)
             {
-                if (BuscarClientescomboBox.SelectedIndex == 0)
+                if (ClientesTextBox.Text.Trim().Length == 0)
                 {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        int id;
-                        int.TryParse(ClientestextBox.Text, out id);
-                        condicion = "ClienteId =" + id.ToString();
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
+                    condicion = "1=1";
                 }
-                if (BuscarClientescomboBox.SelectedIndex == 1)
+                else
                 {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Nombres = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
+                    int id;
+                    int.TryParse(ClientesTextBox.Text, out id);
+                    condicion = "ClienteId = " + id.ToString();
                 }
-                if (BuscarClientescomboBox.SelectedIndex == 2)
-                {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Apellidos = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
-                }
-                if (BuscarClientescomboBox.SelectedIndex == 3)
-                {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Telefono = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
-                }
-                if (BuscarClientescomboBox.SelectedIndex == 4)
-                {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Celular = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
-                }
-                if (BuscarClientescomboBox.SelectedIndex == 5)
-                {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Email = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
-                }
-                if (BuscarClientescomboBox.SelectedIndex == 6)
-                {
-                    if (ClientestextBox.Text.Trim().Length == 0)
-                    {
-                        condicion = "1=1";
-                    }
-                    else
-                    {
-                        condicion = string.Format("Cedula = '{0}' ", ClientestextBox.Text);
-                    }
-                    dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
-                    ClientesdataGridView.DataSource = dt;
-                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
             }
+            if (BuscarClientesComboBox.SelectedIndex == 1)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 1)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Nombres = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+            if (BuscarClientesComboBox.SelectedIndex == 2)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 2)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Apellidos = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+            if (BuscarClientesComboBox.SelectedIndex == 3)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 3)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Telefono = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+            if (BuscarClientesComboBox.SelectedIndex == 4)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 4)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Celular = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+            if (BuscarClientesComboBox.SelectedIndex == 5)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 5)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Email = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+            if (BuscarClientesComboBox.SelectedIndex == 6)
+            {
+                if (ClientesTextBox.Text.Trim().Length == 6)
+                {
+                    condicion = "1=1";
+                }
+                else
+                {
+                    condicion = String.Format("Cedula = '{0}' ", ClientesTextBox.Text);
+                }
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                ClientesDataGridView.DataSource = dt;
+            }
+
         }
-        
+
     }
 }

@@ -23,7 +23,8 @@ namespace BillEasy0._1._0
 
         private void LlenarDatos(Marcas marca)
         {
-            marca.Nombre = NombreTextBox.Text;
+            Regex espacio = new Regex(@"\s+");
+            marca.Nombre = espacio.Replace(NombreTextBox.Text, " "); ;
         }
 
         private int Error()
@@ -41,15 +42,7 @@ namespace BillEasy0._1._0
             return contador;
         }
 
-        private int Validar()
-        {
-            int retorno = 0;
 
-            Regex espacio = new Regex(@"\s+");
-            NombreTextBox.Text = espacio.Replace(NombreTextBox.Text, " ");
-            retorno += 1;
-            return retorno;
-        }
         public int Convertir()
         {
             int id;
@@ -79,12 +72,11 @@ namespace BillEasy0._1._0
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            if (MarcaIdTextBox.Text.Length > 0 && Validar() == 1 && Error() == 0)
+            if (MarcaIdTextBox.Text.Length > 0  && Error() == 0)
             {
                 Convertir();
                 LlenarDatos(marca);
-                Validar();
-                if (marca.Editar() && Error() == 0 && Validar() == 1 )
+                if (marca.Editar() && Error() == 0 )
                 {
                     MessageBox.Show("Marca Editada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -94,12 +86,11 @@ namespace BillEasy0._1._0
                     MessageBox.Show("Error al insertar la marca ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (MarcaIdTextBox.Text.Length == 0 && Error() == 0 && Validar() == 1 )
+            else if (MarcaIdTextBox.Text.Length == 0 && Error() == 0)
             {
                 LlenarDatos(marca);
-                Error();
-                Validar();
-                if (marca.Insertar())
+       
+                if (marca.Insertar() && Error() == 0)
                 {
                     MessageBox.Show("Marca Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -131,6 +122,34 @@ namespace BillEasy0._1._0
                 {
                     MessageBox.Show("Error al eliminar la marca", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void MarcaIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                miError.SetError(MarcaIdTextBox, "Solo se permiten numeros");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(MarcaIdTextBox, "");
+            }
+        }
+
+        private void NombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
+            {
+                miError.SetError(NombreTextBox, "Solo se permiten letras");
+                e.Handled = true;
+                return;
+            }
+            else
+            {
+                miError.SetError(NombreTextBox, "");
             }
         }
     }

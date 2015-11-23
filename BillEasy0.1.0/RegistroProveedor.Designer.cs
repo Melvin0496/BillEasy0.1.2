@@ -30,7 +30,6 @@
         {
             this.CiudadComboBox = new System.Windows.Forms.ComboBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.CelularTextBox = new System.Windows.Forms.TextBox();
             this.NombreRepresentanteTextBox = new System.Windows.Forms.TextBox();
             this.RNCTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,7 +39,6 @@
             this.ButtonGuardar = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
-            this.TelefonoTextBox = new System.Windows.Forms.TextBox();
             this.DireccionTextBox = new System.Windows.Forms.TextBox();
             this.NombreEmpresaTextBox = new System.Windows.Forms.TextBox();
             this.ProveedorIdTextBox = new System.Windows.Forms.TextBox();
@@ -52,6 +50,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.CelularMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,19 +71,13 @@
             this.EmailTextBox.Size = new System.Drawing.Size(181, 20);
             this.EmailTextBox.TabIndex = 5;
             // 
-            // CelularTextBox
-            // 
-            this.CelularTextBox.Location = new System.Drawing.Point(414, 144);
-            this.CelularTextBox.Name = "CelularTextBox";
-            this.CelularTextBox.Size = new System.Drawing.Size(181, 20);
-            this.CelularTextBox.TabIndex = 8;
-            // 
             // NombreRepresentanteTextBox
             // 
             this.NombreRepresentanteTextBox.Location = new System.Drawing.Point(414, 109);
             this.NombreRepresentanteTextBox.Name = "NombreRepresentanteTextBox";
             this.NombreRepresentanteTextBox.Size = new System.Drawing.Size(181, 20);
             this.NombreRepresentanteTextBox.TabIndex = 7;
+            this.NombreRepresentanteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreRepresentanteTextBox_KeyPress);
             // 
             // RNCTextBox
             // 
@@ -173,19 +167,13 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
-            // TelefonoTextBox
-            // 
-            this.TelefonoTextBox.Location = new System.Drawing.Point(112, 177);
-            this.TelefonoTextBox.Name = "TelefonoTextBox";
-            this.TelefonoTextBox.Size = new System.Drawing.Size(181, 20);
-            this.TelefonoTextBox.TabIndex = 4;
-            // 
             // DireccionTextBox
             // 
             this.DireccionTextBox.Location = new System.Drawing.Point(112, 144);
             this.DireccionTextBox.Name = "DireccionTextBox";
             this.DireccionTextBox.Size = new System.Drawing.Size(181, 20);
             this.DireccionTextBox.TabIndex = 3;
+            this.DireccionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DireccionTextBox_KeyPress);
             // 
             // NombreEmpresaTextBox
             // 
@@ -193,6 +181,7 @@
             this.NombreEmpresaTextBox.Name = "NombreEmpresaTextBox";
             this.NombreEmpresaTextBox.Size = new System.Drawing.Size(181, 20);
             this.NombreEmpresaTextBox.TabIndex = 2;
+            this.NombreEmpresaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreEmpresaTextBox_KeyPress);
             // 
             // ProveedorIdTextBox
             // 
@@ -200,6 +189,7 @@
             this.ProveedorIdTextBox.Name = "ProveedorIdTextBox";
             this.ProveedorIdTextBox.Size = new System.Drawing.Size(100, 20);
             this.ProveedorIdTextBox.TabIndex = 0;
+            this.ProveedorIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProveedorIdTextBox_KeyPress);
             // 
             // label6
             // 
@@ -267,11 +257,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CelularMaskedTextBox);
+            this.groupBox1.Controls.Add(this.TelefonoMaskedTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.EmailTextBox);
             this.groupBox1.Controls.Add(this.CiudadComboBox);
-            this.groupBox1.Controls.Add(this.CelularTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.NombreRepresentanteTextBox);
             this.groupBox1.Controls.Add(this.label4);
@@ -284,7 +275,6 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.DireccionTextBox);
             this.groupBox1.Controls.Add(this.ButtonGuardar);
-            this.groupBox1.Controls.Add(this.TelefonoTextBox);
             this.groupBox1.Controls.Add(this.EliminarButton);
             this.groupBox1.Controls.Add(this.BuscarButton);
             this.groupBox1.Controls.Add(this.NuevoButton);
@@ -295,6 +285,22 @@
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Proveedores";
+            // 
+            // TelefonoMaskedTextBox
+            // 
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(112, 180);
+            this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
+            this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(181, 20);
+            this.TelefonoMaskedTextBox.TabIndex = 58;
+            // 
+            // CelularMaskedTextBox
+            // 
+            this.CelularMaskedTextBox.Location = new System.Drawing.Point(414, 140);
+            this.CelularMaskedTextBox.Mask = "000-000-0000";
+            this.CelularMaskedTextBox.Name = "CelularMaskedTextBox";
+            this.CelularMaskedTextBox.Size = new System.Drawing.Size(181, 20);
+            this.CelularMaskedTextBox.TabIndex = 59;
             // 
             // RegistroProveedor
             // 
@@ -318,7 +324,6 @@
 
         private System.Windows.Forms.ComboBox CiudadComboBox;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox CelularTextBox;
         private System.Windows.Forms.TextBox NombreRepresentanteTextBox;
         private System.Windows.Forms.TextBox RNCTextBox;
         private System.Windows.Forms.Label label7;
@@ -328,7 +333,6 @@
         private System.Windows.Forms.Button ButtonGuardar;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button NuevoButton;
-        private System.Windows.Forms.TextBox TelefonoTextBox;
         private System.Windows.Forms.TextBox DireccionTextBox;
         private System.Windows.Forms.TextBox NombreEmpresaTextBox;
         private System.Windows.Forms.TextBox ProveedorIdTextBox;
@@ -340,5 +344,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.MaskedTextBox CelularMaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
     }
 }

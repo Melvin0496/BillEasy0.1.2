@@ -101,6 +101,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(191, 20);
             this.NombreTextBox.TabIndex = 1;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // MarcaIdTextBox
             // 
@@ -108,6 +109,7 @@
             this.MarcaIdTextBox.Name = "MarcaIdTextBox";
             this.MarcaIdTextBox.Size = new System.Drawing.Size(111, 20);
             this.MarcaIdTextBox.TabIndex = 0;
+            this.MarcaIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MarcaIdTextBox_KeyPress);
             // 
             // label2
             // 

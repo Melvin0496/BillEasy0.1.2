@@ -178,9 +178,43 @@ namespace BillEasy0._1._0
 
         private void DescuentostextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (DescuentostextBox.Text.Contains("."))
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = true;
+                }
+
+                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                {
+                    e.Handled = false;
+                }
+            }
+        }
+
+        private void VentaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Valor no valido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Solo se permiten numeros", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
+
+        }
+
+        private void ProductoIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
                 return;
             }

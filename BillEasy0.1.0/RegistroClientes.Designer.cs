@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ClienteIdtextBox = new System.Windows.Forms.TextBox();
-            this.NombrestextBox = new System.Windows.Forms.TextBox();
+            this.NombresTextBox = new System.Windows.Forms.TextBox();
             this.ApellidostextBox = new System.Windows.Forms.TextBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.CelularmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -128,13 +128,15 @@
             this.ClienteIdtextBox.Name = "ClienteIdtextBox";
             this.ClienteIdtextBox.Size = new System.Drawing.Size(100, 20);
             this.ClienteIdtextBox.TabIndex = 0;
+            this.ClienteIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClienteIdtextBox_KeyPress);
             // 
-            // NombrestextBox
+            // NombresTextBox
             // 
-            this.NombrestextBox.Location = new System.Drawing.Point(63, 69);
-            this.NombrestextBox.Name = "NombrestextBox";
-            this.NombrestextBox.Size = new System.Drawing.Size(181, 20);
-            this.NombrestextBox.TabIndex = 1;
+            this.NombresTextBox.Location = new System.Drawing.Point(63, 69);
+            this.NombresTextBox.Name = "NombresTextBox";
+            this.NombresTextBox.Size = new System.Drawing.Size(181, 20);
+            this.NombresTextBox.TabIndex = 1;
+            this.NombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombresTextBox_KeyPress);
             // 
             // ApellidostextBox
             // 
@@ -142,6 +144,7 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(181, 20);
             this.ApellidostextBox.TabIndex = 2;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // TelefonomaskedTextBox
             // 
@@ -255,7 +258,7 @@
             this.DatosgroupBox.Controls.Add(this.label4);
             this.DatosgroupBox.Controls.Add(this.label6);
             this.DatosgroupBox.Controls.Add(this.EmailtextBox);
-            this.DatosgroupBox.Controls.Add(this.NombrestextBox);
+            this.DatosgroupBox.Controls.Add(this.NombresTextBox);
             this.DatosgroupBox.Controls.Add(this.ApellidostextBox);
             this.DatosgroupBox.Controls.Add(this.TelefonomaskedTextBox);
             this.DatosgroupBox.Location = new System.Drawing.Point(15, 85);
@@ -303,10 +306,10 @@
             // 
             // Clienteschart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Clienteschart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.Clienteschart.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.Clienteschart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.Clienteschart.Legends.Add(legend2);
             this.Clienteschart.Location = new System.Drawing.Point(571, 24);
             this.Clienteschart.Name = "Clienteschart";
             this.Clienteschart.Size = new System.Drawing.Size(300, 300);
@@ -345,7 +348,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ClienteIdtextBox;
-        private System.Windows.Forms.TextBox NombrestextBox;
+        private System.Windows.Forms.TextBox NombresTextBox;
         private System.Windows.Forms.TextBox ApellidostextBox;
         private System.Windows.Forms.MaskedTextBox TelefonomaskedTextBox;
         private System.Windows.Forms.MaskedTextBox CelularmaskedTextBox;
