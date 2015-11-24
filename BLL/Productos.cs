@@ -17,6 +17,7 @@ namespace BLL
         public double Precio { get; set; }
         public double Costo { get; set; }
         public double ITBIS { get; set; }
+        public double Flete { get; set; }
         public double Descuentos { get; set; }
         public double Importe { get; set; }
 
@@ -53,14 +54,14 @@ namespace BLL
             this.Descuentos = Descuentos;
             this.Importe = importe;
         }
-        public Productos(int productoId, string nombre, double precio, double itbis, int cantidad, double Descuentos)
+        public Productos(int productoId, string nombre, double costo,int cantidad, double itbis,double importe)
         {
             this.ProductoId = productoId;
             this.Nombre = nombre;
-            this.Precio = precio;
+            this.Costo = costo;
             this.ITBIS = itbis;
             this.Cantidad = cantidad;
-            this.Descuentos = Descuentos;
+            this.Importe = importe;
         }
 
 

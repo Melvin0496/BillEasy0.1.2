@@ -11,7 +11,7 @@ Telefono Varchar(14),
 Celular Varchar(12),
 Direccion Varchar(150),
 Email Varchar(100),
-Cedula Varchar(13)
+Cedula Varchar(15)
 )
 Select Count(Nombre) from Ciudades
 select *from Clientes
@@ -24,6 +24,17 @@ Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio,D.Descuentos from Detal
 Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
 select *from Usuarios
 drop table Usuarios
+drop table DetallesCompras
+drop table DetallesVentas
+drop table Ventas
+drop table Compras
+drop table Clientes
+drop table Productos
+drop table Proveedores
+drop table Ciudades
+drop table Marca
+
+drop table Marcas
 select *from DetallesVentas
 Create Table Usuarios(
 UsuarioId Int Identity Primary Key,
@@ -79,13 +90,14 @@ Create Table Proveedores(
 ProveedorId Int Identity Primary Key,
 NombreEmpresa Varchar(70),
 Direccion Varchar(150),
-Telefono Varchar(12),
+Telefono Varchar(14),
 Email Varchar(50),
 CiudadId Int References Ciudades(CiudadId),
 RNC Varchar(20),
 NombreRepresentante Varchar(50),
-Celular Varchar(12)
+Celular Varchar(13)
 )
+
 select *from Proveedores
 select *from Productos
 select *from Usuarios
@@ -97,6 +109,8 @@ Descuentos Float,
 Cantidad int,
 Importe float
 )
+
+Select *from Productos
 drop table DetallesVentas
 
 
@@ -107,12 +121,17 @@ drop table DetallesVentas
 drop table Ventas
 
 Create Table DetallesCompras(
-CompraId Int Identity Primary Key,
+CompraId Int references Compras(CompraId),
 ProductoId Int References Productos(ProductoId),
 UsuarioId Int References Usuarios(UsuarioId),
-Costo Float
+Costo Float,
+Cantidad int,
+Importe float
 )
-
+select *from Usuarios
+drop table DetallesCompras
+select *from DetallesCompras
+select *from   Compras
 Create Table Marcas(
 MarcaId Int Identity Primary Key,
 Nombre Varchar (50)

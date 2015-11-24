@@ -43,9 +43,9 @@ namespace BLL
             Producto = new List<Productos>();
         }
 
-        public void AgregarProducto(int productoId, string nombre,double precio,double itbis,int cantidad, double descuentos)
+        public void AgregarProducto(int productoId, string nombre,double costo,int cantidad,double itbis,double importe)
         {
-            this.Producto.Add(new Productos(productoId,nombre,precio,itbis,cantidad,descuentos));
+            this.Producto.Add(new Productos(productoId,nombre,costo,cantidad,itbis,importe));
         }
 
         public override bool Insertar()
@@ -54,7 +54,7 @@ namespace BLL
             bool retorno;
             StringBuilder comando = new StringBuilder();
 
-            retorno = conexion.Ejecutar(String.Format("Insert Into Compras(ProveedorId,Fecha ,Cantidad ,TipoCompra ,NFC ,TipoNFC ,Flete, Monto ) Values({0},'{1}',{2},'{3}','{4}','{5}',{6},{7})",this.ProveedorId,this.Fecha,this.Cantidad,this.TipoCompra,this.NFC,this.TipoNFC,this.Flete ,this.Monto ));
+            retorno = conexion.Ejecutar(String.Format("Insert Into Compras(ProveedorId,Fecha ,Cantidad ,TipoCompra ,NFC ,TipoNFC , Flete,Monto ) Values({0},'{1}',{2},'{3}','{4}','{5}',{6},{7})", this.ProveedorId,this.Fecha,this.Cantidad,this.TipoCompra,this.NFC,this.TipoNFC,this.Flete,this.Monto ));
 
             if (retorno)
             {
@@ -62,7 +62,7 @@ namespace BLL
 
                 foreach (var producto in Producto)
                 {
-                    comando.AppendLine(String.Format("Insert into DetallesCompras(ProductoId) values({0})", producto.ProductoId));
+                     comando.AppendLine(String.Format("Insert into DetallesCompras(CompraId,ProductoId,Costo,Cantidad,Importe) values({0},{1},{2},{3},{4})",this.CompraId, producto.ProductoId,producto.Costo,producto.Cantidad,producto.Importe));
                 }
 
                 retorno = conexion.Ejecutar(comando.ToString());
@@ -76,15 +76,15 @@ namespace BLL
             bool retorno = false;
             StringBuilder comando = new StringBuilder();
 
-            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0}, UsuarioId = {1},Fecha = '{2}',Cantidad = {3},TipoCompra = '{4}' ,NFC = '{5}' ,TiopNFC ='{6}' ,Flete ={7} , Costo ={8}, Monto = {9} Where CompraId = {10}", this.ProveedorId, this.UsuarioId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TipoNFC, this.Flete, this.Costo, this.Monto,this.CompraId));
+            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0},Fecha = '{1}',Cantidad = {2},TipoCompra = '{3}' ,NFC = '{4}' ,TipoNFC ='{5}' ,Flete ={6} , Costo ={7}, Monto = {8} Where CompraId = {9}", this.ProveedorId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TipoNFC, this.Flete, this.Costo, this.Monto,this.CompraId));
             if (retorno)
             {
                 conexion.Ejecutar("Delete from DetallesCompras where CompraId = " + this.CompraId);
 
-                /*foreach()
+                foreach (var producto in Producto)
                 {
-                    comando.AppendLine(String.Format("Insert into DetallesVentas(VentaId,UsuarioId,ClienteId,ProductoId,Cantidad,Precio) values({0},{1},{2},{3},{4},{5})", this.VentaId, usuario.UsuarioId, this.ClienteId,this.ProductoId, this.Cantidad, this.Precio));
-                }*/
+                    comando.AppendLine(String.Format("Insert into DetallesCompras(CompraId,ProductoId,Costo,Cantidad,Importe) values({0},{1},{2},{3},{4})", this.CompraId, producto.ProductoId, producto.Costo, producto.Cantidad, producto.Importe));
+                }
                 retorno = conexion.Ejecutar(comando.ToString());
             }
             return retorno;
@@ -105,27 +105,27 @@ namespace BLL
             DataTable dt = new DataTable();
             DataTable dtProducto = new DataTable();
             ConexionDb conexion = new ConexionDb();
+            StringBuilder comando = new StringBuilder();
             dt = conexion.ObtenerDatos(String.Format("Select * From Compras Where CompraId = {0} ",idBuscado));
-            if(dt.Rows.Count > 0)
+            dtProducto = conexion.ObtenerDatos(String.Format("Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Costo ,D.Importe from DetallesCompras D inner join Productos V on D.ProductoId = V.ProductoId   where D.CompraId = {0} ", idBuscado));
+            if (dt.Rows.Count > 0)
             {
-                this.CompraId =(int)dt.Rows[0]["CompraId"];
-                this.ProductoId = (int)dt.Rows[0]["ProductoId"];
+                
                 this.ProveedorId = (int)dt.Rows[0]["ProveedorId"];
-                this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
+                //this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
                 this.Fecha = dt.Rows[0]["Fecha"].ToString();
                 this.Cantidad = (int)dt.Rows[0]["Cantidad"];
                 this.TipoCompra = dt.Rows[0]["TipoCompra"].ToString();
                 this.NFC = dt.Rows[0]["NFC"].ToString();
                 this.TipoNFC = dt.Rows[0]["TipoNFC"].ToString();
-                this.Flete = (float)dt.Rows[0]["Flete"];
-                this.Costo = (float)dt.Rows[0]["Costo"];
-                this.Monto = (float)dt.Rows[0]["Monto"];
+                this.Flete = Convert.ToSingle(dt.Rows[0]["Flete"]);
+                this.Monto = Convert.ToSingle(dt.Rows[0]["Monto"]);
 
                 this.Producto.Clear();
-               /* foreach (DataRow row in dtProducto.Rows)
+                foreach (DataRow row in dtProducto.Rows)
                 {
-                    this.AgregarProducto((int)row["UsuarioId"],(float)row["Precio"]);
-                }*/
+                    this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Costo"]), (int)(row["Cantidad"]), Convert.ToDouble(row["ITBIS"]), Convert.ToDouble(row["Importe"]));
+                }
             }
             return dt.Rows.Count > 0;
         }

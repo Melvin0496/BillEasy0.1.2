@@ -68,7 +68,7 @@
             this.DatosTextBox.Name = "DatosTextBox";
             this.DatosTextBox.Size = new System.Drawing.Size(434, 20);
             this.DatosTextBox.TabIndex = 14;
-            this.DatosTextBox.TextChanged += new System.EventHandler(this.DatosTextBox_TextChanged);
+           
             // 
             // BuscarComboBox
             // 
@@ -83,7 +83,7 @@
             this.BuscarComboBox.Name = "BuscarComboBox";
             this.BuscarComboBox.Size = new System.Drawing.Size(121, 21);
             this.BuscarComboBox.TabIndex = 13;
-            this.BuscarComboBox.SelectedIndexChanged += new System.EventHandler(this.BuscarComboBox_SelectedIndexChanged);
+           
             // 
             // label1
             // 

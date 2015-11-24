@@ -50,7 +50,7 @@ namespace BLL
 
         public override bool Insertar()
         {
-            bool retorno;
+            bool retorno = false;
             ConexionDb conexion = new ConexionDb();
             retorno = conexion.Ejecutar(String.Format("Insert Into Clientes (CiudadId,Nombres,Apellidos,Telefono,Celular,Direccion,Email,Cedula) Values ({0},'{1}','{2}','{3}','{4}','{5}','{6}','{7}')",this.CiudadId,this.Nombres,this.Apellidos,this.Telefono,this.Celular,this.Direccion,this.Email,this.Cedula));
             return retorno;
@@ -59,16 +59,16 @@ namespace BLL
         public override bool Editar()
         {
 
-            bool retorno;
+            bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Clientes set Nombres = '{0}', Apellidos = '{1}',Telefono = '{2}',Celular = '{3}',Direccion = '{4}' ,Email = '{5}',Cedula = '{6}' where ClienteId = {7} ", this.Nombres, this.Apellidos, this.Telefono, this.Celular, this.Direccion, this.Email, this.Cedula,this.ClienteId));
+            retorno = conexion.Ejecutar(String.Format("Update Clientes set CiudadId = {0} ,Nombres = '{1}', Apellidos = '{2}',Telefono = '{3}',Celular = '{4}',Direccion = '{5}' ,Email = '{6}',Cedula = '{7}' where ClienteId = {8} ",this.CiudadId, this.Nombres, this.Apellidos, this.Telefono, this.Celular, this.Direccion, this.Email, this.Cedula,this.ClienteId));
             return retorno;
         }
 
         public override bool Eliminar()
         {
 
-            bool retorno;
+            bool retorno = false;
             ConexionDb conexion = new ConexionDb();
             retorno = conexion.Ejecutar(String.Format("Delete  Clientes where ClienteId = {0}",this.ClienteId));
             return retorno;

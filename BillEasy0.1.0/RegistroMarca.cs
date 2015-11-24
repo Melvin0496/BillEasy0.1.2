@@ -74,7 +74,7 @@ namespace BillEasy0._1._0
             Marcas marca = new Marcas();
             if (MarcaIdTextBox.Text.Length > 0  && Error() == 0)
             {
-                Convertir();
+                marca.MarcaId = Convertir();
                 LlenarDatos(marca);
                 if (marca.Editar() && Error() == 0 )
                 {

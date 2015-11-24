@@ -133,7 +133,7 @@ namespace BillEasy0._1._0
             {
                 PreciotextBox.Text = producto.Precio.ToString();
                 NombretextBox.Text = producto.Nombre;
-                ITBIStextBox.Text = producto.Costo.ToString();
+                ITBIStextBox.Text = producto.ITBIS.ToString();
             }
             else
             {
@@ -173,11 +173,16 @@ namespace BillEasy0._1._0
             double.TryParse(PreciotextBox.Text, out precio);
             int.TryParse(CantidadtextBox.Text, out cantidad);
             double.TryParse(ITBIStextBox.Text, out itbis);
+            itbis *= cantidad;
             double importe = (precio * cantidad) + itbis;
             double.TryParse(DescuentostextBox.Text, out descuento);
             total += importe - descuento;
             TotaltextBox.Text = total.ToString();
             VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
+            LimpiarProducto();
+        }
+        public void LimpiarProducto()
+        {
             ProductoIdtextBox.Clear();
             PreciotextBox.Clear();
             ITBIStextBox.Clear();
@@ -185,7 +190,6 @@ namespace BillEasy0._1._0
             CantidadtextBox.Clear();
             DescuentostextBox.Clear();
         }
-
         private void CantidadtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -238,6 +242,12 @@ namespace BillEasy0._1._0
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            VentanaReporteVenta reporteVenta = new VentanaReporteVenta();
+            reporteVenta.Show();
         }
     }
 }

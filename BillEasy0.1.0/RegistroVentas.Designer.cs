@@ -54,7 +54,7 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCtextBox = new System.Windows.Forms.TextBox();
             this.NFCtextBox = new System.Windows.Forms.TextBox();
@@ -71,7 +71,7 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -322,6 +322,11 @@
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
             // 
+            // Importe
+            // 
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            // 
             // ClientecomboBox
             // 
             this.ClientecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -470,10 +475,18 @@
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
-            // ImporteColumn
+            // Imprimirbutton
             // 
-            this.ImporteColumn.HeaderText = "Importe";
-            this.ImporteColumn.Name = "ImporteColumn";
+            this.Imprimirbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Imprimirbutton.Location = new System.Drawing.Point(539, 435);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(87, 46);
+            this.Imprimirbutton.TabIndex = 23;
+            this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
             // RegistroVentas
             // 
@@ -481,7 +494,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(744, 493);
-            this.Controls.Add(this.Facturarbutton);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -548,6 +561,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }

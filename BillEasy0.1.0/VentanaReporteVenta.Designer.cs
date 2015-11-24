@@ -42,14 +42,16 @@
             this.VentaCrystalReportViewer.Size = new System.Drawing.Size(968, 482);
             this.VentaCrystalReportViewer.TabIndex = 0;
             // 
-            // VentanReporteVenta
+            // VentanaReporteVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 482);
             this.Controls.Add(this.VentaCrystalReportViewer);
-            this.Name = "VentanReporteVenta";
+            this.MinimizeBox = false;
+            this.Name = "VentanaReporteVenta";
             this.Text = "VentanReporteVenta";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.VentanReporteVenta_Load);
             this.ResumeLayout(false);
 

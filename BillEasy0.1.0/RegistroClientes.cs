@@ -138,6 +138,7 @@ namespace BillEasy0._1._0
                 DirecciontextBox.Text = clientes.Direccion;
                 EmailtextBox.Text = clientes.Email;
                 CedulamaskedTextBox.Text = clientes.Cedula;
+                CiudadcomboBox.SelectedValue = clientes.CiudadId;
 
             }
             else
@@ -179,6 +180,7 @@ namespace BillEasy0._1._0
                 NuevoButton.PerformClick();            }
             else
             {
+                clientes.ClienteId = ConversionId();
                 Datos(clientes);
                 if (Error() == 0 && clientes.Editar())
                 {
