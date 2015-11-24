@@ -44,5 +44,11 @@ namespace BillEasy0._1._0
                 DatosDataGridView.DataSource = marca.Listado(" MarcaId, Nombre", condicion, "");
             }
         }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            VentanaReporteMarca marca = new VentanaReporteMarca();
+            marca.Show();
+        }
     }
 }

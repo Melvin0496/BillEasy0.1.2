@@ -38,6 +38,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // button1
+            // 
+            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(573, 325);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 40);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Imprimir";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // DatosDataGridView
             // 
             this.DatosDataGridView.AllowUserToAddRows = false;

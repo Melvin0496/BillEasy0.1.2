@@ -71,7 +71,7 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.Facturarbutton = new System.Windows.Forms.Button();
+            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -285,7 +285,7 @@
             this.Precio,
             this.ITBIS,
             this.Descuento,
-            this.ImporteColumn});
+            this.Importe});
             this.VentasdataGridView.Location = new System.Drawing.Point(9, 193);
             this.VentasdataGridView.Name = "VentasdataGridView";
             this.VentasdataGridView.Size = new System.Drawing.Size(705, 134);
@@ -321,11 +321,6 @@
             // 
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
-            // 
-            // ImporteColumn
-            // 
-            this.ImporteColumn.HeaderText = "Importe";
-            this.ImporteColumn.Name = "ImporteColumn";
             // 
             // ClientecomboBox
             // 
@@ -475,17 +470,10 @@
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
-            // Facturarbutton
+            // ImporteColumn
             // 
-            this.Facturarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.Facturarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Facturarbutton.Location = new System.Drawing.Point(540, 435);
-            this.Facturarbutton.Name = "Facturarbutton";
-            this.Facturarbutton.Size = new System.Drawing.Size(87, 46);
-            this.Facturarbutton.TabIndex = 21;
-            this.Facturarbutton.Text = "Facturar";
-            this.Facturarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Facturarbutton.UseVisualStyleBackColor = true;
+            this.ImporteColumn.HeaderText = "Importe";
+            this.ImporteColumn.Name = "ImporteColumn";
             // 
             // RegistroVentas
             // 
@@ -561,6 +549,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteColumn;
-        private System.Windows.Forms.Button Facturarbutton;
     }
 }
