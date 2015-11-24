@@ -54,6 +54,7 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCtextBox = new System.Windows.Forms.TextBox();
             this.NFCtextBox = new System.Windows.Forms.TextBox();
@@ -70,7 +71,7 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.ImporteColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Facturarbutton = new System.Windows.Forms.Button();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -134,7 +135,7 @@
             // 
             // Agregarbutton
             // 
-            this.Agregarbutton.Location = new System.Drawing.Point(657, 21);
+            this.Agregarbutton.Location = new System.Drawing.Point(657, 20);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(42, 30);
             this.Agregarbutton.TabIndex = 21;
@@ -321,6 +322,11 @@
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
             // 
+            // ImporteColumn
+            // 
+            this.ImporteColumn.HeaderText = "Importe";
+            this.ImporteColumn.Name = "ImporteColumn";
+            // 
             // ClientecomboBox
             // 
             this.ClientecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -434,9 +440,9 @@
             // 
             this.Nuevobutton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Nuevobutton.Location = new System.Drawing.Point(447, 435);
+            this.Nuevobutton.Location = new System.Drawing.Point(323, 435);
             this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(81, 46);
+            this.Nuevobutton.Size = new System.Drawing.Size(87, 46);
             this.Nuevobutton.TabIndex = 18;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -447,9 +453,9 @@
             // 
             this.Guardarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Guardarbutton.Location = new System.Drawing.Point(552, 435);
+            this.Guardarbutton.Location = new System.Drawing.Point(432, 435);
             this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(81, 46);
+            this.Guardarbutton.Size = new System.Drawing.Size(87, 46);
             this.Guardarbutton.TabIndex = 19;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -460,19 +466,26 @@
             // 
             this.EliminarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(651, 435);
+            this.EliminarButton.Location = new System.Drawing.Point(645, 435);
             this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(81, 46);
+            this.EliminarButton.Size = new System.Drawing.Size(87, 46);
             this.EliminarButton.TabIndex = 20;
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
-            // ImporteColumn
+            // Facturarbutton
             // 
-            this.ImporteColumn.HeaderText = "Importe";
-            this.ImporteColumn.Name = "ImporteColumn";
+            this.Facturarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.Facturarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Facturarbutton.Location = new System.Drawing.Point(540, 435);
+            this.Facturarbutton.Name = "Facturarbutton";
+            this.Facturarbutton.Size = new System.Drawing.Size(87, 46);
+            this.Facturarbutton.TabIndex = 21;
+            this.Facturarbutton.Text = "Facturar";
+            this.Facturarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Facturarbutton.UseVisualStyleBackColor = true;
             // 
             // RegistroVentas
             // 
@@ -480,6 +493,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(744, 493);
+            this.Controls.Add(this.Facturarbutton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -547,5 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ImporteColumn;
+        private System.Windows.Forms.Button Facturarbutton;
     }
 }

@@ -82,6 +82,16 @@ namespace BillEasy0._1._0
             }
 
         }
+
+        private void BuscarComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DatosTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

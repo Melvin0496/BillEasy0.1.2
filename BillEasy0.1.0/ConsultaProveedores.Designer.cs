@@ -64,7 +64,7 @@
             // 
             this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(579, 38);
+            this.BuscarButton.Location = new System.Drawing.Point(579, 53);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(75, 43);
             this.BuscarButton.TabIndex = 14;
@@ -75,7 +75,7 @@
             // 
             // DatosTextBox
             // 
-            this.DatosTextBox.Location = new System.Drawing.Point(139, 50);
+            this.DatosTextBox.Location = new System.Drawing.Point(139, 65);
             this.DatosTextBox.Name = "DatosTextBox";
             this.DatosTextBox.Size = new System.Drawing.Size(434, 20);
             this.DatosTextBox.TabIndex = 13;
@@ -89,7 +89,7 @@
             "Nombre Empresa ",
             " RNC",
             "Nombre Representante "});
-            this.BuscarComboBox.Location = new System.Drawing.Point(12, 50);
+            this.BuscarComboBox.Location = new System.Drawing.Point(12, 65);
             this.BuscarComboBox.Name = "BuscarComboBox";
             this.BuscarComboBox.Size = new System.Drawing.Size(121, 21);
             this.BuscarComboBox.TabIndex = 12;

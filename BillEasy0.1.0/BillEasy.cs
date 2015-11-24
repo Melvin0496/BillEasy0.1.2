@@ -139,5 +139,20 @@ namespace BillEasy0._1._0
         {
             Application.Exit();
         }
+
+
+        private void ventasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ConsultaVentas consultaVentas = new ConsultaVentas();
+            consultaVentas.MdiParent = this;
+            consultaVentas.Show();
+        }
+
+        private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaCompras consultaCompras = new ConsultaCompras();
+            consultaCompras.MdiParent = this;
+            consultaCompras.Show();
+        }
     }
 }

@@ -56,14 +56,14 @@
             "Nombre",
             "NombreUsuario",
             "Area"});
-            this.BuscarComboBox.Location = new System.Drawing.Point(12, 55);
+            this.BuscarComboBox.Location = new System.Drawing.Point(12, 64);
             this.BuscarComboBox.Name = "BuscarComboBox";
             this.BuscarComboBox.Size = new System.Drawing.Size(121, 21);
             this.BuscarComboBox.TabIndex = 1;
             // 
             // DatosTextBox
             // 
-            this.DatosTextBox.Location = new System.Drawing.Point(139, 55);
+            this.DatosTextBox.Location = new System.Drawing.Point(139, 64);
             this.DatosTextBox.Name = "DatosTextBox";
             this.DatosTextBox.Size = new System.Drawing.Size(434, 20);
             this.DatosTextBox.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(579, 43);
+            this.BuscarButton.Location = new System.Drawing.Point(579, 52);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(75, 43);
             this.BuscarButton.TabIndex = 3;

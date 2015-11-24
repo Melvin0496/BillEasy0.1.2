@@ -128,7 +128,7 @@
             // 
             this.GuardarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(425, 168);
+            this.GuardarButton.Location = new System.Drawing.Point(270, 184);
             this.GuardarButton.MaximumSize = new System.Drawing.Size(81, 44);
             this.GuardarButton.MinimumSize = new System.Drawing.Size(81, 44);
             this.GuardarButton.Name = "GuardarButton";
@@ -143,7 +143,7 @@
             // 
             this.EliminarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(518, 168);
+            this.EliminarButton.Location = new System.Drawing.Point(376, 184);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(79, 44);
             this.EliminarButton.TabIndex = 10;
@@ -156,7 +156,7 @@
             // 
             this.NuevoButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NuevoButton.Location = new System.Drawing.Point(340, 168);
+            this.NuevoButton.Location = new System.Drawing.Point(167, 184);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(79, 44);
             this.NuevoButton.TabIndex = 8;
@@ -248,7 +248,7 @@
             this.groupBox1.Controls.Add(this.BuscarButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(613, 244);
+            this.groupBox1.Size = new System.Drawing.Size(613, 242);
             this.groupBox1.TabIndex = 82;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Productos";

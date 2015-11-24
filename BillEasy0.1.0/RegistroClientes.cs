@@ -122,15 +122,6 @@ namespace BillEasy0._1._0
             CiudadcomboBox.DataSource = ciudades.Listado("CiudadId,Nombre,CodigoPostal ", "1=1", "");
             CiudadcomboBox.DisplayMember = string.Format("Nombre");
             CiudadcomboBox.ValueMember = "CiudadId";
-
-            DataTable table = new DataTable();
-            Clientes clientes = new Clientes();
-            table = clientes.Listado("CiudadId, count(*) as ClienteId", "1=1 group by CiudadId", "");
-            Clienteschart.Series.Add("Clientes");
-            Clienteschart.Series["Clientes"].XValueMember = "CiudadId";
-            Clienteschart.Series["Clientes"].YValueMembers = "ClienteId";
-            Clienteschart.DataSource = table;
-            Clienteschart.DataBind();
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)

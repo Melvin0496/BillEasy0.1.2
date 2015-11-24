@@ -121,5 +121,10 @@ namespace BLL
             return conexion.ObtenerDatos("Select " + campos +
                 " From Usuarios Where " + condicion + ""+ordenFinal);
         }
+        public DataTable GetArea(string cadena)
+        {
+            ConexionDb conexion = new ConexionDb();
+           return conexion.ObtenerDatos(string.Format("Select Area from Usuarios where NombreUsuario = '{0}'",cadena));
+        }
     }
 }

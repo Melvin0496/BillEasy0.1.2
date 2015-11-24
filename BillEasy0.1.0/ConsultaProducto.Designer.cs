@@ -28,27 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.BuscarButton = new System.Windows.Forms.Button();
             this.DatosTextBox = new System.Windows.Forms.TextBox();
             this.BuscarComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(573, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 40);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Imprimir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // DatosDataGridView
             // 
@@ -61,25 +49,13 @@
             this.DatosDataGridView.Size = new System.Drawing.Size(642, 217);
             this.DatosDataGridView.TabIndex = 16;
             // 
-            // BuscarButton
-            // 
-            this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(579, 38);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(75, 43);
-            this.BuscarButton.TabIndex = 15;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click_1);
-            // 
             // DatosTextBox
             // 
-            this.DatosTextBox.Location = new System.Drawing.Point(139, 50);
+            this.DatosTextBox.Location = new System.Drawing.Point(139, 65);
             this.DatosTextBox.Name = "DatosTextBox";
             this.DatosTextBox.Size = new System.Drawing.Size(434, 20);
             this.DatosTextBox.TabIndex = 14;
+            this.DatosTextBox.TextChanged += new System.EventHandler(this.DatosTextBox_TextChanged);
             // 
             // BuscarComboBox
             // 
@@ -90,10 +66,11 @@
             " Nombre ",
             " Precio ",
             " Costo"});
-            this.BuscarComboBox.Location = new System.Drawing.Point(12, 50);
+            this.BuscarComboBox.Location = new System.Drawing.Point(12, 65);
             this.BuscarComboBox.Name = "BuscarComboBox";
             this.BuscarComboBox.Size = new System.Drawing.Size(121, 21);
             this.BuscarComboBox.TabIndex = 13;
+            this.BuscarComboBox.SelectedIndexChanged += new System.EventHandler(this.BuscarComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -112,6 +89,31 @@
             this.label2.Size = new System.Drawing.Size(260, 36);
             this.label2.TabIndex = 18;
             this.label2.Text = "Consulta de productos";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(573, 325);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 40);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Imprimir";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // BuscarButton
+            // 
+            this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(579, 53);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(75, 43);
+            this.BuscarButton.TabIndex = 15;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click_1);
             // 
             // ConsultaProducto
             // 

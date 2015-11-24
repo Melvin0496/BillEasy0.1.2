@@ -137,7 +137,7 @@ namespace BLL
             if (!orden.Equals(""))
                 ordenFinal = " Ordden by " + orden;
             return conexion.ObtenerDatos("Select " + campos +
-                " From Usuarios Where " + condicion + "" + ordenFinal);
+                " From Compras Where " + condicion + "" + ordenFinal);
         }
     }
 }

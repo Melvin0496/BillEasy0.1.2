@@ -43,11 +43,28 @@ namespace BillEasy0._1._0
             {
                 if (usuarios.VerificarUsuario() == UsuariotextBox.Text && usuarios.VerificarContrasena() == ContrasenatextBox.Text)
                 {
-                    
-                    this.Visible = false;
-                    this.Hide();
-                    BillEasy billEasy = new BillEasy();
-                    billEasy.ShowDialog();                    
+
+                    usuarios.Area = usuarios.GetArea(UsuariotextBox.Text).ToString();
+                   
+                    if(usuarios.Area != "Aministracion")
+                    {
+                        this.Visible = false;
+                        this.Hide();
+                        BillEasy billEasy = new BillEasy();
+                        billEasy.nuevoToolStripMenuItem.Visible = true;
+                        billEasy.ShowDialog();
+                        
+
+                    }else
+                    {
+                        this.Visible = false;
+                        this.Hide();
+                        BillEasy billEasy = new BillEasy();
+                        billEasy.nuevoToolStripMenuItem.Visible = true;
+                        billEasy.ShowDialog();
+                       
+                    }
+
                 }
                 else
                 {

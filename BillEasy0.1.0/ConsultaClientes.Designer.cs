@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(314, 9);
+            this.label1.Location = new System.Drawing.Point(223, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(233, 36);
             this.label1.TabIndex = 0;
@@ -67,14 +67,14 @@
             // 
             this.ClientesTextBox.Location = new System.Drawing.Point(139, 58);
             this.ClientesTextBox.Name = "ClientesTextBox";
-            this.ClientesTextBox.Size = new System.Drawing.Size(626, 20);
+            this.ClientesTextBox.Size = new System.Drawing.Size(434, 20);
             this.ClientesTextBox.TabIndex = 2;
             // 
             // BuscarButton
             // 
             this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(771, 46);
+            this.BuscarButton.Location = new System.Drawing.Point(579, 47);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(75, 40);
             this.BuscarButton.TabIndex = 3;
@@ -91,14 +91,14 @@
             this.ClientesDataGridView.Location = new System.Drawing.Point(12, 92);
             this.ClientesDataGridView.Name = "ClientesDataGridView";
             this.ClientesDataGridView.ReadOnly = true;
-            this.ClientesDataGridView.Size = new System.Drawing.Size(834, 202);
+            this.ClientesDataGridView.Size = new System.Drawing.Size(642, 202);
             this.ClientesDataGridView.TabIndex = 4;
             // 
             // Imprimirbutton
             // 
             this.Imprimirbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
             this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimirbutton.Location = new System.Drawing.Point(764, 300);
+            this.Imprimirbutton.Location = new System.Drawing.Point(572, 300);
             this.Imprimirbutton.Name = "Imprimirbutton";
             this.Imprimirbutton.Size = new System.Drawing.Size(82, 36);
             this.Imprimirbutton.TabIndex = 6;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 341);
+            this.ClientSize = new System.Drawing.Size(666, 368);
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.ClientesDataGridView);
             this.Controls.Add(this.BuscarButton);

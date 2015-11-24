@@ -42,7 +42,7 @@
             // 
             this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(178, 271);
+            this.button1.Location = new System.Drawing.Point(573, 290);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 40);
             this.button1.TabIndex = 11;
@@ -58,14 +58,14 @@
             this.DatosDataGridView.Location = new System.Drawing.Point(12, 93);
             this.DatosDataGridView.Name = "DatosDataGridView";
             this.DatosDataGridView.ReadOnly = true;
-            this.DatosDataGridView.Size = new System.Drawing.Size(247, 172);
+            this.DatosDataGridView.Size = new System.Drawing.Size(642, 191);
             this.DatosDataGridView.TabIndex = 10;
             // 
             // BuscarButton
             // 
             this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(183, 44);
+            this.BuscarButton.Location = new System.Drawing.Point(579, 44);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(75, 43);
             this.BuscarButton.TabIndex = 9;
@@ -76,9 +76,9 @@
             // 
             // DatosTextBox
             // 
-            this.DatosTextBox.Location = new System.Drawing.Point(118, 56);
+            this.DatosTextBox.Location = new System.Drawing.Point(146, 56);
             this.DatosTextBox.Name = "DatosTextBox";
-            this.DatosTextBox.Size = new System.Drawing.Size(59, 20);
+            this.DatosTextBox.Size = new System.Drawing.Size(427, 20);
             this.DatosTextBox.TabIndex = 8;
             // 
             // BuscarComboBox
@@ -90,7 +90,7 @@
             "Nombre"});
             this.BuscarComboBox.Location = new System.Drawing.Point(12, 56);
             this.BuscarComboBox.Name = "BuscarComboBox";
-            this.BuscarComboBox.Size = new System.Drawing.Size(100, 21);
+            this.BuscarComboBox.Size = new System.Drawing.Size(128, 21);
             this.BuscarComboBox.TabIndex = 7;
             // 
             // label1
@@ -115,7 +115,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 319);
+            this.ClientSize = new System.Drawing.Size(666, 368);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DatosDataGridView);

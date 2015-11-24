@@ -71,6 +71,12 @@
     <Compile Include="ConsultaClientes.Designer.cs">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConsultaCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCompras.Designer.cs">
+      <DependentUpon>ConsultaCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsultaMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,12 @@
     </Compile>
     <Compile Include="ConsultaUsuario.Designer.cs">
       <DependentUpon>ConsultaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaVentas.Designer.cs">
+      <DependentUpon>ConsultaVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -168,6 +180,9 @@
     <EmbeddedResource Include="ConsultaClientes.resx">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaCompras.resx">
+      <DependentUpon>ConsultaCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsultaMarca.resx">
       <DependentUpon>ConsultaMarca.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaUsuario.resx">
       <DependentUpon>ConsultaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaVentas.resx">
+      <DependentUpon>ConsultaVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

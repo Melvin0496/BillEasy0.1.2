@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,9 +52,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.CiudadcomboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Clienteschart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.DatosgroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Clienteschart)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -173,7 +169,7 @@
             // 
             this.GuardarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(363, 185);
+            this.GuardarButton.Location = new System.Drawing.Point(238, 216);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(79, 47);
             this.GuardarButton.TabIndex = 10;
@@ -186,7 +182,7 @@
             // 
             this.EliminarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(455, 185);
+            this.EliminarButton.Location = new System.Drawing.Point(330, 216);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(79, 47);
             this.EliminarButton.TabIndex = 11;
@@ -199,7 +195,7 @@
             // 
             this.NuevoButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NuevoButton.Location = new System.Drawing.Point(267, 185);
+            this.NuevoButton.Location = new System.Drawing.Point(142, 216);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(79, 47);
             this.NuevoButton.TabIndex = 9;
@@ -263,7 +259,7 @@
             this.DatosgroupBox.Controls.Add(this.TelefonomaskedTextBox);
             this.DatosgroupBox.Location = new System.Drawing.Point(15, 85);
             this.DatosgroupBox.Name = "DatosgroupBox";
-            this.DatosgroupBox.Size = new System.Drawing.Size(550, 239);
+            this.DatosgroupBox.Size = new System.Drawing.Size(550, 269);
             this.DatosgroupBox.TabIndex = 0;
             this.DatosgroupBox.TabStop = false;
             this.DatosgroupBox.Text = "Datos Clientes";
@@ -304,24 +300,11 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Registro de clientes";
             // 
-            // Clienteschart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.Clienteschart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.Clienteschart.Legends.Add(legend2);
-            this.Clienteschart.Location = new System.Drawing.Point(571, 24);
-            this.Clienteschart.Name = "Clienteschart";
-            this.Clienteschart.Size = new System.Drawing.Size(300, 300);
-            this.Clienteschart.TabIndex = 22;
-            this.Clienteschart.Text = "chart1";
-            // 
             // RegistroClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 336);
-            this.Controls.Add(this.Clienteschart);
+            this.ClientSize = new System.Drawing.Size(574, 366);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.DatosgroupBox);
             this.MaximizeBox = false;
@@ -332,7 +315,6 @@
             this.Load += new System.EventHandler(this.RegistroClientes_Load);
             this.DatosgroupBox.ResumeLayout(false);
             this.DatosgroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Clienteschart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +346,5 @@
         private System.Windows.Forms.ComboBox CiudadcomboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox CedulamaskedTextBox;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Clienteschart;
     }
 }
