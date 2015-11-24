@@ -75,5 +75,11 @@ namespace BillEasy0._1._0
                 DatosDataGridView.DataSource = proveedor.Listado(" ProveedorId,CiudadId,NombreEmpresa,Direccion,Telefono,Email,RNC,NombreRepresentante,Celular ", condicion, "");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VentanaReporteProveedor proveedor = new VentanaReporteProveedor();
+            proveedor.Show();
+        }
     }
 }

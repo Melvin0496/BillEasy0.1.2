@@ -67,5 +67,11 @@ namespace BillEasy0._1._0
                 MessageBox.Show(condicion);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VentanaReporteCiudad ciudad = new VentanaReporteCiudad();
+            ciudad.Show();
+        }
     }
 }

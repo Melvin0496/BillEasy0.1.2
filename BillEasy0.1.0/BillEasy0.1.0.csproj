@@ -33,8 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -156,6 +163,78 @@
     <Compile Include="RegistroVentas.Designer.cs">
       <DependentUpon>RegistroVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteProducto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProducto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteProveedor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteProveedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCiudad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCiudad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteMarca.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteMarca.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteVenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteCiudad.Designer.cs">
+      <DependentUpon>VentanaReporteCiudad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteCliente.Designer.cs">
+      <DependentUpon>VentanaReporteCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteMarca.Designer.cs">
+      <DependentUpon>VentanaReporteMarca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteProducto.Designer.cs">
+      <DependentUpon>VentanaReporteProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteProveedor.Designer.cs">
+      <DependentUpon>VentanaReporteProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteVenta.Designer.cs">
+      <DependentUpon>VentanaReporteVenta.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AcercaDe.resx">
       <DependentUpon>AcercaDe.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +290,48 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistroVentas.resx">
       <DependentUpon>RegistroVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProducto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteProducto.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteProveedor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCiudad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCiudad.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCliente.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteMarca.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteMarca.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteVenta.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteCiudad.resx">
+      <DependentUpon>VentanaReporteCiudad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteCliente.resx">
+      <DependentUpon>VentanaReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteMarca.resx">
+      <DependentUpon>VentanaReporteMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteProducto.resx">
+      <DependentUpon>VentanaReporteProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteProveedor.resx">
+      <DependentUpon>VentanaReporteProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteVenta.resx">
+      <DependentUpon>VentanaReporteVenta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -269,6 +390,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icono-carrito-compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

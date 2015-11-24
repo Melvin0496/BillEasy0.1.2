@@ -33,7 +33,6 @@
             this.BuscarComboBox = new System.Windows.Forms.ComboBox();
             this.DatosTextBox = new System.Windows.Forms.TextBox();
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
@@ -79,18 +78,6 @@
             this.DatosDataGridView.Size = new System.Drawing.Size(642, 217);
             this.DatosDataGridView.TabIndex = 4;
             // 
-            // button1
-            // 
-            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(573, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Imprimir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // BuscarButton
             // 
             this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
@@ -120,7 +107,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 368);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.DatosTextBox);
@@ -145,7 +131,6 @@
         private System.Windows.Forms.TextBox DatosTextBox;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
     }
 }
