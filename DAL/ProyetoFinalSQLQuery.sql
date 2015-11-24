@@ -43,6 +43,7 @@ ITBIS Float,
 TipoVentas Varchar(9),
 NFC Varchar(20),
 TipoNFC Varchar(20),
+Importe float,
 Total Float
 )
 drop Table Ventas
@@ -94,6 +95,7 @@ ProductoId int references Productos(ProductoId),
 Precio Float,
 Descuentos Float,
 Cantidad int,
+Importe float
 )
 drop table DetallesVentas
 

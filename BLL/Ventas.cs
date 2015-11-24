@@ -21,6 +21,7 @@ namespace BLL
         public double Total { get; set; }
         public int Cantidad { get; set; }
         public double Precio { get; set; }
+        public double Importe { get; set; }
         public List<Productos> Producto { get; set;}
         public List <Ventas>Venta  { get; set; }
 
@@ -38,14 +39,15 @@ namespace BLL
             this.Total = 0f;
             this.Cantidad = 0;
             this.Precio = 0f;
+            this.Importe = 0;
             Producto = new List<Productos>();
             Venta = new List<Ventas>();
         }
         
 
-        public void AgregarProducto(int productoId, string nombre,double precio,double itbis,int cantidad,double descuentos)
+        public void AgregarProducto(int productoId, string nombre,double precio,double itbis,int cantidad,double descuentos,double importe)
         {
-            this.Producto.Add(new Productos(productoId,nombre,precio,itbis,cantidad,descuentos));
+            this.Producto.Add(new Productos(productoId,nombre,precio,itbis,cantidad,descuentos,importe));
         }
 
         public override bool Insertar()
@@ -61,7 +63,7 @@ namespace BLL
               
                 foreach (var producto in Producto)
                 {
-                    comando.AppendLine(String.Format("Insert into DetallesVentas(VentaId,ProductoId,Precio,Cantidad,Descuentos) values({0},{1},{2},{3},{4})", this.VentaId,producto.ProductoId,producto.Precio, producto.Cantidad, producto.Descuentos));
+                    comando.AppendLine(String.Format("Insert into DetallesVentas(VentaId,ProductoId,Precio,Cantidad,Descuentos,Importe) values({0},{1},{2},{3},{4},{5})", this.VentaId,producto.ProductoId,producto.Precio, producto.Cantidad, producto.Descuentos,producto.Importe));
                 }
                 retorno = conexion.Ejecutar(comando.ToString());
             }
@@ -83,7 +85,7 @@ namespace BLL
 
                 foreach(var producto in this.Producto)
                 {
-                    comando.AppendLine(String.Format("Insert into DetallesVentas(VentaId,ProductoId,Precio,Cantidad,Descuentos) values({0},{1},{2},{3},{4})", this.VentaId, producto.ProductoId, producto.Precio, producto.Cantidad, producto.Descuentos));
+                    comando.AppendLine(String.Format("Insert into DetallesVentas(VentaId,ProductoId,Precio,Cantidad,Descuentos,Importe) values({0},{1},{2},{3},{4},{5})", this.VentaId, producto.ProductoId, producto.Precio, producto.Cantidad, producto.Descuentos,producto.Importe));
                 }
                 retorno = conexion.Ejecutar(comando.ToString());
             }
@@ -108,7 +110,7 @@ namespace BLL
             DataTable dtVentas = new DataTable();
 
             dt = conexion.ObtenerDatos(String.Format("Select *from Ventas where VentaId = {0} ",idBuscado));
-            dtVentas = conexion.ObtenerDatos(String.Format("Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId = {0} ", idBuscado));
+            dtVentas = conexion.ObtenerDatos(String.Format("Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos,D.Importe from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId = {0} ", idBuscado));
             if (dt.Rows.Count > 0)
             {
                 this.ClienteId = (int)dt.Rows[0]["ClienteId"];
@@ -120,7 +122,7 @@ namespace BLL
                 this.Producto.Clear();
                 foreach(DataRow row in dtVentas.Rows)
                 {
-                  this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]), (int)(row["Cantidad"]), Convert.ToDouble(row["Descuentos"]));
+                  this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]), (int)(row["Cantidad"]), Convert.ToDouble(row["Descuentos"]), Convert.ToDouble(row["Importe"]));
                 }
 
                     

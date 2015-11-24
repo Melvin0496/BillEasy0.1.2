@@ -18,6 +18,7 @@ namespace BLL
         public double Costo { get; set; }
         public double ITBIS { get; set; }
         public double Descuentos { get; set; }
+        public double Importe { get; set; }
 
         public Productos()
         {
@@ -42,6 +43,16 @@ namespace BLL
             this.Costo = costo;
             this.ITBIS = iTBIS;
         }
+        public Productos(int productoId, string nombre, double precio, double itbis, int cantidad, double Descuentos, double importe)
+        {
+            this.ProductoId = productoId;
+            this.Nombre = nombre;
+            this.Precio = precio;
+            this.ITBIS = itbis;
+            this.Cantidad = cantidad;
+            this.Descuentos = Descuentos;
+            this.Importe = importe;
+        }
         public Productos(int productoId, string nombre, double precio, double itbis, int cantidad, double Descuentos)
         {
             this.ProductoId = productoId;
@@ -51,6 +62,8 @@ namespace BLL
             this.Cantidad = cantidad;
             this.Descuentos = Descuentos;
         }
+
+
 
         public override bool Insertar()
         {

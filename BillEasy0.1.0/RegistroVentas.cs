@@ -68,7 +68,7 @@ namespace BillEasy0._1._0
                 int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
                 itbis = Convert.ToDouble(row.Cells["ITBIS"].Value);
                 double descuentos = Convert.ToDouble(row.Cells["Descuento"].Value);
-                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),itbis, cantidad, descuentos);
+                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),itbis, cantidad, descuentos, Convert.ToDouble(row.Cells["Importe"].Value));
                 
 
             }
@@ -154,7 +154,7 @@ namespace BillEasy0._1._0
                 TotaltextBox.Text = ventas.Total.ToString();
                 foreach (var venta in ventas.Producto)
                 {
-                    VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString());
+                    VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString(),venta.Importe.ToString());
                 }
              
             }
