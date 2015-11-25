@@ -23,7 +23,6 @@ namespace BillEasy0._1._0
 
         public void Datos(Clientes clientes)
         {
-
             int id;
             int.TryParse(ClienteIdtextBox.Text, out id);
             Regex espacio = new Regex(@"\s+");
@@ -36,6 +35,44 @@ namespace BillEasy0._1._0
             clientes.Direccion = espacio.Replace(DirecciontextBox.Text, " ");
             clientes.Email = EmailtextBox.Text;
             clientes.Cedula = CedulamaskedTextBox.Text;
+        }
+
+        private int Validar()
+        {
+            int retorno = 0;
+
+            if (!Regex.Match(NombresTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(NombresTextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
+            }
+            if (!Regex.Match(ApellidostextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(ApellidostextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
+            }
+            if (!Regex.Match(DirecciontextBox.Text, "^\\w{1,150}$").Success)
+            {
+                miError.SetError(DirecciontextBox, "Sobrepasa tamaño permitido de 150");
+                retorno = 0;
+            }
+            if (!Regex.Match(EmailtextBox.Text, "^\\w{1,100}$").Success)
+            {
+                miError.SetError(EmailtextBox, "Sobrepasa tamaño permitido de 100");
+                retorno = 0;
+            }
+            if (!Regex.Match(EmailtextBox.Text, @"\A(\w+\.?\w*\@\w+.)(com)\Z").Success)
+            {
+                miError.SetError(EmailtextBox, "Correo Invalido");
+                retorno = 0;
+            }
+            else
+            {
+                retorno += 1;
+                miError.Clear();
+            }
+
+            return retorno;
         }
 
         private int Error()
@@ -139,6 +176,7 @@ namespace BillEasy0._1._0
                 EmailtextBox.Text = clientes.Email;
                 CedulamaskedTextBox.Text = clientes.Cedula;
                 CiudadcomboBox.SelectedValue = clientes.CiudadId;
+                ClienteIdtextBox.ReadOnly = true;
 
             }
             else
@@ -159,6 +197,7 @@ namespace BillEasy0._1._0
             DirecciontextBox.Clear();
             EmailtextBox.Clear();
             CedulamaskedTextBox.Clear();
+            ClienteIdtextBox.ReadOnly = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -166,31 +205,32 @@ namespace BillEasy0._1._0
             DataTable table = new DataTable();
             Clientes clientes = new Clientes();
 
-            if (ClienteIdtextBox.TextLength == 0)
+           if (ClienteIdtextBox.TextLength == 0)
             {
                 Datos(clientes);
-                if (Error() == 0 && clientes.Insertar())
+                if (Error() == 0 && Validar() == 1 && clientes.Insertar())
                 {
                     MessageBox.Show("Cliente insertado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
                 }
                 else
                 {
                     MessageBox.Show("Error tratando de insertar el cliente","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-                NuevoButton.PerformClick();            }
+            }
             else
             {
                 clientes.ClienteId = ConversionId();
                 Datos(clientes);
-                if (Error() == 0 && clientes.Editar())
+                if (Error() == 0 && Validar() == 1 && clientes.Editar())
                 {
                     MessageBox.Show("Se edito Correctamente","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
                 }
                 else
                 {
                     MessageBox.Show("Error al editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                NuevoButton.PerformClick();
             }
         }
 

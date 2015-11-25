@@ -32,6 +32,23 @@ namespace BillEasy0._1._0
             producto.Costo = costo;
             producto.ITBIS = itbis*precio/100;
         }
+
+        private int Validar()
+        {
+            int retorno = 0;
+
+            if (!Regex.Match(NombreTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(NombreTextBox, "Sobrepasa tamaño permitido de 50");
+            }
+            else
+            {
+                retorno += 1;
+                miError.Clear();
+            }
+
+            return retorno;
+        }
         private int Error()
         {
             int contador = 0;
@@ -104,6 +121,7 @@ namespace BillEasy0._1._0
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CostoTextBox.Text = producto.Costo.ToString();
                 ITBISTextBox.Text = producto.ITBIS.ToString();
+                ProductoIdTextBox.ReadOnly = true;
             }
             else
             {
@@ -118,6 +136,7 @@ namespace BillEasy0._1._0
             PrecioTextBox.Clear();
             CostoTextBox.Clear();
             ITBISTextBox.Clear();
+            ProductoIdTextBox.ReadOnly = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -126,7 +145,7 @@ namespace BillEasy0._1._0
             if(ProductoIdTextBox.TextLength == 0)
             {
                 LLenarDatos(productos);
-                if (productos.Insertar() && Error() == 0)
+                if (Error() == 0 && Validar() == 1 && productos.Insertar())
                 {
                     MessageBox.Show("Producto insertado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -140,7 +159,7 @@ namespace BillEasy0._1._0
             {
                 LLenarDatos(productos);
                 productos.ProductoId = Convertidor();
-                if(productos.Editar() && Error() == 0)
+                if(Error() == 0 && Validar() == 1 && productos.Editar())
                 {
                     MessageBox.Show("Producto editado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -157,7 +176,7 @@ namespace BillEasy0._1._0
             Productos producto = new Productos();
             if (ProductoIdTextBox.TextLength > 0)
             {
-                producto.ProveedorId = Convertidor();
+                producto.ProductoId = Convertidor();
                 if (producto.Eliminar())
                 {
                     MessageBox.Show("Producto Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

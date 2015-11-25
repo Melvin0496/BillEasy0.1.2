@@ -54,7 +54,7 @@ namespace BillEasy0._1._0
             }
             else
             {
-                miError.SetError(NombreTextBox, "");
+                miError.Clear();
             }
             return contador;
         }
@@ -91,7 +91,21 @@ namespace BillEasy0._1._0
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Marcas marca = new Marcas();
-            if (MarcaIdTextBox.Text.Length > 0  && Error() == 0)
+            if (MarcaIdTextBox.Text.Length == 0)
+            {
+                LlenarDatos(marca);
+
+                if (Error() == 0 && Validar() == 1 && marca.Insertar())
+                {
+                    MessageBox.Show("Marca Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al insertar la marca ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (MarcaIdTextBox.Text.Length > 0 )
             {
                 marca.MarcaId = Convertir();
                 LlenarDatos(marca);
@@ -105,20 +119,7 @@ namespace BillEasy0._1._0
                     MessageBox.Show("Error al insertar la marca ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (MarcaIdTextBox.Text.Length == 0 && Error() == 0)
-            {
-                LlenarDatos(marca);
-       
-                if (Error() == 0 && Validar() == 1 && marca.Insertar())
-                {
-                    MessageBox.Show("Marca Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    NuevoButton.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Error al insertar la marca ", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

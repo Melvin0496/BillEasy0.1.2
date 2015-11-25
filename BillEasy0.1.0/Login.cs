@@ -52,7 +52,7 @@ namespace BillEasy0._1._0
                         this.Hide();
                         BillEasy billEasy = new BillEasy();
                         billEasy.nuevoToolStripMenuItem.Visible = true;
-                        billEasy.ShowDialog();
+                       billEasy.ShowDialog();
 
                         
                         

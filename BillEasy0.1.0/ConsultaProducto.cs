@@ -37,7 +37,7 @@ namespace BillEasy0._1._0
                     int.TryParse(DatosTextBox.Text, out id);
                     condicion = " ProductoId = " + id.ToString();
                 }
-                DatosDataGridView.DataSource = producto.Listado(" ProductoId,ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
+                DatosDataGridView.DataSource = producto.Listado(" ProductoId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
             }
             if (BuscarComboBox.SelectedIndex == 1)
             {
@@ -49,7 +49,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Nombre  like '{0}%' ", DatosTextBox.Text);
                 }
-                DatosDataGridView.DataSource = producto.Listado(" ProductoId,ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
+                DatosDataGridView.DataSource = producto.Listado(" ProductoId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
 
             }
             if (BuscarComboBox.SelectedIndex == 2)
@@ -64,7 +64,7 @@ namespace BillEasy0._1._0
                     double.TryParse(DatosTextBox.Text, out precio);
                     condicion = "Precio = " + precio.ToString();
                 }
-                DatosDataGridView.DataSource = producto.Listado(" ProductoId,ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
+                DatosDataGridView.DataSource = producto.Listado(" ProductoId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
             }
             if (BuscarComboBox.SelectedIndex == 3)
             {
@@ -78,7 +78,7 @@ namespace BillEasy0._1._0
                     double.TryParse(DatosTextBox.Text, out costo);
                     condicion = "Costo = " + costo.ToString();
                 }
-                DatosDataGridView.DataSource = producto.Listado(" ProductoId,ProveedorId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
+                DatosDataGridView.DataSource = producto.Listado(" ProductoId,MarcaId,Nombre,Cantidad,Precio,Costo,ITBIS ", condicion, "");
             }
 
         }

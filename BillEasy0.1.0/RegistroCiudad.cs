@@ -63,10 +63,12 @@ namespace BillEasy0._1._0
             if (!Regex.Match(CodigoPostalTextBox.Text, @"^\d{5}$").Success)
             {
                 miError.SetError(CodigoPostalTextBox, "Codigo postal invalido");
+                retorno = 0;
             }
             if(!Regex.Match(NombreTextBox.Text, "^\\w{1,50}$").Success)
             {
                 miError.SetError(NombreTextBox,"Sobrepasa el tamaño de 50");
+                retorno = 0;
             }
             else
             {
@@ -111,7 +113,20 @@ namespace BillEasy0._1._0
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Ciudades ciudad = new Ciudades();
-            if (CiudadIdTextBox.Text.Length > 0 && Error() == 0 && Validar() == 1)
+            if (CiudadIdTextBox.Text.Length == 0 && Error() == 0 && Validar() == 1)
+            {
+                LlenarDatos(ciudad);
+                if (ciudad.Insertar())
+                {
+                    MessageBox.Show("Ciudad Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al insertar la ciudad", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (CiudadIdTextBox.Text.Length > 0 && Error() == 0 && Validar() == 1)
             {
                 ciudad.CiudadId = Convertir();
                 LlenarDatos(ciudad);
@@ -125,19 +140,7 @@ namespace BillEasy0._1._0
                     MessageBox.Show("Debe de completar todos los campos", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (CiudadIdTextBox.Text.Length == 0 && Error() == 0 && Validar() == 1)
-            {
-                LlenarDatos(ciudad);
-                if (ciudad.Insertar())
-                {
-                    MessageBox.Show("Ciudad Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    NuevoButton.PerformClick();
-                }
-                else
-                {
-                    MessageBox.Show("Error al insertar la ciudad", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
