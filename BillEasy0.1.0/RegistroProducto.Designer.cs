@@ -31,7 +31,6 @@
             this.MarcaComboBox = new System.Windows.Forms.ComboBox();
             this.ITBISTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ProveedorComboBox = new System.Windows.Forms.ComboBox();
             this.PrecioTextBox = new System.Windows.Forms.TextBox();
             this.CostoTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,10 +53,11 @@
             // 
             this.MarcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MarcaComboBox.FormattingEnabled = true;
-            this.MarcaComboBox.Location = new System.Drawing.Point(123, 114);
+            this.MarcaComboBox.Location = new System.Drawing.Point(123, 77);
             this.MarcaComboBox.Name = "MarcaComboBox";
             this.MarcaComboBox.Size = new System.Drawing.Size(181, 21);
             this.MarcaComboBox.TabIndex = 2;
+            this.MarcaComboBox.SelectedIndexChanged += new System.EventHandler(this.MarcaComboBox_SelectedIndexChanged);
             // 
             // ITBISTextBox
             // 
@@ -76,15 +75,6 @@
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 80;
             this.label7.Text = "ITBIS:";
-            // 
-            // ProveedorComboBox
-            // 
-            this.ProveedorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProveedorComboBox.FormattingEnabled = true;
-            this.ProveedorComboBox.Location = new System.Drawing.Point(123, 78);
-            this.ProveedorComboBox.Name = "ProveedorComboBox";
-            this.ProveedorComboBox.Size = new System.Drawing.Size(181, 21);
-            this.ProveedorComboBox.TabIndex = 1;
             // 
             // PrecioTextBox
             // 
@@ -128,7 +118,7 @@
             // 
             this.GuardarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(270, 184);
+            this.GuardarButton.Location = new System.Drawing.Point(263, 157);
             this.GuardarButton.MaximumSize = new System.Drawing.Size(81, 44);
             this.GuardarButton.MinimumSize = new System.Drawing.Size(81, 44);
             this.GuardarButton.Name = "GuardarButton";
@@ -143,7 +133,7 @@
             // 
             this.EliminarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(376, 184);
+            this.EliminarButton.Location = new System.Drawing.Point(376, 157);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(79, 44);
             this.EliminarButton.TabIndex = 10;
@@ -156,7 +146,7 @@
             // 
             this.NuevoButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NuevoButton.Location = new System.Drawing.Point(167, 184);
+            this.NuevoButton.Location = new System.Drawing.Point(154, 157);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(79, 44);
             this.NuevoButton.TabIndex = 8;
@@ -167,10 +157,11 @@
             // 
             // NombreTextBox
             // 
-            this.NombreTextBox.Location = new System.Drawing.Point(123, 149);
+            this.NombreTextBox.Location = new System.Drawing.Point(123, 112);
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(181, 20);
             this.NombreTextBox.TabIndex = 3;
+            this.NombreTextBox.TextChanged += new System.EventHandler(this.NombreTextBox_TextChanged);
             this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // ProductoIdTextBox
@@ -193,29 +184,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 152);
+            this.label4.Location = new System.Drawing.Point(16, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 74;
             this.label4.Text = "Nombre:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 117);
+            this.label3.Location = new System.Drawing.Point(16, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 73;
             this.label3.Text = "Marca:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 72;
-            this.label2.Text = "Proveedor:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -232,13 +216,11 @@
             this.groupBox1.Controls.Add(this.ITBISTextBox);
             this.groupBox1.Controls.Add(this.MarcaComboBox);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.PrecioTextBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.CostoTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.ProveedorComboBox);
             this.groupBox1.Controls.Add(this.GuardarButton);
             this.groupBox1.Controls.Add(this.EliminarButton);
             this.groupBox1.Controls.Add(this.ProductoIdTextBox);
@@ -248,7 +230,7 @@
             this.groupBox1.Controls.Add(this.BuscarButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(613, 242);
+            this.groupBox1.Size = new System.Drawing.Size(613, 219);
             this.groupBox1.TabIndex = 82;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Productos";
@@ -267,7 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 330);
+            this.ClientSize = new System.Drawing.Size(639, 303);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox1);
             this.Name = "RegistroProducto";
@@ -286,7 +268,6 @@
         private System.Windows.Forms.ComboBox MarcaComboBox;
         private System.Windows.Forms.TextBox ITBISTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox ProveedorComboBox;
         private System.Windows.Forms.TextBox PrecioTextBox;
         private System.Windows.Forms.TextBox CostoTextBox;
         private System.Windows.Forms.Label label8;
@@ -299,7 +280,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label10;

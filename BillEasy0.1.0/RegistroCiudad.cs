@@ -54,7 +54,7 @@ namespace BillEasy0._1._0
             return contador;
         }
 
-
+        
 
         private int Validar()
         {
@@ -62,13 +62,18 @@ namespace BillEasy0._1._0
 
             if (!Regex.Match(CodigoPostalTextBox.Text, @"^\d{5}$").Success)
             {
-                MessageBox.Show("Codigo postal invalido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CodigoPostalTextBox.Focus();
+                miError.SetError(CodigoPostalTextBox, "Codigo postal invalido");
+            }
+            if(!Regex.Match(NombreTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(NombreTextBox,"Sobrepasa el tamaño de 50");
             }
             else
             {
-                retorno += 1;
+                retorno = 1;
+                miError.Clear();
             }
+            
 
             return retorno;
         }
@@ -87,6 +92,7 @@ namespace BillEasy0._1._0
                 CiudadIdTextBox.Text = ciudad.CiudadId.ToString();
                 NombreTextBox.Text = ciudad.Nombre;
                 CodigoPostalTextBox.Text = ciudad.CodigoPostal.ToString();
+                CiudadIdTextBox.ReadOnly = true;
             }
             else
             {
@@ -99,6 +105,7 @@ namespace BillEasy0._1._0
             CiudadIdTextBox.Clear();
             NombreTextBox.Clear();
             CodigoPostalTextBox.Clear();
+            CiudadIdTextBox.ReadOnly = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)

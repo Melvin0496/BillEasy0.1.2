@@ -23,8 +23,25 @@ namespace BillEasy0._1._0
 
         private void LlenarDatos(Marcas marca)
         {
+            
             Regex espacio = new Regex(@"\s+");
             marca.Nombre = espacio.Replace(NombreTextBox.Text, " "); ;
+        }
+        private int Validar()
+        {
+            int retorno = 0;
+
+            if (!Regex.Match(NombreTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(NombreTextBox,"Sobrepasa tamaño permitido de 50");
+            }
+            else
+            {
+                retorno += 1;
+                miError.Clear();
+            }
+
+            return retorno;
         }
 
         private int Error()
@@ -55,6 +72,7 @@ namespace BillEasy0._1._0
             if (marca.Buscar(Convertir()))
             {
                 NombreTextBox.Text = marca.Nombre;
+                MarcaIdTextBox.ReadOnly = true;
             }
             else
             {
@@ -67,6 +85,7 @@ namespace BillEasy0._1._0
         {
             MarcaIdTextBox.Clear();
             NombreTextBox.Clear();
+            MarcaIdTextBox.ReadOnly = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -76,7 +95,7 @@ namespace BillEasy0._1._0
             {
                 marca.MarcaId = Convertir();
                 LlenarDatos(marca);
-                if (marca.Editar() && Error() == 0 )
+                if (Error() == 0 && Validar() == 1 && marca.Editar())
                 {
                     MessageBox.Show("Marca Editada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -90,7 +109,7 @@ namespace BillEasy0._1._0
             {
                 LlenarDatos(marca);
        
-                if (marca.Insertar() && Error() == 0)
+                if (Error() == 0 && Validar() == 1 && marca.Insertar())
                 {
                     MessageBox.Show("Marca Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();

@@ -10,7 +10,6 @@ namespace BLL
     public class Productos : ClaseMaestra
     {
         public int ProductoId { get; set; }
-        public int ProveedorId { get; set; }
         public int MarcaId { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
@@ -24,7 +23,6 @@ namespace BLL
         public Productos()
         {
             this.ProductoId = 0;
-            this.ProveedorId = 0;
             this.MarcaId = 0;
             this.Nombre = "";
             this.Cantidad = 0;
@@ -33,10 +31,9 @@ namespace BLL
             this.ITBIS = 0;
         }
 
-        public Productos(int productoId, int proveedorId, int marcaId, string nombre, int cantidad, double precio, double costo, double iTBIS)
+        public Productos(int productoId, int marcaId, string nombre, int cantidad, double precio, double costo, double iTBIS)
         {
             this.ProductoId = productoId;
-            this.ProveedorId = proveedorId;
             this.MarcaId = marcaId;
             this.Nombre = nombre;
             this.Cantidad = cantidad;
@@ -70,7 +67,7 @@ namespace BLL
         {
             bool retorno;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Insert Into Productos(ProveedorId,MarcaId,Nombre,Precio,Costo,ITBIS) Values({0},{1},'{2}',{3},{4},{5}) ", this.ProveedorId, this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
+            retorno = conexion.Ejecutar(String.Format("Insert Into Productos(MarcaId,Nombre,Precio,Costo,ITBIS) Values({0},'{1}',{2},{3},{4}) ", this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
             return retorno;
         }
 
@@ -78,7 +75,7 @@ namespace BLL
         {
             bool retorno;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Update Productos set ProveedorId = {0}, MarcaId = {1},Nombre  = '{2}',Precio = {3},Costo = {4}, ITBIS = {5} Where ProductoId = {6}", this.ProveedorId, this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
+            retorno = conexion.Ejecutar(String.Format("Update Productos set MarcaId = {0},Nombre  = '{1}',Precio = {2},Costo = {3}, ITBIS = {4} Where ProductoId = {5}" , this.MarcaId, this.Nombre, this.Precio, this.Costo, this.ITBIS, this.ProductoId));
             return retorno;
         }
 
@@ -98,11 +95,10 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            dt = conexion.ObtenerDatos(String.Format("Select ProductoId ,ProveedorId,MarcaId,Nombre,Precio,Costo,ITBIS From Productos Where ProductoID = {0} ", idBuscado));
+            dt = conexion.ObtenerDatos(String.Format("Select ProductoId,MarcaId,Nombre,Precio,Costo,ITBIS From Productos Where ProductoId = {0} ", idBuscado));
             if (dt.Rows.Count > 0)
             {
                 this.ProductoId = (int)dt.Rows[0]["ProductoId"];
-                this.ProveedorId = (int)dt.Rows[0]["ProveedorId"];
                 this.MarcaId = (int)dt.Rows[0]["MarcaId"];
                 this.Nombre = dt.Rows[0]["Nombre"].ToString();
                 this.Precio = Convert.ToSingle(dt.Rows[0]["Precio"]);

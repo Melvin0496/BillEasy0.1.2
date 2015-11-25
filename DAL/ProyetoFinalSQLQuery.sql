@@ -13,20 +13,14 @@ Direccion Varchar(150),
 Email Varchar(100),
 Cedula Varchar(15)
 )
-Select Count(Nombre) from Ciudades
-select *from Clientes
-drop table Clientes
-select *from Ventas
-
-
-Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId where D.VentaId =25
 
 Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
 alter table Productos
  check constraint FK__Productos__Marcas__MarcaId
- alter table Clientes Proveedores CHECK constraint ALL 
+ alter table  Proveedores NOCHECK constraint ALL 
  sp_helpconstraint Productos
-select *from Usuarios
+
+
 drop table Usuarios
 drop table DetallesCompras
 drop table DetallesVentas
@@ -61,7 +55,7 @@ TipoNFC Varchar(20),
 Importe float,
 Total Float
 )
-drop Table Ventas
+
 
 Create Table Compras(
 CompraId Int Identity Primary Key,
@@ -74,12 +68,9 @@ TipoNFC Varchar(20),
 Flete Float,
 Monto Float
 )
-select *from Compras
-select *from DetallesCompras
 
 Create Table Productos(
 ProductoId Int Identity Primary Key,
-ProveedorId Int References Proveedores(ProveedorId),
 MarcaId Int References Marcas(MarcaId),
 Nombre Varchar(50),
 Cantidad Int,
@@ -87,8 +78,6 @@ Precio Float,
 Costo Float,
 ITBIS Float
 )
-select *from Productos
-
 
 Create Table Proveedores(
 ProveedorId Int Identity Primary Key,
@@ -102,9 +91,6 @@ NombreRepresentante Varchar(50),
 Celular Varchar(13)
 )
 
-select *from Proveedores
-select *from Productos
-select *from Usuarios
 Create Table DetallesVentas(
 VentaId Int References Ventas(VentaId),
 ProductoId int references Productos(ProductoId),
@@ -114,16 +100,6 @@ Cantidad int,
 Importe float
 )
 
-Select *from Productos
-drop table DetallesVentas
-
-
-Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio ,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId   where D.VentaId =7
- Select  Precio * Cantidad as Importe from DetallesVentas where VentaId =3
- select (d.Precio * d.Cantidad) + p.ITBIS Total from DetallesVentas d inner join Productos p on p.ProductoId = d.ProductoId where d.VentaId = 5
-drop table DetallesVentas
-drop table Ventas
-
 Create Table DetallesCompras(
 CompraId Int references Compras(CompraId),
 ProductoId Int References Productos(ProductoId),
@@ -132,10 +108,7 @@ Costo Float,
 Cantidad int,
 Importe float
 )
-select *from Usuarios
-drop table DetallesCompras
-select *from DetallesCompras
-select *from   Compras
+
 Create Table Marcas(
 MarcaId Int Identity Primary Key,
 Nombre Varchar (50)

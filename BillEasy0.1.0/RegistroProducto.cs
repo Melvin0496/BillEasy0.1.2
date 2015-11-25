@@ -26,7 +26,6 @@ namespace BillEasy0._1._0
             float.TryParse(PrecioTextBox.Text, out precio);
             float.TryParse(CostoTextBox.Text, out costo);
             float.TryParse(ITBISTextBox.Text, out itbis);
-            producto.ProveedorId = (int)ProveedorComboBox.SelectedValue;
             producto.MarcaId = (int)MarcaComboBox.SelectedValue;
             producto.Nombre = espacio.Replace(NombreTextBox.Text, " ");
             producto.Precio = precio;
@@ -86,11 +85,7 @@ namespace BillEasy0._1._0
 
         private void RegistroProducto_Load(object sender, EventArgs e)
         {
-            Proveedores proveedor = new Proveedores();
             Marcas marca = new Marcas();
-            ProveedorComboBox.DataSource = proveedor.Listado("ProveedorId ,CiudadId, NombreEmpresa,Direccion,Telefono,Email,RNC,NombreRepresentante,Celular", "1=1", "");
-            ProveedorComboBox.DisplayMember = "NombreEmpresa";
-            ProveedorComboBox.ValueMember = "ProveedorId";
 
             MarcaComboBox.DataSource = marca.Listado("MarcaId,Nombre", "1=1", "");
             MarcaComboBox.DisplayMember = "Nombre";
@@ -105,7 +100,6 @@ namespace BillEasy0._1._0
             {
                 ProductoIdTextBox.Text = producto.ProductoId.ToString();
                 NombreTextBox.Text = producto.Nombre.ToString();
-                ProveedorComboBox.SelectedValue = producto.ProveedorId;
                 MarcaComboBox.SelectedValue = producto.MarcaId;
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CostoTextBox.Text = producto.Costo.ToString();
@@ -267,6 +261,26 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(ITBISTextBox, "");
             }
+        }
+
+        private void MarcaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NombreTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
