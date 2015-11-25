@@ -163,6 +163,20 @@ namespace BillEasy0._1._0
                     MessageBox.Show("Error al registrar la compra","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                compra.CompraId = Convertir();
+                LlenarDatos(compra);
+                if (compra.Editar())
+                {
+                    MessageBox.Show("Compra Editada correctamente","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    NuevoButton.PerformClick();
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

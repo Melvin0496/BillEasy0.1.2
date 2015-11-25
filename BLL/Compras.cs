@@ -76,7 +76,7 @@ namespace BLL
             bool retorno = false;
             StringBuilder comando = new StringBuilder();
 
-            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0},Fecha = '{1}',Cantidad = {2},TipoCompra = '{3}' ,NFC = '{4}' ,TipoNFC ='{5}' ,Flete ={6} , Costo ={7}, Monto = {8} Where CompraId = {9}", this.ProveedorId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TipoNFC, this.Flete, this.Costo, this.Monto,this.CompraId));
+            retorno = conexion.Ejecutar(String.Format("Update Compras set ProveedorId = {0},Fecha = '{1}',Cantidad = {2},TipoCompra = '{3}' ,NFC = '{4}' ,TipoNFC ='{5}' ,Flete ={6} , Monto = {7} Where CompraId = {8}", this.ProveedorId, this.Fecha, this.Cantidad, this.TipoCompra, this.NFC, this.TipoNFC, this.Flete, this.Monto,this.CompraId));
             if (retorno)
             {
                 conexion.Ejecutar("Delete from DetallesCompras where CompraId = " + this.CompraId);
