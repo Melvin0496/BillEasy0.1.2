@@ -86,7 +86,11 @@ namespace BLL
         {
             bool retorno;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete Produyctos Where ProductoId = {0}", this.ProductoId));
+            retorno = conexion.Ejecutar("Alter table DetallesVentas NOCHECK constraint ALL " + ";"
+                                      + "Alter table DetallesCompras NOCHECK constraint ALL" + ";"
+                                      + "Delete Productos where ProductoId =  " + this.ProductoId
+                                      + "Alter table DetallesVentas CHECK constraint ALL " + ";"
+                                      + "Alter table DetallesCompras CHECK constraint ALL");
             return retorno;
         }
 

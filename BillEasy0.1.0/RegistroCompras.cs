@@ -168,6 +168,7 @@ namespace BillEasy0._1._0
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             Compras compra = new Compras();
+            compra.CompraId = Convertir();
             if (compra.Eliminar())
             {
                 MessageBox.Show("Compra Eliminada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);

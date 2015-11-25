@@ -47,7 +47,11 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar("Delete Ciudades where CiudadId = " + this.CiudadId);
+            retorno = conexion.Ejecutar("Alter table Clientes NOCHECK constraint ALL " + ";" 
+                                        + "Alter table Proveedores NOCHECK constraint ALL" + ";" 
+                                        + "Delete Ciudades where CiudadId =  " + this.CiudadId 
+                                        + "Alter table Clientes CHECK constraint ALL " + ";"
+                                        + "Alter table Proveedores CHECK constraint ALL");
             return retorno;
         }
 

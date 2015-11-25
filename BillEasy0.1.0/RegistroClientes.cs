@@ -201,6 +201,7 @@ namespace BillEasy0._1._0
             if (clientes.Eliminar() == true)
             {
                 MessageBox.Show("Cliente eliminado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                NuevoButton.PerformClick();
             }
             else
             {

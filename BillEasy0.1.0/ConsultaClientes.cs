@@ -39,7 +39,7 @@ namespace BillEasy0._1._0
                     int.TryParse(ClientesTextBox.Text, out id);
                     condicion = "ClienteId = " + id.ToString();
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 1)
@@ -52,7 +52,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Nombres = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 2)
@@ -65,7 +65,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Apellidos = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 3)
@@ -78,7 +78,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Telefono = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 4)
@@ -91,7 +91,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Celular = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 5)
@@ -104,7 +104,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Email = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
             if (BuscarClientesComboBox.SelectedIndex == 6)
@@ -117,7 +117,7 @@ namespace BillEasy0._1._0
                 {
                     condicion = String.Format("Cedula = '{0}' ", ClientesTextBox.Text);
                 }
-                dt = clientes.Listado("ClienteId,Nombres,Apellidos,c.Nombre as Ciudad,Telefono,Celular,Email,Cedula", condicion, "");
+                dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
             }
 

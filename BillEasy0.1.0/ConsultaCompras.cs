@@ -16,6 +16,7 @@ namespace BillEasy0._1._0
         public ConsultaCompras()
         {
             InitializeComponent();
+            ComprascomboBox.SelectedIndex = 0;
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)

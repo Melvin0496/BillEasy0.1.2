@@ -22,6 +22,10 @@ select *from Ventas
 Select V.Nombre,V.ITBIS,D.ProductoId,D.Cantidad,D.Precio,D.Descuentos from DetallesVentas D inner join Productos V on D.ProductoId = V.ProductoId where D.VentaId =25
 
 Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
+alter table Productos
+ check constraint FK__Productos__Marcas__MarcaId
+ alter table Clientes Proveedores CHECK constraint ALL 
+ sp_helpconstraint Productos
 select *from Usuarios
 drop table Usuarios
 drop table DetallesCompras

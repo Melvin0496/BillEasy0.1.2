@@ -96,8 +96,8 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             bool retorno = false;
-            retorno = conexion.Ejecutar("Delete from Ventas where VentaId = " +this.VentaId + ";" 
-                                          + "Delete from DetallesVentas where VentaId = " +this.VentaId);
+            retorno = conexion.Ejecutar("Delete from DetallesVentas where VentaId = " +this.VentaId + ";" 
+                                          + "Delete from Ventas where VentaId = " +this.VentaId);
 
             return retorno;
 

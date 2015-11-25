@@ -44,7 +44,7 @@ namespace BLL
         {
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar("Delete Marcas where MarcaId = " + this.MarcaId);
+            retorno = conexion.Ejecutar("Alter table Productos NOCHECK constraint ALL " + ";" + "Delete Marcas where MarcaId =  " + this.MarcaId + "Alter table Productos CHECK constraint ALL ");
             return retorno;
         }
 

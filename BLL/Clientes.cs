@@ -70,7 +70,7 @@ namespace BLL
 
             bool retorno = false;
             ConexionDb conexion = new ConexionDb();
-            retorno = conexion.Ejecutar(String.Format("Delete  Clientes where ClienteId = {0}",this.ClienteId));
+            retorno = conexion.Ejecutar("Alter table Ventas NOCHECK constraint ALL " + ";" + "Delete Clientes where ClienteId =  " + this.ClienteId + "Alter table Ventas CHECK constraint ALL ");
             return retorno;
         }
 
@@ -81,7 +81,6 @@ namespace BLL
             DataTable dtCiudades = new DataTable();
            
             dt = conexion.ObtenerDatos(String.Format("Select *from Clientes where ClienteId = {0}",idBuscado));
-            //dtCiudades = conexion.ObtenerDatos(String.Format("Select c.Nombre from Ciudades c inner join Clientes cl on c.CiudadId = cl.CiudadId where ClienteId = {0}",idBuscado));
             if(dt.Rows.Count > 0)
             {
                 
@@ -89,6 +88,8 @@ namespace BLL
                 this.Apellidos = dt.Rows[0]["Apellidos"].ToString();
                 this.Telefono = dt.Rows[0]["Telefono"].ToString();
                 this.Celular = dt.Rows[0]["Celular"].ToString();
+                this.Direccion = dt.Rows[0]["Direccion"].ToString();
+                this.CiudadId = (int)dt.Rows[0]["CiudadId"];
                 this.Email = dt.Rows[0]["Email"].ToString();
                 this.Cedula = dt.Rows[0]["Cedula"].ToString();
 
@@ -103,7 +104,7 @@ namespace BLL
             string ordenFinal = "";
             if (!orden.Equals(""))
                 ordenFinal = " Orden by  " + orden;
-            return conexion.ObtenerDatos("Select " + campos + " from Clientes ci inner join Ciudades c on ci.CiudadId = c.CiudadId where " + condicion + "" + ordenFinal);
+            return conexion.ObtenerDatos("Select " + campos + " from Clientes where " + condicion + "" + ordenFinal);
 
         }
     }
