@@ -173,7 +173,6 @@
             this.DireccionTextBox.Name = "DireccionTextBox";
             this.DireccionTextBox.Size = new System.Drawing.Size(181, 20);
             this.DireccionTextBox.TabIndex = 3;
-            this.DireccionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DireccionTextBox_KeyPress);
             // 
             // NombreEmpresaTextBox
             // 

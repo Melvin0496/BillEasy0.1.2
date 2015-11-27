@@ -33,6 +33,43 @@ namespace BillEasy0._1._0
             proveedor.NombreRepresentante = espacio.Replace(NombreRepresentanteTextBox.Text, " ");
             proveedor.Celular = CelularMaskedTextBox.Text;
         }
+        private int Validar()
+        {
+            int retorno = 0;
+
+            if (!Regex.Match(NombreEmpresaTextBox.Text, "^\\w{1,70}$").Success)
+            {
+                miError.SetError(NombreEmpresaTextBox, "Sobrepasa tamaño permitido de 70");
+                retorno = 0;
+            }
+            if (!Regex.Match(DireccionTextBox.Text, "^\\w{1,150}$").Success)
+            {
+                miError.SetError(DireccionTextBox, "Sobrepasa tamaño permitido de 150");
+                retorno = 0;
+            }
+            if (!Regex.Match(NombreRepresentanteTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(NombreRepresentanteTextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
+            }
+            if (!Regex.Match(EmailTextBox.Text, "^\\w{1,50}$").Success)
+            {
+                miError.SetError(EmailTextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
+            }
+            if (!Regex.Match(EmailTextBox.Text, @"\A(\w+\.?\w*\@\w+.)(com)\Z").Success)
+            {
+                miError.SetError(EmailTextBox, "Correo Invalido");
+                retorno = 0;
+            }
+            else
+            {
+                retorno += 1;
+                miError.Clear();
+            }
+
+            return retorno;
+        }
 
         private int Error()
         {
@@ -134,6 +171,7 @@ namespace BillEasy0._1._0
                 RNCTextBox.Text = proveedor.RNC;
                 NombreRepresentanteTextBox.Text = proveedor.NombreRepresentante;
                 CelularMaskedTextBox.Text = proveedor.Celular;
+                ProveedorIdTextBox.ReadOnly = true;
             }
             else
             {
@@ -151,6 +189,7 @@ namespace BillEasy0._1._0
             RNCTextBox.Clear();
             NombreRepresentanteTextBox.Clear();
             CelularMaskedTextBox.Clear();
+            ProveedorIdTextBox.ReadOnly = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -160,7 +199,7 @@ namespace BillEasy0._1._0
             if (ProveedorIdTextBox.TextLength == 0)
             {
                 LlenarDatos(proveedor);
-                if (proveedor.Insertar() && Error() == 0)
+                if (Error() == 0 && Validar() == 1 && proveedor.Insertar())
                 {
                     MessageBox.Show("Proveedor insertado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -174,7 +213,7 @@ namespace BillEasy0._1._0
             {
                 proveedor.ProveedorId = Convertidor();
                 LlenarDatos(proveedor);
-                if (proveedor.Editar())
+                if (Error() == 0 && Validar() == 1 && proveedor.Editar())
                 {
                     MessageBox.Show("Proveedor editado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
@@ -198,10 +237,9 @@ namespace BillEasy0._1._0
             else
             {
                 proveedor.ProveedorId = Convertidor();
-                if (!proveedor.Eliminar())
+                if (proveedor.Eliminar())
                 {
-                    MessageBox.Show("Puto");
-                    //MessageBox.Show("Proveedor Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Proveedor Eliminado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
                 }
                 else
@@ -250,19 +288,6 @@ namespace BillEasy0._1._0
             else
             {
                 miError.SetError(NombreRepresentanteTextBox, "");
-            }
-        }
-        private void DireccionTextBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
-            {
-                miError.SetError(DireccionTextBox, "Solo se permiten letras");
-                e.Handled = true;
-                return;
-            }
-            else
-            {
-                miError.SetError(DireccionTextBox, "");
             }
         }
 }

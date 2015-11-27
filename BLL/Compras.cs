@@ -43,7 +43,7 @@ namespace BLL
             Producto = new List<Productos>();
         }
 
-        public void AgregarProducto(int productoId, string nombre,double costo,int cantidad,double itbis,double importe)
+        public void AgregarProducto(int productoId, string nombre,float costo,int cantidad,float itbis,float importe)
         {
             this.Producto.Add(new Productos(productoId,nombre,costo,cantidad,itbis,importe));
         }
@@ -124,7 +124,7 @@ namespace BLL
                 this.Producto.Clear();
                 foreach (DataRow row in dtProducto.Rows)
                 {
-                    this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Costo"]), (int)(row["Cantidad"]), Convert.ToDouble(row["ITBIS"]), Convert.ToDouble(row["Importe"]));
+                    this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToSingle(row["Costo"]), (int)(row["Cantidad"]), Convert.ToSingle(row["ITBIS"]), Convert.ToSingle(row["Importe"]));
                 }
             }
             return dt.Rows.Count > 0;

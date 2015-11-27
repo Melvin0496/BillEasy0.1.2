@@ -143,7 +143,7 @@ namespace BillEasy0._1._0
             {
                 int id1 = Convert.ToInt32(row.Cells["ProductoId"].Value);
                 int cantidad1 = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                compras.AgregarProducto(id1, row.Cells["Nombre"].Value.ToString(), Convert.ToDouble(row.Cells["Costo"].Value),cantidad1, Convert.ToDouble(row.Cells["ITBIS"].Value),Convert.ToDouble(row.Cells["Importe"].Value));
+                compras.AgregarProducto(id1, row.Cells["Nombre"].Value.ToString(), Convert.ToSingle(row.Cells["Costo"].Value),cantidad1, Convert.ToSingle(row.Cells["ITBIS"].Value),Convert.ToSingle(row.Cells["Importe"].Value));
 
             }
         }

@@ -13,12 +13,12 @@ namespace BLL
         public int MarcaId { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
-        public double Precio { get; set; }
-        public double Costo { get; set; }
-        public double ITBIS { get; set; }
-        public double Flete { get; set; }
-        public double Descuentos { get; set; }
-        public double Importe { get; set; }
+        public float Precio { get; set; }
+        public float Costo { get; set; }
+        public float ITBIS { get; set; }
+        public float Flete { get; set; }
+        public float Descuentos { get; set; }
+        public float Importe { get; set; }
 
         public Productos()
         {
@@ -26,12 +26,12 @@ namespace BLL
             this.MarcaId = 0;
             this.Nombre = "";
             this.Cantidad = 0;
-            this.Precio = 0;
-            this.Costo = 0;
-            this.ITBIS = 0;
+            this.Precio = 0f;
+            this.Costo = 0f;
+            this.ITBIS = 0f;
         }
 
-        public Productos(int productoId, int marcaId, string nombre, int cantidad, double precio, double costo, double iTBIS)
+        public Productos(int productoId, int marcaId, string nombre, int cantidad, float precio, float costo, float iTBIS)
         {
             this.ProductoId = productoId;
             this.MarcaId = marcaId;
@@ -41,7 +41,7 @@ namespace BLL
             this.Costo = costo;
             this.ITBIS = iTBIS;
         }
-        public Productos(int productoId, string nombre, double precio, double itbis, int cantidad, double Descuentos, double importe)
+        public Productos(int productoId, string nombre, float precio, float itbis, int cantidad, float Descuentos, float importe)
         {
             this.ProductoId = productoId;
             this.Nombre = nombre;
@@ -51,7 +51,7 @@ namespace BLL
             this.Descuentos = Descuentos;
             this.Importe = importe;
         }
-        public Productos(int productoId, string nombre, double costo,int cantidad, double itbis,double importe)
+        public Productos(int productoId, string nombre, float costo,int cantidad, float itbis,float importe)
         {
             this.ProductoId = productoId;
             this.Nombre = nombre;

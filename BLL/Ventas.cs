@@ -18,10 +18,10 @@ namespace BLL
         public string TipoVenta { get; set; }
         public string NFC { get; set; }
         public string TipoNFC { get; set; }
-        public double Total { get; set; }
+        public float Total { get; set; }
         public int Cantidad { get; set; }
-        public double Precio { get; set; }
-        public double Importe { get; set; }
+        public float Precio { get; set; }
+        public float Importe { get; set; }
         public List<Productos> Producto { get; set;}
         public List <Ventas>Venta  { get; set; }
 
@@ -39,13 +39,13 @@ namespace BLL
             this.Total = 0f;
             this.Cantidad = 0;
             this.Precio = 0f;
-            this.Importe = 0;
+            this.Importe = 0f;
             Producto = new List<Productos>();
             Venta = new List<Ventas>();
         }
         
 
-        public void AgregarProducto(int productoId, string nombre,double precio,double itbis,int cantidad,double descuentos,double importe)
+        public void AgregarProducto(int productoId, string nombre,float precio,float itbis,int cantidad,float descuentos,float importe)
         {
             this.Producto.Add(new Productos(productoId,nombre,precio,itbis,cantidad,descuentos,importe));
         }
@@ -118,11 +118,11 @@ namespace BLL
                 this.TipoVenta = dt.Rows[0]["TipoVentas"].ToString();
                 this.NFC = dt.Rows[0]["NFC"].ToString();
                 this.TipoNFC = dt.Rows[0]["TipoNFC"].ToString();
-                this.Total = (double)dt.Rows[0]["Total"];
+                this.Total = Convert.ToSingle(dt.Rows[0]["Total"]);
                 this.Producto.Clear();
                 foreach(DataRow row in dtVentas.Rows)
                 {
-                  this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToDouble(row["Precio"]), Convert.ToDouble(row["ITBIS"]), (int)(row["Cantidad"]), Convert.ToDouble(row["Descuentos"]), Convert.ToDouble(row["Importe"]));
+                  this.AgregarProducto((int)row["ProductoId"], row["Nombre"].ToString(), Convert.ToSingle(row["Precio"]), Convert.ToSingle(row["ITBIS"]), (int)(row["Cantidad"]), Convert.ToSingle(row["Descuentos"]), Convert.ToSingle(row["Importe"]));
                 }
 
                     

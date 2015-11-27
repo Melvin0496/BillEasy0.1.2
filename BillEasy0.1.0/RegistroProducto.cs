@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Globalization;
+using System.Threading;
 using BLL;
 namespace BillEasy0._1._0
 {
@@ -30,7 +32,7 @@ namespace BillEasy0._1._0
             producto.Nombre = espacio.Replace(NombreTextBox.Text, " ");
             producto.Precio = precio;
             producto.Costo = costo;
-            producto.ITBIS = itbis*precio/100;
+            producto.ITBIS = itbis * precio / 100;
         }
 
         private int Validar()
@@ -40,7 +42,13 @@ namespace BillEasy0._1._0
             if (!Regex.Match(NombreTextBox.Text, "^\\w{1,50}$").Success)
             {
                 miError.SetError(NombreTextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
             }
+            /*if (!Regex.Match(PrecioTextBox.Text, "/^([0-9])*$/").Success)
+            {
+                miError.SetError(PrecioTextBox, "Sobrepasa tamaño permitido de 50");
+                retorno = 0;
+            }*/
             else
             {
                 retorno += 1;
@@ -91,7 +99,7 @@ namespace BillEasy0._1._0
             }
             return contador;
         }
-        
+
 
         public int Convertidor()
         {
@@ -125,7 +133,7 @@ namespace BillEasy0._1._0
             }
             else
             {
-                MessageBox.Show("Id incorrecto","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Id incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -142,31 +150,31 @@ namespace BillEasy0._1._0
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             Productos productos = new Productos();
-            if(ProductoIdTextBox.TextLength == 0)
+            if (ProductoIdTextBox.TextLength == 0)
             {
                 LLenarDatos(productos);
                 if (Error() == 0 && Validar() == 1 && productos.Insertar())
                 {
-                    MessageBox.Show("Producto insertado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Producto insertado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
                 }
                 else
                 {
-                    MessageBox.Show("Error la insertar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Error la insertar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
                 LLenarDatos(productos);
                 productos.ProductoId = Convertidor();
-                if(Error() == 0 && Validar() == 1 && productos.Editar())
+                if (Error() == 0 && Validar() == 1 && productos.Editar())
                 {
-                    MessageBox.Show("Producto editado","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Producto editado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoButton.PerformClick();
                 }
                 else
                 {
-                    MessageBox.Show("Error al editar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Error al editar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -184,7 +192,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Error al eliminar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -220,15 +228,11 @@ namespace BillEasy0._1._0
 
         private void PrecioTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (PrecioTextBox.Text.Contains("."))
+            /*if (CostoTextBox.Text.Contains("."))
             {
-                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
+                if (e.KeyChar == '.' && (e.KeyChar != (char)Keys.Back))
                 {
                     e.Handled = true;
-                }
-                else
-                {
-                    miError.SetError(PrecioTextBox, "");
                 }
             }
             else
@@ -242,12 +246,22 @@ namespace BillEasy0._1._0
                 {
                     e.Handled = false;
                 }
+            }*/
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
             }
+            if(e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+
+                e.Handled = true;
+            }
+
         }
 
         private void CostoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (CostoTextBox.Text.Contains("."))
+            /*if (CostoTextBox.Text.Contains("."))
             {
                 if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
                 {
@@ -265,6 +279,15 @@ namespace BillEasy0._1._0
                 {
                     e.Handled = false;
                 }
+            }*/
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+
+                e.Handled = true;
             }
         }
 

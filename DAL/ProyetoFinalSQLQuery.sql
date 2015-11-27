@@ -18,7 +18,7 @@ Insert into Usuarios(NombreUsuario,Contrasena) Values('Anthony','Anthony2424')
 alter table Productos
  check constraint FK__Productos__Marcas__MarcaId
  alter table  Proveedores NOCHECK constraint ALL 
- sp_helpconstraint Productos
+ --sp_helpconstraint Productos
 
 
 drop table Usuarios

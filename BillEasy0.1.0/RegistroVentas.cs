@@ -8,16 +8,82 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using BLL;
 
 namespace BillEasy0._1._0
 {
     public partial class RegistroVentas : Form
     {
-        
+        ErrorProvider miError;
         public RegistroVentas()
         {
             InitializeComponent();
+            miError = new ErrorProvider();
+        }
+
+        private int Validar()
+        {
+            int retorno = 0;
+
+            if (!Regex.Match(NFCtextBox.Text, "^\\w{1,20}$").Success)
+            {
+                miError.SetError(NFCtextBox, "Sobrepasa tamaño permitido de 20");
+                
+            }
+            else
+            {
+                retorno += 1;
+                miError.Clear();
+            }
+
+            return retorno;
+        }
+        private int Error()
+        {
+            int contador = 0;
+
+            if (TipoVentastextBox.TextLength == 0)
+            {
+                miError.SetError(TipoVentastextBox, "Debe llenar el Tipo de venta");
+                contador = 1;
+            }
+            else
+            {
+                miError.Clear();
+            }
+            if (NFCtextBox.TextLength == 0)
+            {
+                miError.SetError(NFCtextBox, "Debe llenar el NFC");
+                contador = 1;
+            }
+            else
+            {
+                miError.Clear();
+            }
+           
+            if (TipoNFCtextBox.TextLength == 0)
+            {
+                miError.SetError(TipoNFCtextBox, "Debe llenar el tipo de NFC");
+                contador = 1;
+            }
+            else
+            {
+                miError.Clear();
+            }
+           
+            if (VentasdataGridView.RowCount == 0)
+            {
+                miError.SetError(VentasdataGridView, "Debe de agregar productos a la venta");
+                contador = 1;
+            }
+            else
+            {
+                miError.Clear();
+            }
+           
+            
+            return contador;
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -31,6 +97,7 @@ namespace BillEasy0._1._0
             DescuentostextBox.Clear();
             TotaltextBox.Clear();
             VentasdataGridView.Rows.Clear();
+            BuscarVentabutton.Enabled = true;
         }
 
         private void RegistroVentas_Load(object sender, EventArgs e)
@@ -48,10 +115,10 @@ namespace BillEasy0._1._0
             int.TryParse(VentaIdtextBox.Text, out id);
             return id;
         }
-        double total = 0;
+        float total = 0f;
         public void LlenarDatos(Ventas venta)
         {
-            double itbis;
+            float itbis;
             int id;
             int.TryParse(VentaIdtextBox.Text, out id);
             venta.VentaId = id;
@@ -66,9 +133,9 @@ namespace BillEasy0._1._0
             {
                 id= Convert.ToInt32(row.Cells["ProductoId"].Value);
                 int cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value);
-                itbis = Convert.ToDouble(row.Cells["ITBIS"].Value);
-                double descuentos = Convert.ToDouble(row.Cells["Descuento"].Value);
-                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToDouble(row.Cells["Precio"].Value),itbis, cantidad, descuentos, Convert.ToDouble(row.Cells["Importe"].Value));
+                itbis = Convert.ToSingle(row.Cells["ITBIS"].Value);
+                float descuentos = Convert.ToSingle(row.Cells["Descuento"].Value);
+                venta.AgregarProducto(id,row.Cells["Nombre"].Value.ToString(),Convert.ToSingle(row.Cells["Precio"].Value),itbis, cantidad, descuentos, Convert.ToSingle(row.Cells["Importe"].Value));
                 
 
             }
@@ -97,7 +164,7 @@ namespace BillEasy0._1._0
             if (VentaIdtextBox.Text.Length == 0)
             {
                 LlenarDatos(venta);
-                if (venta.Insertar())
+                if (Error() == 0 && Validar() == 1 && venta.Insertar())
                 {
                     MessageBox.Show("Venta Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Nuevobutton.PerformClick();
@@ -111,7 +178,7 @@ namespace BillEasy0._1._0
             {
                 venta.VentaId = Convertir();
                 LlenarDatos(venta);
-                if (venta.Editar())
+                if (Error() == 0 && Validar() == 1 && venta.Editar())
                 {
                     MessageBox.Show("Venta Editada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Nuevobutton.PerformClick();
@@ -156,30 +223,40 @@ namespace BillEasy0._1._0
                 {
                     VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString(),venta.Importe.ToString());
                 }
+                BuscarVentabutton.Enabled = false;
              
             }
             else
             {
                 MessageBox.Show("Id invalido","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
         }
         
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
 
             int cantidad;
-            double precio, itbis, descuento;
-            double.TryParse(PreciotextBox.Text, out precio);
+            float precio, itbis, descuento;
+            float.TryParse(PreciotextBox.Text, out precio);
             int.TryParse(CantidadtextBox.Text, out cantidad);
-            double.TryParse(ITBIStextBox.Text, out itbis);
-            itbis *= cantidad;
-            double importe = (precio * cantidad) + itbis;
-            double.TryParse(DescuentostextBox.Text, out descuento);
-            total += importe - descuento;
-            TotaltextBox.Text = total.ToString();
-            VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
-            LimpiarProducto();
+            float.TryParse(ITBIStextBox.Text, out itbis);
+            miError.Clear();
+            if (DescuentostextBox.TextLength == 0 || CantidadtextBox.TextLength == 0)
+            {
+                miError.SetError(CantidadtextBox, "Debe de completar este campo");
+                miError.SetError(DescuentostextBox, "Debe de completar este campo");
+                
+            }
+            else
+            {
+                itbis *= cantidad;
+                float importe = (precio * cantidad) + itbis;
+                float.TryParse(DescuentostextBox.Text, out descuento);
+                total += importe - descuento;
+                TotaltextBox.Text = total.ToString();
+                VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
+                LimpiarProducto();
+            }
         }
         public void LimpiarProducto()
         {
@@ -194,15 +271,16 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("No es una cantidad valida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                miError.SetError(CantidadtextBox,"No es una cantidad valida");
                 e.Handled = true;
                 return;
             }
+            miError.Clear();
         }
 
         private void DescuentostextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (DescuentostextBox.Text.Contains("."))
+            /*if (DescuentostextBox.Text.Contains("."))
             {
                 if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
                 {
@@ -220,6 +298,15 @@ namespace BillEasy0._1._0
                 {
                     e.Handled = false;
                 }
+            }*/
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+
+                e.Handled = true;
             }
         }
 
@@ -227,10 +314,11 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Solo se permiten numeros", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                miError.SetError(VentaIdtextBox,"VentaId incorrecto");
                 e.Handled = true;
                 return;
             }
+            miError.Clear();
 
         }
 
@@ -238,10 +326,11 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                MessageBox.Show("Solo se permiten numeros", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                miError.SetError(ProductoIdtextBox,"ProductoId incorrecto");
                 e.Handled = true;
                 return;
             }
+            miError.Clear();
         }
 
         private void Imprimirbutton_Click(object sender, EventArgs e)
