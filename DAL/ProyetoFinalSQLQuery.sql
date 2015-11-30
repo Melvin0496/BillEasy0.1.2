@@ -46,13 +46,10 @@ Create Table Ventas(
 VentaId Int Identity Primary Key,
 UsuarioId Int References Usuarios(UsuarioId),
 ClienteId Int References Clientes(ClienteId),
-ProductoId int references Productos(ProductoId),
 Fecha Varchar(10),
-ITBIS Float,
 TipoVentas Varchar(9),
 NFC Varchar(20),
 TipoNFC Varchar(20),
-Importe float,
 Total Float
 )
 
@@ -61,7 +58,6 @@ Create Table Compras(
 CompraId Int Identity Primary Key,
 ProveedorId Int References Proveedores(ProveedorId),
 Fecha Varchar(10),
-Cantidad Int,
 TipoCompra Varchar(9),
 NFC Varchar(20),
 TipoNFC Varchar(20),
@@ -96,6 +92,7 @@ VentaId Int References Ventas(VentaId),
 ProductoId int references Productos(ProductoId),
 Precio Float,
 Descuentos Float,
+ITBIS float,
 Cantidad int,
 Importe float
 )

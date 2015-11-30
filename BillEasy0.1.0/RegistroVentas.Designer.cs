@@ -70,8 +70,6 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.Imprimirbutton = new System.Windows.Forms.Button();
-            this.TipoVentacomboBox = new System.Windows.Forms.ComboBox();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -434,7 +432,7 @@
             // 
             this.Nuevobutton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Nuevobutton.Location = new System.Drawing.Point(323, 435);
+            this.Nuevobutton.Location = new System.Drawing.Point(426, 435);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(87, 46);
             this.Nuevobutton.TabIndex = 1;
@@ -447,7 +445,7 @@
             // 
             this.Guardarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Guardarbutton.Location = new System.Drawing.Point(432, 435);
+            this.Guardarbutton.Location = new System.Drawing.Point(533, 435);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(87, 46);
             this.Guardarbutton.TabIndex = 2;
@@ -482,25 +480,12 @@
             this.Imprimirbutton.UseVisualStyleBackColor = true;
             this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
-            // TipoVentacomboBox
-            // 
-            this.TipoVentacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TipoVentacomboBox.FormattingEnabled = true;
-            this.TipoVentacomboBox.Items.AddRange(new object[] {
-            "Credito",
-            "Contado"});
-            this.TipoVentacomboBox.Location = new System.Drawing.Point(311, 23);
-            this.TipoVentacomboBox.Name = "TipoVentacomboBox";
-            this.TipoVentacomboBox.Size = new System.Drawing.Size(143, 21);
-            this.TipoVentacomboBox.TabIndex = 22;
-            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(744, 493);
-            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -570,6 +555,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.Button Imprimirbutton;
-        private System.Windows.Forms.ComboBox TipoVentacomboBox;
     }
 }

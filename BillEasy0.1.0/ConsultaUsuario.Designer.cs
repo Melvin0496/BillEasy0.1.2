@@ -35,6 +35,7 @@
             this.DatosDataGridView = new System.Windows.Forms.DataGridView();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +102,25 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Consulta de Usuarios";
             // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Imprimirbutton.Location = new System.Drawing.Point(571, 324);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(83, 39);
+            this.Imprimirbutton.TabIndex = 7;
+            this.Imprimirbutton.Text = "Imprimir";
+            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
+            // 
             // ConsultaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 368);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.BuscarButton);
@@ -132,5 +147,6 @@
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }

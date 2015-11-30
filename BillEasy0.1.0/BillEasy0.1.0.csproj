@@ -181,6 +181,24 @@
       <DependentUpon>ReporteProducto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ReporteUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteVenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReporteCompra.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCompra.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ReporteProveedor.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,12 +223,6 @@
       <DependentUpon>ReporteMarca.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReporteVenta.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteVenta.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="VentanaReporteCiudad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +234,12 @@
     </Compile>
     <Compile Include="VentanaReporteCliente.Designer.cs">
       <DependentUpon>VentanaReporteCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteCompra.Designer.cs">
+      <DependentUpon>VentanaReporteCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="VentanaReporteMarca.cs">
       <SubType>Form</SubType>
@@ -240,6 +258,12 @@
     </Compile>
     <Compile Include="VentanaReporteProveedor.Designer.cs">
       <DependentUpon>VentanaReporteProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaReporteUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaReporteUsuario.Designer.cs">
+      <DependentUpon>VentanaReporteUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="VentanaReporteVenta.cs">
       <SubType>Form</SubType>
@@ -313,6 +337,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProducto.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReporteUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteVenta.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReporteCompra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCompra.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReporteProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteProveedor.cs</LastGenOutput>
@@ -329,15 +365,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteMarca.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVenta.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteVenta.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="VentanaReporteCiudad.resx">
       <DependentUpon>VentanaReporteCiudad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaReporteCliente.resx">
       <DependentUpon>VentanaReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteCompra.resx">
+      <DependentUpon>VentanaReporteCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaReporteMarca.resx">
       <DependentUpon>VentanaReporteMarca.cs</DependentUpon>
@@ -347,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaReporteProveedor.resx">
       <DependentUpon>VentanaReporteProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaReporteUsuario.resx">
+      <DependentUpon>VentanaReporteUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaReporteVenta.resx">
       <DependentUpon>VentanaReporteVenta.cs</DependentUpon>

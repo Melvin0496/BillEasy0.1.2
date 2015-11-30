@@ -21,6 +21,7 @@ namespace BillEasy0._1._0
         {
             ReporteProducto reporte = new ReporteProducto();
             ProductoCrystalReportViewer.ReportSource = reporte;
+            ProductoCrystalReportViewer.RefreshReport();
         }
     }
 }
