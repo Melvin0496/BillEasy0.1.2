@@ -19,7 +19,6 @@ namespace BLL
         public string NFC { get; set; }
         public string TipoNFC { get; set; }
         public float Total { get; set; }
-        public int Cantidad { get; set; }
         public float Precio { get; set; }
         public float Importe { get; set; }
         public List<Productos> Producto { get; set;}
@@ -37,11 +36,9 @@ namespace BLL
             this.NFC = "";
             this.TipoNFC = "";
             this.Total = 0f;
-            this.Cantidad = 0;
             this.Precio = 0f;
             this.Importe = 0f;
             Producto = new List<Productos>();
-            Venta = new List<Ventas>();
         }
         
 

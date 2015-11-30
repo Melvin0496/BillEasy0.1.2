@@ -280,25 +280,6 @@ namespace BillEasy0._1._0
 
         private void DescuentostextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*if (DescuentostextBox.Text.Contains("."))
-            {
-                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = true;
-                }
-            }
-            else
-            {
-                if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = true;
-                }
-
-                if (char.IsPunctuation(e.KeyChar) && (e.KeyChar != (char)Keys.Back))
-                {
-                    e.Handled = false;
-                }
-            }*/
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -333,10 +314,5 @@ namespace BillEasy0._1._0
             miError.Clear();
         }
 
-        private void Imprimirbutton_Click(object sender, EventArgs e)
-        {
-            VentanaReporteVenta reporteVenta = new VentanaReporteVenta();
-            reporteVenta.Show();
-        }
     }
 }

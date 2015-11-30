@@ -16,14 +16,14 @@ namespace BillEasy0._1._0 {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteVenta : ReportClass {
+    public class ReporteCompra : ReportClass {
         
-        public ReporteVenta() {
+        public ReporteCompra() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteVenta.rpt";
+                return "ReporteCompra.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace BillEasy0._1._0 {
         
         public override string FullResourceName {
             get {
-                return "BillEasy0._1._0.ReporteVenta.rpt";
+                return "BillEasy0._1._0.ReporteCompra.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace BillEasy0._1._0 {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteVenta : Component, ICachedReport {
+    public class CachedReporteCompra : Component, ICachedReport {
         
-        public CachedReporteVenta() {
+        public CachedReporteCompra() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace BillEasy0._1._0 {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteVenta rpt = new ReporteVenta();
+            ReporteCompra rpt = new ReporteCompra();
             rpt.Site = this.Site;
             return rpt;
         }

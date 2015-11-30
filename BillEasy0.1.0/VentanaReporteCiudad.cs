@@ -21,6 +21,7 @@ namespace BillEasy0._1._0
         {
             ReporteCiudad reporte = new ReporteCiudad();
             CiudadCrystalReportViewer.ReportSource = reporte;
+            CiudadCrystalReportViewer.RefreshReport();
         }
     }
 }

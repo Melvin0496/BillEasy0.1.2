@@ -39,5 +39,11 @@ namespace BillEasy0._1._0
                 VentasdataGridView.DataSource = dt;
             }
         }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            VentanaReporteVenta venta = new VentanaReporteVenta();
+            venta.Show();
+        }
     }
 }

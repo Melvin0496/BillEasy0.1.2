@@ -33,6 +33,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.DatosVentasGroupBox = new System.Windows.Forms.GroupBox();
+            this.TipoDeCompraComboBox = new System.Windows.Forms.ComboBox();
             this.BuscarVentaButton = new System.Windows.Forms.Button();
             this.ProductoGroupBox = new System.Windows.Forms.GroupBox();
             this.AgregarButton = new System.Windows.Forms.Button();
@@ -42,7 +43,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.BuscarProductoButton = new System.Windows.Forms.Button();
             this.ProductoIdTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.CostoTextBox = new System.Windows.Forms.TextBox();
+            this.FleteTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,15 +62,12 @@
             this.ProveedorComboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCTextBox = new System.Windows.Forms.TextBox();
             this.NFCTextBox = new System.Windows.Forms.TextBox();
-            this.TipoCompraTextBox = new System.Windows.Forms.TextBox();
             this.CompraIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.FleteTextBox = new System.Windows.Forms.TextBox();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
@@ -107,6 +107,7 @@
             // 
             // DatosVentasGroupBox
             // 
+            this.DatosVentasGroupBox.Controls.Add(this.TipoDeCompraComboBox);
             this.DatosVentasGroupBox.Controls.Add(this.BuscarVentaButton);
             this.DatosVentasGroupBox.Controls.Add(this.ProductoGroupBox);
             this.DatosVentasGroupBox.Controls.Add(this.FechaDateTimePicker);
@@ -115,7 +116,6 @@
             this.DatosVentasGroupBox.Controls.Add(this.ProveedorComboBox);
             this.DatosVentasGroupBox.Controls.Add(this.TipoNFCTextBox);
             this.DatosVentasGroupBox.Controls.Add(this.NFCTextBox);
-            this.DatosVentasGroupBox.Controls.Add(this.TipoCompraTextBox);
             this.DatosVentasGroupBox.Controls.Add(this.CompraIdTextBox);
             this.DatosVentasGroupBox.Controls.Add(this.label6);
             this.DatosVentasGroupBox.Controls.Add(this.label5);
@@ -124,10 +124,22 @@
             this.DatosVentasGroupBox.Controls.Add(this.label1);
             this.DatosVentasGroupBox.Location = new System.Drawing.Point(12, 79);
             this.DatosVentasGroupBox.Name = "DatosVentasGroupBox";
-            this.DatosVentasGroupBox.Size = new System.Drawing.Size(720, 344);
+            this.DatosVentasGroupBox.Size = new System.Drawing.Size(729, 344);
             this.DatosVentasGroupBox.TabIndex = 21;
             this.DatosVentasGroupBox.TabStop = false;
             this.DatosVentasGroupBox.Text = "Datos Compras";
+            // 
+            // TipoDeCompraComboBox
+            // 
+            this.TipoDeCompraComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoDeCompraComboBox.FormattingEnabled = true;
+            this.TipoDeCompraComboBox.Items.AddRange(new object[] {
+            "Credito",
+            "Contado"});
+            this.TipoDeCompraComboBox.Location = new System.Drawing.Point(312, 30);
+            this.TipoDeCompraComboBox.Name = "TipoDeCompraComboBox";
+            this.TipoDeCompraComboBox.Size = new System.Drawing.Size(143, 21);
+            this.TipoDeCompraComboBox.TabIndex = 23;
             // 
             // BuscarVentaButton
             // 
@@ -157,15 +169,15 @@
             this.ProductoGroupBox.Controls.Add(this.CantidadTextBox);
             this.ProductoGroupBox.Location = new System.Drawing.Point(9, 96);
             this.ProductoGroupBox.Name = "ProductoGroupBox";
-            this.ProductoGroupBox.Size = new System.Drawing.Size(705, 100);
+            this.ProductoGroupBox.Size = new System.Drawing.Size(711, 100);
             this.ProductoGroupBox.TabIndex = 21;
             this.ProductoGroupBox.TabStop = false;
             // 
             // AgregarButton
             // 
-            this.AgregarButton.Location = new System.Drawing.Point(657, 21);
+            this.AgregarButton.Location = new System.Drawing.Point(673, 21);
             this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(42, 30);
+            this.AgregarButton.Size = new System.Drawing.Size(28, 30);
             this.AgregarButton.TabIndex = 4;
             this.AgregarButton.Text = ">>";
             this.AgregarButton.UseVisualStyleBackColor = true;
@@ -181,7 +193,7 @@
             // 
             // ITBISTextBox
             // 
-            this.ITBISTextBox.Location = new System.Drawing.Point(508, 26);
+            this.ITBISTextBox.Location = new System.Drawing.Point(528, 26);
             this.ITBISTextBox.Name = "ITBISTextBox";
             this.ITBISTextBox.ReadOnly = true;
             this.ITBISTextBox.Size = new System.Drawing.Size(143, 20);
@@ -199,7 +211,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(440, 29);
+            this.label13.Location = new System.Drawing.Point(452, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(37, 13);
             this.label13.TabIndex = 16;
@@ -208,7 +220,7 @@
             // BuscarProductoButton
             // 
             this.BuscarProductoButton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
-            this.BuscarProductoButton.Location = new System.Drawing.Point(171, 20);
+            this.BuscarProductoButton.Location = new System.Drawing.Point(171, 19);
             this.BuscarProductoButton.Name = "BuscarProductoButton";
             this.BuscarProductoButton.Size = new System.Drawing.Size(46, 31);
             this.BuscarProductoButton.TabIndex = 1;
@@ -223,13 +235,30 @@
             this.ProductoIdTextBox.TabIndex = 0;
             this.ProductoIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductoIdTextBox_KeyPress);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(452, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Flete:";
+            // 
             // CostoTextBox
             // 
-            this.CostoTextBox.Location = new System.Drawing.Point(281, 54);
+            this.CostoTextBox.Location = new System.Drawing.Point(303, 54);
             this.CostoTextBox.Name = "CostoTextBox";
             this.CostoTextBox.ReadOnly = true;
             this.CostoTextBox.Size = new System.Drawing.Size(143, 20);
             this.CostoTextBox.TabIndex = 14;
+            // 
+            // FleteTextBox
+            // 
+            this.FleteTextBox.Location = new System.Drawing.Point(528, 54);
+            this.FleteTextBox.Name = "FleteTextBox";
+            this.FleteTextBox.Size = new System.Drawing.Size(143, 20);
+            this.FleteTextBox.TabIndex = 3;
+            this.FleteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FleteTextBox_KeyPress);
             // 
             // label9
             // 
@@ -260,7 +289,7 @@
             // 
             // CantidadTextBox
             // 
-            this.CantidadTextBox.Location = new System.Drawing.Point(281, 26);
+            this.CantidadTextBox.Location = new System.Drawing.Point(303, 26);
             this.CantidadTextBox.Name = "CantidadTextBox";
             this.CantidadTextBox.Size = new System.Drawing.Size(143, 20);
             this.CantidadTextBox.TabIndex = 2;
@@ -354,13 +383,6 @@
             this.NFCTextBox.Size = new System.Drawing.Size(143, 20);
             this.NFCTextBox.TabIndex = 3;
             // 
-            // TipoCompraTextBox
-            // 
-            this.TipoCompraTextBox.Location = new System.Drawing.Point(312, 32);
-            this.TipoCompraTextBox.Name = "TipoCompraTextBox";
-            this.TipoCompraTextBox.Size = new System.Drawing.Size(143, 20);
-            this.TipoCompraTextBox.TabIndex = 2;
-            // 
             // CompraIdTextBox
             // 
             this.CompraIdTextBox.Location = new System.Drawing.Point(74, 32);
@@ -414,23 +436,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "CompraId:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(440, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Flete:";
-            // 
-            // FleteTextBox
-            // 
-            this.FleteTextBox.Location = new System.Drawing.Point(508, 54);
-            this.FleteTextBox.Name = "FleteTextBox";
-            this.FleteTextBox.Size = new System.Drawing.Size(143, 20);
-            this.FleteTextBox.TabIndex = 3;
-            this.FleteTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FleteTextBox_KeyPress);
-            // 
             // EliminarButton
             // 
             this.EliminarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
@@ -478,7 +483,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 493);
+            this.ClientSize = new System.Drawing.Size(753, 493);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
@@ -532,7 +537,6 @@
         private System.Windows.Forms.ComboBox ProveedorComboBox;
         private System.Windows.Forms.TextBox TipoNFCTextBox;
         private System.Windows.Forms.TextBox NFCTextBox;
-        private System.Windows.Forms.TextBox TipoCompraTextBox;
         private System.Windows.Forms.TextBox CompraIdTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -546,5 +550,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.ErrorProvider ErrorerrorProvider;
+        private System.Windows.Forms.ComboBox TipoDeCompraComboBox;
     }
 }
