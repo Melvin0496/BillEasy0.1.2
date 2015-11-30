@@ -22,29 +22,29 @@ namespace BillEasy0._1._0
 
         public void Limpiar()
         {
-            UsuariotextBox.Clear();
-            ContrasenatextBox.Clear();
+            UsuarioTextBox.Clear();
+            ContrasenaTextBox.Clear();
         }
 
-        private void Accederbutton_Click(object sender, EventArgs e)
+        private void AccederButton_Click(object sender, EventArgs e)
         {
             Usuarios usuarios = new Usuarios();
             
 
-            usuarios.NombreUsuario = UsuariotextBox.Text;
-            usuarios.Contrasena = ContrasenatextBox.Text;
+            usuarios.NombreUsuario = UsuarioTextBox.Text;
+            usuarios.Contrasena = ContrasenaTextBox.Text;
 
-            if (UsuariotextBox.TextLength == 0 || ContrasenatextBox.TextLength == 0)
+            if (UsuarioTextBox.TextLength == 0 || ContrasenaTextBox.TextLength == 0)
             {
                 miError.Clear();
-                miError.SetError(UsuariotextBox, "Debe llenar este Campo");
+                miError.SetError(UsuarioTextBox, "Debe llenar este Campo");
             }
             else
             {
-                if (usuarios.VerificarUsuario() == UsuariotextBox.Text && usuarios.VerificarContrasena() == ContrasenatextBox.Text)
+                if (usuarios.VerificarUsuario() == UsuarioTextBox.Text && usuarios.VerificarContrasena() == ContrasenaTextBox.Text)
                 {
 
-                    usuarios.Area = usuarios.GetArea(UsuariotextBox.Text).ToString();
+                    usuarios.Area = usuarios.GetArea(UsuarioTextBox.Text).ToString();
                    
                     if(usuarios.Area != "Aministracion")
                     {

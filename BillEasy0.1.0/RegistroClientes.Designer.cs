@@ -37,20 +37,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.ClienteIdtextBox = new System.Windows.Forms.TextBox();
             this.NombresTextBox = new System.Windows.Forms.TextBox();
-            this.ApellidostextBox = new System.Windows.Forms.TextBox();
+            this.ApellidosTextBox = new System.Windows.Forms.TextBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.CelularmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.EmailtextBox = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
-            this.Buscarbutton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.DirecciontextBox = new System.Windows.Forms.TextBox();
+            this.DireccionTextBox = new System.Windows.Forms.TextBox();
             this.DatosgroupBox = new System.Windows.Forms.GroupBox();
             this.CedulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.CiudadcomboBox = new System.Windows.Forms.ComboBox();
+            this.CiudadComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DatosgroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -134,13 +134,13 @@
             this.NombresTextBox.TabIndex = 1;
             this.NombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombresTextBox_KeyPress);
             // 
-            // ApellidostextBox
+            // ApellidosTextBox
             // 
-            this.ApellidostextBox.Location = new System.Drawing.Point(63, 107);
-            this.ApellidostextBox.Name = "ApellidostextBox";
-            this.ApellidostextBox.Size = new System.Drawing.Size(181, 20);
-            this.ApellidostextBox.TabIndex = 2;
-            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
+            this.ApellidosTextBox.Location = new System.Drawing.Point(63, 107);
+            this.ApellidosTextBox.Name = "ApellidosTextBox";
+            this.ApellidosTextBox.Size = new System.Drawing.Size(181, 20);
+            this.ApellidosTextBox.TabIndex = 2;
+            this.ApellidosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // TelefonomaskedTextBox
             // 
@@ -158,12 +158,12 @@
             this.CelularmaskedTextBox.Size = new System.Drawing.Size(181, 20);
             this.CelularmaskedTextBox.TabIndex = 4;
             // 
-            // EmailtextBox
+            // EmailTextBox
             // 
-            this.EmailtextBox.Location = new System.Drawing.Point(322, 69);
-            this.EmailtextBox.Name = "EmailtextBox";
-            this.EmailtextBox.Size = new System.Drawing.Size(181, 20);
-            this.EmailtextBox.TabIndex = 6;
+            this.EmailTextBox.Location = new System.Drawing.Point(322, 69);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(181, 20);
+            this.EmailTextBox.TabIndex = 6;
             // 
             // GuardarButton
             // 
@@ -204,18 +204,18 @@
             this.NuevoButton.UseVisualStyleBackColor = true;
             this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
-            // Buscarbutton
+            // BuscarButton
             // 
-            this.Buscarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
-            this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscarbutton.Location = new System.Drawing.Point(169, 17);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(75, 46);
-            this.Buscarbutton.TabIndex = 12;
-            this.Buscarbutton.Text = "Buscar";
-            this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Buscarbutton.UseVisualStyleBackColor = true;
-            this.Buscarbutton.Click += new System.EventHandler(this.BuscarButton_Click);
+            this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(169, 17);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(75, 46);
+            this.BuscarButton.TabIndex = 12;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // label8
             // 
@@ -226,12 +226,12 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Direccion:";
             // 
-            // DirecciontextBox
+            // DireccionTextBox
             // 
-            this.DirecciontextBox.Location = new System.Drawing.Point(322, 31);
-            this.DirecciontextBox.Name = "DirecciontextBox";
-            this.DirecciontextBox.Size = new System.Drawing.Size(181, 20);
-            this.DirecciontextBox.TabIndex = 5;
+            this.DireccionTextBox.Location = new System.Drawing.Point(322, 31);
+            this.DireccionTextBox.Name = "DireccionTextBox";
+            this.DireccionTextBox.Size = new System.Drawing.Size(181, 20);
+            this.DireccionTextBox.TabIndex = 5;
             // 
             // DatosgroupBox
             // 
@@ -242,20 +242,20 @@
             this.DatosgroupBox.Controls.Add(this.CelularmaskedTextBox);
             this.DatosgroupBox.Controls.Add(this.label5);
             this.DatosgroupBox.Controls.Add(this.GuardarButton);
-            this.DatosgroupBox.Controls.Add(this.CiudadcomboBox);
+            this.DatosgroupBox.Controls.Add(this.CiudadComboBox);
             this.DatosgroupBox.Controls.Add(this.NuevoButton);
             this.DatosgroupBox.Controls.Add(this.ClienteIdtextBox);
-            this.DatosgroupBox.Controls.Add(this.DirecciontextBox);
+            this.DatosgroupBox.Controls.Add(this.DireccionTextBox);
             this.DatosgroupBox.Controls.Add(this.label1);
             this.DatosgroupBox.Controls.Add(this.label8);
             this.DatosgroupBox.Controls.Add(this.label2);
-            this.DatosgroupBox.Controls.Add(this.Buscarbutton);
+            this.DatosgroupBox.Controls.Add(this.BuscarButton);
             this.DatosgroupBox.Controls.Add(this.label3);
             this.DatosgroupBox.Controls.Add(this.label4);
             this.DatosgroupBox.Controls.Add(this.label6);
-            this.DatosgroupBox.Controls.Add(this.EmailtextBox);
+            this.DatosgroupBox.Controls.Add(this.EmailTextBox);
             this.DatosgroupBox.Controls.Add(this.NombresTextBox);
-            this.DatosgroupBox.Controls.Add(this.ApellidostextBox);
+            this.DatosgroupBox.Controls.Add(this.ApellidosTextBox);
             this.DatosgroupBox.Controls.Add(this.TelefonomaskedTextBox);
             this.DatosgroupBox.Location = new System.Drawing.Point(15, 85);
             this.DatosgroupBox.Name = "DatosgroupBox";
@@ -281,14 +281,14 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Ciudad:";
             // 
-            // CiudadcomboBox
+            // CiudadComboBox
             // 
-            this.CiudadcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CiudadcomboBox.FormattingEnabled = true;
-            this.CiudadcomboBox.Location = new System.Drawing.Point(322, 107);
-            this.CiudadcomboBox.Name = "CiudadcomboBox";
-            this.CiudadcomboBox.Size = new System.Drawing.Size(181, 21);
-            this.CiudadcomboBox.TabIndex = 7;
+            this.CiudadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CiudadComboBox.FormattingEnabled = true;
+            this.CiudadComboBox.Location = new System.Drawing.Point(322, 107);
+            this.CiudadComboBox.Name = "CiudadComboBox";
+            this.CiudadComboBox.Size = new System.Drawing.Size(181, 21);
+            this.CiudadComboBox.TabIndex = 7;
             // 
             // label10
             // 
@@ -331,19 +331,19 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ClienteIdtextBox;
         private System.Windows.Forms.TextBox NombresTextBox;
-        private System.Windows.Forms.TextBox ApellidostextBox;
+        private System.Windows.Forms.TextBox ApellidosTextBox;
         private System.Windows.Forms.MaskedTextBox TelefonomaskedTextBox;
         private System.Windows.Forms.MaskedTextBox CelularmaskedTextBox;
-        private System.Windows.Forms.TextBox EmailtextBox;
+        private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
-        private System.Windows.Forms.Button Buscarbutton;
+        private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox DirecciontextBox;
+        private System.Windows.Forms.TextBox DireccionTextBox;
         private System.Windows.Forms.GroupBox DatosgroupBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox CiudadcomboBox;
+        private System.Windows.Forms.ComboBox CiudadComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox CedulamaskedTextBox;
     }

@@ -24,14 +24,17 @@ namespace BillEasy0._1._0
         private void LLenarDatos(Productos producto)
         {
             float precio, costo, itbis;
+            int cantidad;
             Regex espacio = new Regex(@"\s+");
             float.TryParse(PrecioTextBox.Text, out precio);
             float.TryParse(CostoTextBox.Text, out costo);
             float.TryParse(ITBISTextBox.Text, out itbis);
+            int.TryParse(CantidadTextBox.Text, out cantidad);
             producto.MarcaId = (int)MarcaComboBox.SelectedValue;
             producto.Nombre = espacio.Replace(NombreTextBox.Text, " ");
             producto.Precio = precio;
             producto.Costo = costo;
+            producto.Cantidad = cantidad;
             producto.ITBIS = itbis * precio / 100;
         }
 
@@ -44,11 +47,6 @@ namespace BillEasy0._1._0
                 miError.SetError(NombreTextBox, "Sobrepasa tamaño permitido de 50");
                 retorno = 0;
             }
-            /*if (!Regex.Match(PrecioTextBox.Text, "/^([0-9])*$/").Success)
-            {
-                miError.SetError(PrecioTextBox, "Sobrepasa tamaño permitido de 50");
-                retorno = 0;
-            }*/
             else
             {
                 retorno += 1;
@@ -97,6 +95,16 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(ITBISTextBox, "");
             }
+            if ((int)MarcaComboBox.SelectedValue == 0)
+            {
+                miError.SetError(MarcaComboBox, "Debe insertar una marca");
+                contador = 1;
+
+            }
+            else
+            {
+                miError.SetError(MarcaComboBox, "");
+            }
             return contador;
         }
 
@@ -128,6 +136,7 @@ namespace BillEasy0._1._0
                 MarcaComboBox.SelectedValue = producto.MarcaId;
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CostoTextBox.Text = producto.Costo.ToString();
+                CantidadTextBox.Text = producto.Cantidad.ToString();
                 ITBISTextBox.Text = producto.ITBIS.ToString();
                 ProductoIdTextBox.ReadOnly = true;
             }
@@ -144,6 +153,7 @@ namespace BillEasy0._1._0
             PrecioTextBox.Clear();
             CostoTextBox.Clear();
             ITBISTextBox.Clear();
+            CantidadTextBox.Clear();
             ProductoIdTextBox.ReadOnly = false;
         }
 
@@ -303,26 +313,6 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(ITBISTextBox, "");
             }
-        }
-
-        private void MarcaComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NombreTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -138,6 +138,15 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(CelularMaskedTextBox, "");
             }
+            if ((int)CiudadComboBox.SelectedValue == 0)
+            {
+                miError.SetError(CiudadComboBox, "Debe seleccionar  la ciudad");
+                contador = 1;
+            }
+            else
+            {
+                miError.SetError(CiudadComboBox, "");
+            }
             return contador;
         }
 

@@ -28,69 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ComprascomboBox = new System.Windows.Forms.ComboBox();
-            this.ComprastextBox = new System.Windows.Forms.TextBox();
-            this.Imprimirbutton = new System.Windows.Forms.Button();
-            this.Buscarbutton = new System.Windows.Forms.Button();
-            this.ComprasdataGridView = new System.Windows.Forms.DataGridView();
+            this.ComprasComboBox = new System.Windows.Forms.ComboBox();
+            this.ComprasTextBox = new System.Windows.Forms.TextBox();
+            this.ImprimirButton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.ComprasDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ComprasdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComprasDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // ComprascomboBox
+            // ComprasComboBox
             // 
-            this.ComprascomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComprascomboBox.FormattingEnabled = true;
-            this.ComprascomboBox.Items.AddRange(new object[] {
+            this.ComprasComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComprasComboBox.FormattingEnabled = true;
+            this.ComprasComboBox.Items.AddRange(new object[] {
             "CompraId"});
-            this.ComprascomboBox.Location = new System.Drawing.Point(12, 77);
-            this.ComprascomboBox.Name = "ComprascomboBox";
-            this.ComprascomboBox.Size = new System.Drawing.Size(121, 21);
-            this.ComprascomboBox.TabIndex = 0;
+            this.ComprasComboBox.Location = new System.Drawing.Point(12, 77);
+            this.ComprasComboBox.Name = "ComprasComboBox";
+            this.ComprasComboBox.Size = new System.Drawing.Size(121, 21);
+            this.ComprasComboBox.TabIndex = 0;
             // 
-            // ComprastextBox
+            // ComprasTextBox
             // 
-            this.ComprastextBox.Location = new System.Drawing.Point(139, 77);
-            this.ComprastextBox.Name = "ComprastextBox";
-            this.ComprastextBox.Size = new System.Drawing.Size(434, 20);
-            this.ComprastextBox.TabIndex = 1;
+            this.ComprasTextBox.Location = new System.Drawing.Point(139, 77);
+            this.ComprasTextBox.Name = "ComprasTextBox";
+            this.ComprasTextBox.Size = new System.Drawing.Size(434, 20);
+            this.ComprasTextBox.TabIndex = 1;
             // 
-            // Imprimirbutton
+            // ImprimirButton
             // 
-            this.Imprimirbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimirbutton.Location = new System.Drawing.Point(574, 317);
-            this.Imprimirbutton.Name = "Imprimirbutton";
-            this.Imprimirbutton.Size = new System.Drawing.Size(80, 39);
-            this.Imprimirbutton.TabIndex = 2;
-            this.Imprimirbutton.Text = "Imprimir";
-            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Imprimirbutton.UseVisualStyleBackColor = true;
-            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
+            this.ImprimirButton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.ImprimirButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ImprimirButton.Location = new System.Drawing.Point(574, 317);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(80, 39);
+            this.ImprimirButton.TabIndex = 2;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
-            // Buscarbutton
+            // BuscarButton
             // 
-            this.Buscarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
-            this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Buscarbutton.Location = new System.Drawing.Point(579, 66);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(75, 40);
-            this.Buscarbutton.TabIndex = 3;
-            this.Buscarbutton.Text = "Buscar";
-            this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Buscarbutton.UseVisualStyleBackColor = true;
-            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
+            this.BuscarButton.Image = global::BillEasy0._1._0.Properties.Resources._1443839488_file_search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(579, 66);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(75, 40);
+            this.BuscarButton.TabIndex = 3;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
-            // ComprasdataGridView
+            // ComprasDataGridView
             // 
-            this.ComprasdataGridView.AllowUserToAddRows = false;
-            this.ComprasdataGridView.AllowUserToDeleteRows = false;
-            this.ComprasdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ComprasdataGridView.Location = new System.Drawing.Point(12, 112);
-            this.ComprasdataGridView.Name = "ComprasdataGridView";
-            this.ComprasdataGridView.ReadOnly = true;
-            this.ComprasdataGridView.Size = new System.Drawing.Size(642, 199);
-            this.ComprasdataGridView.TabIndex = 4;
+            this.ComprasDataGridView.AllowUserToAddRows = false;
+            this.ComprasDataGridView.AllowUserToDeleteRows = false;
+            this.ComprasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ComprasDataGridView.Location = new System.Drawing.Point(12, 112);
+            this.ComprasDataGridView.Name = "ComprasDataGridView";
+            this.ComprasDataGridView.ReadOnly = true;
+            this.ComprasDataGridView.Size = new System.Drawing.Size(642, 199);
+            this.ComprasDataGridView.TabIndex = 4;
             // 
             // label1
             // 
@@ -108,17 +108,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 368);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ComprasdataGridView);
-            this.Controls.Add(this.Buscarbutton);
-            this.Controls.Add(this.Imprimirbutton);
-            this.Controls.Add(this.ComprastextBox);
-            this.Controls.Add(this.ComprascomboBox);
+            this.Controls.Add(this.ComprasDataGridView);
+            this.Controls.Add(this.BuscarButton);
+            this.Controls.Add(this.ImprimirButton);
+            this.Controls.Add(this.ComprasTextBox);
+            this.Controls.Add(this.ComprasComboBox);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConsultaCompras";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaCompras";
-            ((System.ComponentModel.ISupportInitialize)(this.ComprasdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComprasDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,11 +126,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox ComprascomboBox;
-        private System.Windows.Forms.TextBox ComprastextBox;
-        private System.Windows.Forms.Button Imprimirbutton;
-        private System.Windows.Forms.Button Buscarbutton;
-        private System.Windows.Forms.DataGridView ComprasdataGridView;
+        private System.Windows.Forms.ComboBox ComprasComboBox;
+        private System.Windows.Forms.TextBox ComprasTextBox;
+        private System.Windows.Forms.Button ImprimirButton;
+        private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.DataGridView ComprasDataGridView;
         private System.Windows.Forms.Label label1;
     }
 }

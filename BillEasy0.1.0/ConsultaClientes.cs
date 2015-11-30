@@ -123,7 +123,7 @@ namespace BillEasy0._1._0
 
         }
 
-        private void Imprimirbutton_Click(object sender, EventArgs e)
+        private void ImprimirButton_Click(object sender, EventArgs e)
         {
             VentanaReporteCliente cliente = new VentanaReporteCliente();
             cliente.Show();

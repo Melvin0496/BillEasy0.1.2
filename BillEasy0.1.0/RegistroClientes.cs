@@ -27,13 +27,13 @@ namespace BillEasy0._1._0
             int.TryParse(ClienteIdtextBox.Text, out id);
             Regex espacio = new Regex(@"\s+");
             clientes.ClienteId = id;
-            clientes.CiudadId = (int)CiudadcomboBox.SelectedValue;
+            clientes.CiudadId = (int)CiudadComboBox.SelectedValue;
             clientes.Nombres = espacio.Replace(NombresTextBox.Text, " ");
-            clientes.Apellidos = espacio.Replace(ApellidostextBox.Text, " ");
+            clientes.Apellidos = espacio.Replace(ApellidosTextBox.Text, " ");
             clientes.Telefono = TelefonomaskedTextBox.Text;
             clientes.Celular = CelularmaskedTextBox.Text;
-            clientes.Direccion = espacio.Replace(DirecciontextBox.Text, " ");
-            clientes.Email = EmailtextBox.Text;
+            clientes.Direccion = espacio.Replace(DireccionTextBox.Text, " ");
+            clientes.Email = EmailTextBox.Text;
             clientes.Cedula = CedulamaskedTextBox.Text;
         }
 
@@ -46,24 +46,24 @@ namespace BillEasy0._1._0
                 miError.SetError(NombresTextBox, "Sobrepasa tamaño permitido de 50");
                 retorno = 0;
             }
-            if (!Regex.Match(ApellidostextBox.Text, "^\\w{1,50}$").Success)
+            if (!Regex.Match(ApellidosTextBox.Text, "^\\w{1,50}$").Success)
             {
-                miError.SetError(ApellidostextBox, "Sobrepasa tamaño permitido de 50");
+                miError.SetError(ApellidosTextBox, "Sobrepasa tamaño permitido de 50");
                 retorno = 0;
             }
-            if (!Regex.Match(DirecciontextBox.Text, "^\\w{1,150}$").Success)
+            if (!Regex.Match(DireccionTextBox.Text, "^\\w{1,150}$").Success)
             {
-                miError.SetError(DirecciontextBox, "Sobrepasa tamaño permitido de 150");
+                miError.SetError(DireccionTextBox, "Sobrepasa tamaño permitido de 150");
                 retorno = 0;
             }
-            if (!Regex.Match(EmailtextBox.Text, "^\\w{1,100}$").Success)
+            if (!Regex.Match(EmailTextBox.Text, "^\\w{1,100}$").Success)
             {
-                miError.SetError(EmailtextBox, "Sobrepasa tamaño permitido de 100");
+                miError.SetError(EmailTextBox, "Sobrepasa tamaño permitido de 100");
                 retorno = 0;
             }
-            if (!Regex.Match(EmailtextBox.Text, @"\A(\w+\.?\w*\@\w+.)(com)\Z").Success)
+            if (!Regex.Match(EmailTextBox.Text, @"\A(\w+\.?\w*\@\w+.)(com)\Z").Success)
             {
-                miError.SetError(EmailtextBox, "Correo Invalido");
+                miError.SetError(EmailTextBox, "Correo Invalido");
                 retorno = 0;
             }
             else
@@ -88,14 +88,14 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(NombresTextBox, "");
             }
-            if (ApellidostextBox.Text == "")
+            if (ApellidosTextBox.Text == "")
             {
-                miError.SetError(ApellidostextBox, "Debe llenar el apellido");
+                miError.SetError(ApellidosTextBox, "Debe llenar el apellido");
                 contador = 1;
             }
             else
             {
-                miError.SetError(ApellidostextBox, "");
+                miError.SetError(ApellidosTextBox, "");
             }
             if (TelefonomaskedTextBox.Text == "")
             {
@@ -115,23 +115,23 @@ namespace BillEasy0._1._0
             {
                 miError.SetError(CelularmaskedTextBox, "");
             }
-            if (DirecciontextBox.Text == "")
+            if (DireccionTextBox.Text == "")
             {
-                miError.SetError(DirecciontextBox, "Debe llenar la direccion");
+                miError.SetError(DireccionTextBox, "Debe llenar la direccion");
                 contador = 1;
             }
             else
             {
-                miError.SetError(DirecciontextBox, "");
+                miError.SetError(DireccionTextBox, "");
             }
-            if (EmailtextBox.Text == "")
+            if (EmailTextBox.Text == "")
             {
-                miError.SetError(EmailtextBox, "Debe llenar el  email");
+                miError.SetError(EmailTextBox, "Debe llenar el  email");
                 contador = 1;
             }
             else
             {
-                miError.SetError(EmailtextBox, "");
+                miError.SetError(EmailTextBox, "");
             }
             if (CedulamaskedTextBox.Text == "")
             {
@@ -156,9 +156,9 @@ namespace BillEasy0._1._0
         private void RegistroClientes_Load(object sender, EventArgs e)
         {
             Ciudades ciudades = new Ciudades();
-            CiudadcomboBox.DataSource = ciudades.Listado("CiudadId,Nombre,CodigoPostal ", "1=1", "");
-            CiudadcomboBox.DisplayMember = string.Format("Nombre");
-            CiudadcomboBox.ValueMember = "CiudadId";
+            CiudadComboBox.DataSource = ciudades.Listado("CiudadId,Nombre,CodigoPostal ", "1=1", "");
+            CiudadComboBox.DisplayMember = string.Format("Nombre");
+            CiudadComboBox.ValueMember = "CiudadId";
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -168,14 +168,14 @@ namespace BillEasy0._1._0
             if (clientes.Buscar(ConversionId()))
             {
                 NombresTextBox.Text = clientes.Nombres;
-                ApellidostextBox.Text = clientes.Apellidos;
+                ApellidosTextBox.Text = clientes.Apellidos;
                 TelefonomaskedTextBox.Text = clientes.Telefono;
-                CiudadcomboBox.SelectedValue = clientes.CiudadId;
+                CiudadComboBox.SelectedValue = clientes.CiudadId;
                 CelularmaskedTextBox.Text = clientes.Celular;
-                DirecciontextBox.Text = clientes.Direccion;
-                EmailtextBox.Text = clientes.Email;
+                DireccionTextBox.Text = clientes.Direccion;
+                EmailTextBox.Text = clientes.Email;
                 CedulamaskedTextBox.Text = clientes.Cedula;
-                CiudadcomboBox.SelectedValue = clientes.CiudadId;
+                CiudadComboBox.SelectedValue = clientes.CiudadId;
                 ClienteIdtextBox.ReadOnly = true;
 
             }
@@ -191,11 +191,11 @@ namespace BillEasy0._1._0
         {
             ClienteIdtextBox.Clear();
             NombresTextBox.Clear();
-            ApellidostextBox.Clear();
+            ApellidosTextBox.Clear();
             TelefonomaskedTextBox.Clear();
             CelularmaskedTextBox.Clear();
-            DirecciontextBox.Clear();
-            EmailtextBox.Clear();
+            DireccionTextBox.Clear();
+            EmailTextBox.Clear();
             CedulamaskedTextBox.Clear();
             ClienteIdtextBox.ReadOnly = false;
         }
@@ -281,13 +281,13 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && !(char.IsSeparator(e.KeyChar)))
             {
-                miError.SetError(ApellidostextBox, "Solo se permiten letras");
+                miError.SetError(ApellidosTextBox, "Solo se permiten letras");
                 e.Handled = true;
                 return;
             }
             else
             {
-                miError.SetError(ApellidostextBox, "");
+                miError.SetError(ApellidosTextBox, "");
             }
         }
     }

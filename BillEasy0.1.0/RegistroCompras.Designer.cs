@@ -34,7 +34,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.DatosVentasGroupBox = new System.Windows.Forms.GroupBox();
             this.TipoDeCompraComboBox = new System.Windows.Forms.ComboBox();
-            this.BuscarVentaButton = new System.Windows.Forms.Button();
+            this.BuscarCompraButton = new System.Windows.Forms.Button();
             this.ProductoGroupBox = new System.Windows.Forms.GroupBox();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.NombreTextBox = new System.Windows.Forms.TextBox();
@@ -98,17 +98,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 10);
+            this.label11.Font = new System.Drawing.Font("Monotype Corsiva", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(303, 26);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 36);
-            this.label11.TabIndex = 22;
+            this.label11.Size = new System.Drawing.Size(139, 45);
+            this.label11.TabIndex = 20;
             this.label11.Text = "Compras";
             // 
             // DatosVentasGroupBox
             // 
             this.DatosVentasGroupBox.Controls.Add(this.TipoDeCompraComboBox);
-            this.DatosVentasGroupBox.Controls.Add(this.BuscarVentaButton);
+            this.DatosVentasGroupBox.Controls.Add(this.BuscarCompraButton);
             this.DatosVentasGroupBox.Controls.Add(this.ProductoGroupBox);
             this.DatosVentasGroupBox.Controls.Add(this.FechaDateTimePicker);
             this.DatosVentasGroupBox.Controls.Add(this.label10);
@@ -141,15 +141,15 @@
             this.TipoDeCompraComboBox.Size = new System.Drawing.Size(143, 21);
             this.TipoDeCompraComboBox.TabIndex = 23;
             // 
-            // BuscarVentaButton
+            // BuscarCompraButton
             // 
-            this.BuscarVentaButton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
-            this.BuscarVentaButton.Location = new System.Drawing.Point(171, 26);
-            this.BuscarVentaButton.Name = "BuscarVentaButton";
-            this.BuscarVentaButton.Size = new System.Drawing.Size(46, 31);
-            this.BuscarVentaButton.TabIndex = 22;
-            this.BuscarVentaButton.UseVisualStyleBackColor = true;
-            this.BuscarVentaButton.Click += new System.EventHandler(this.BuscarVentaButton_Click);
+            this.BuscarCompraButton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
+            this.BuscarCompraButton.Location = new System.Drawing.Point(171, 26);
+            this.BuscarCompraButton.Name = "BuscarCompraButton";
+            this.BuscarCompraButton.Size = new System.Drawing.Size(46, 31);
+            this.BuscarCompraButton.TabIndex = 22;
+            this.BuscarCompraButton.UseVisualStyleBackColor = true;
+            this.BuscarCompraButton.Click += new System.EventHandler(this.BuscarCompraButton_Click);
             // 
             // ProductoGroupBox
             // 
@@ -515,7 +515,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox DatosVentasGroupBox;
-        private System.Windows.Forms.Button BuscarVentaButton;
+        private System.Windows.Forms.Button BuscarCompraButton;
         private System.Windows.Forms.GroupBox ProductoGroupBox;
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.TextBox NombreTextBox;

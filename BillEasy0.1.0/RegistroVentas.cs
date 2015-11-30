@@ -20,15 +20,16 @@ namespace BillEasy0._1._0
         {
             InitializeComponent();
             miError = new ErrorProvider();
+            TipoVentaComboBox.SelectedIndex = 0;
         }
 
         private int Validar()
         {
             int retorno = 0;
 
-            if (!Regex.Match(NFCtextBox.Text, "^\\w{1,20}$").Success)
+            if (!Regex.Match(NFCTextBox.Text, "^\\w{1,20}$").Success)
             {
-                miError.SetError(NFCtextBox, "Sobrepasa tamaño permitido de 20");
+                miError.SetError(NFCTextBox, "Sobrepasa tamaño permitido de 20");
                 
             }
             else
@@ -43,9 +44,9 @@ namespace BillEasy0._1._0
         {
             int contador = 0;
 
-            if (NFCtextBox.TextLength == 0)
+            if (NFCTextBox.TextLength == 0)
             {
-                miError.SetError(NFCtextBox, "Debe llenar el NFC");
+                miError.SetError(NFCTextBox, "Debe llenar el NFC");
                 contador = 1;
             }
             else
@@ -53,9 +54,9 @@ namespace BillEasy0._1._0
                 miError.Clear();
             }
            
-            if (TipoNFCtextBox.TextLength == 0)
+            if (TipoNFCTextBox.TextLength == 0)
             {
-                miError.SetError(TipoNFCtextBox, "Debe llenar el tipo de NFC");
+                miError.SetError(TipoNFCTextBox, "Debe llenar el tipo de NFC");
                 contador = 1;
             }
             else
@@ -72,22 +73,31 @@ namespace BillEasy0._1._0
             {
                 miError.Clear();
             }
-           
-            
+            if ((int)ClientecomboBox.SelectedValue == 0)
+            {
+                miError.SetError(ClientecomboBox, "seleccionar el cliente");
+                contador = 1;
+            }
+            else
+            {
+                miError.Clear();
+            }
+
+
             return contador;
         }
 
-        private void Nuevobutton_Click(object sender, EventArgs e)
+        private void NuevoButton_Click(object sender, EventArgs e)
         {
-            VentaIdtextBox.Clear();
-            CantidadtextBox.Clear();
-            PreciotextBox.Clear();
-            NFCtextBox.Clear();
-            TipoNFCtextBox.Clear();
-            DescuentostextBox.Clear();
-            TotaltextBox.Clear();
+            VentaIdTextBox.Clear();
+            CantidadTextBox.Clear();
+            PrecioTextBox.Clear();
+            NFCTextBox.Clear();
+            TipoNFCTextBox.Clear();
+            DescuentosTextBox.Clear();
+            TotalTextBox.Clear();
             VentasdataGridView.Rows.Clear();
-            BuscarVentabutton.Enabled = true;
+            BuscarVentaButton.Enabled = true;
         }
 
         private void RegistroVentas_Load(object sender, EventArgs e)
@@ -102,7 +112,7 @@ namespace BillEasy0._1._0
         public int Convertir()
         {
             int id;
-            int.TryParse(VentaIdtextBox.Text, out id);
+            int.TryParse(VentaIdTextBox.Text, out id);
             return id;
         }
         float total = 0f;
@@ -110,12 +120,12 @@ namespace BillEasy0._1._0
         {
             float itbis;
             int id;
-            int.TryParse(VentaIdtextBox.Text, out id);
+            int.TryParse(VentaIdTextBox.Text, out id);
             venta.VentaId = id;
             venta.ClienteId = (int)ClientecomboBox.SelectedValue;
-            venta.TipoVenta = TipoVentacomboBox.Text;
-            venta.NFC = NFCtextBox.Text;
-            venta.TipoNFC = TipoNFCtextBox.Text;
+            venta.TipoVenta = TipoVentaComboBox.Text;
+            venta.NFC = NFCTextBox.Text;
+            venta.TipoNFC = TipoNFCTextBox.Text;
             venta.Fecha = FechadateTimePicker.Text;
             venta.Total = total;
 
@@ -139,7 +149,7 @@ namespace BillEasy0._1._0
             if (ventas.Eliminar())
             {
                 MessageBox.Show("Venta Eliminada","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                Nuevobutton.PerformClick();
+                NuevoButton.PerformClick();
             }
             else
             {
@@ -151,27 +161,27 @@ namespace BillEasy0._1._0
         {
             Ventas venta = new Ventas();
 
-            if (VentaIdtextBox.Text.Length == 0)
+            if (VentaIdTextBox.Text.Length == 0)
             {
                 LlenarDatos(venta);
                 if (Error() == 0 && Validar() == 1 && venta.Insertar())
                 {
                     MessageBox.Show("Venta Guardada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Nuevobutton.PerformClick();
+                    NuevoButton.PerformClick();
                 }
                 else
                 {
                     MessageBox.Show("Error al guardar", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if(VentaIdtextBox.Text.Length > 0)
+            else if(VentaIdTextBox.Text.Length > 0)
             {
                 venta.VentaId = Convertir();
                 LlenarDatos(venta);
                 if (Error() == 0 && Validar() == 1 && venta.Editar())
                 {
                     MessageBox.Show("Venta Editada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Nuevobutton.PerformClick();
+                    NuevoButton.PerformClick();
                 }
                 else
                 {
@@ -179,18 +189,18 @@ namespace BillEasy0._1._0
                 }
             }
         }
-        private void BuscarProductobutton_Click(object sender, EventArgs e)
+        private void BuscarProductoButton_Click(object sender, EventArgs e)
         {
             int productoId;
-            int.TryParse(ProductoIdtextBox.Text, out productoId);
+            int.TryParse(ProductoIdTextBox.Text, out productoId);
             Productos producto = new Productos();
 
             
             if (producto.Buscar(productoId))
             {
-                PreciotextBox.Text = producto.Precio.ToString();
-                NombretextBox.Text = producto.Nombre;
-                ITBIStextBox.Text = producto.ITBIS.ToString();
+                PrecioTextBox.Text = producto.Precio.ToString();
+                NombreTextBox.Text = producto.Nombre;
+                ITBISTextBox.Text = producto.ITBIS.ToString();
             }
             else
             {
@@ -198,22 +208,23 @@ namespace BillEasy0._1._0
             }
         }
 
-        private void BuscarVentabutton_Click(object sender, EventArgs e)
+        private void BuscarVentaButton_Click(object sender, EventArgs e)
         {
             Ventas ventas = new Ventas();
             if (ventas.Buscar(Convertir()))
             {
                 ClientecomboBox.SelectedValue = ventas.ClienteId;
-                TipoVentacomboBox.Text = ventas.TipoVenta;
-                NFCtextBox.Text = ventas.NFC;
-                TipoNFCtextBox.Text = ventas.TipoNFC;
+                TipoVentaComboBox.Text = ventas.TipoVenta;
+                NFCTextBox.Text = ventas.NFC;
+                TipoNFCTextBox.Text = ventas.TipoNFC;
                 FechadateTimePicker.Text = ventas.Fecha;
-                TotaltextBox.Text = ventas.Total.ToString();
+                TotalTextBox.Text = ventas.Total.ToString();
+                total = ventas.Total;
                 foreach (var venta in ventas.Producto)
                 {
                     VentasdataGridView.Rows.Add(venta.ProductoId.ToString(), venta.Nombre, venta.Cantidad.ToString(), venta.Precio.ToString(), venta.ITBIS.ToString(),venta.Descuentos.ToString(),venta.Importe.ToString());
                 }
-                BuscarVentabutton.Enabled = false;
+                BuscarVentaButton.Enabled = false;
              
             }
             else
@@ -222,46 +233,46 @@ namespace BillEasy0._1._0
             }
         }
         
-        private void Agregarbutton_Click(object sender, EventArgs e)
+        private void AgregarButton_Click(object sender, EventArgs e)
         {
             Ventas venta = new Ventas();
             int cantidad;
             float precio, itbis, descuento;
-            float.TryParse(PreciotextBox.Text, out precio);
-            int.TryParse(CantidadtextBox.Text, out cantidad);
-            float.TryParse(ITBIStextBox.Text, out itbis);
+            float.TryParse(PrecioTextBox.Text, out precio);
+            int.TryParse(CantidadTextBox.Text, out cantidad);
+            float.TryParse(ITBISTextBox.Text, out itbis);
             miError.Clear();
-            if (DescuentostextBox.TextLength == 0 || CantidadtextBox.TextLength == 0)
+            if (DescuentosTextBox.TextLength == 0 || CantidadTextBox.TextLength == 0)
             {
-                miError.SetError(CantidadtextBox, "Debe de completar este campo");
-                miError.SetError(DescuentostextBox, "Debe de completar este campo");
+                miError.SetError(CantidadTextBox, "Debe de completar este campo");
+                miError.SetError(DescuentosTextBox, "Debe de completar este campo");
                 
             }
             else
             {
                 itbis *= cantidad;
                 float importe = (precio * cantidad) + itbis;
-                float.TryParse(DescuentostextBox.Text, out descuento);
+                float.TryParse(DescuentosTextBox.Text, out descuento);
                 total += importe - descuento;
-                TotaltextBox.Text = total.ToString();
-                VentasdataGridView.Rows.Add(ProductoIdtextBox.Text, NombretextBox.Text, CantidadtextBox.Text, PreciotextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
+                TotalTextBox.Text = total.ToString();
+                VentasdataGridView.Rows.Add(ProductoIdTextBox.Text, NombreTextBox.Text, CantidadTextBox.Text, PrecioTextBox.Text, itbis.ToString(), descuento.ToString(), importe.ToString());
                 LimpiarProducto();
             }
         }
         public void LimpiarProducto()
         {
-            ProductoIdtextBox.Clear();
-            PreciotextBox.Clear();
-            ITBIStextBox.Clear();
-            NombretextBox.Clear();
-            CantidadtextBox.Clear();
-            DescuentostextBox.Clear();
+            ProductoIdTextBox.Clear();
+            PrecioTextBox.Clear();
+            ITBISTextBox.Clear();
+            NombreTextBox.Clear();
+            CantidadTextBox.Clear();
+            DescuentosTextBox.Clear();
         }
         private void CantidadtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                miError.SetError(CantidadtextBox,"No es una cantidad valida");
+                miError.SetError(CantidadTextBox,"No es una cantidad valida");
                 e.Handled = true;
                 return;
             }
@@ -285,7 +296,7 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                miError.SetError(VentaIdtextBox,"VentaId incorrecto");
+                miError.SetError(VentaIdTextBox,"VentaId incorrecto");
                 e.Handled = true;
                 return;
             }
@@ -297,7 +308,7 @@ namespace BillEasy0._1._0
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                miError.SetError(ProductoIdtextBox,"ProductoId incorrecto");
+                miError.SetError(ProductoIdTextBox,"ProductoId incorrecto");
                 e.Handled = true;
                 return;
             }

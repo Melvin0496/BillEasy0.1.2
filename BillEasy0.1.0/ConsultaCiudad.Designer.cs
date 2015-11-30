@@ -32,7 +32,7 @@
             this.DatosTextBox = new System.Windows.Forms.TextBox();
             this.BuscarComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ImprimirButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DatosDataGridView)).BeginInit();
@@ -77,18 +77,18 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 12;
             // 
-            // button1
+            // ImprimirButton
             // 
-            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(573, 320);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 40);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Imprimir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ImprimirButton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
+            this.ImprimirButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ImprimirButton.Location = new System.Drawing.Point(573, 320);
+            this.ImprimirButton.Name = "ImprimirButton";
+            this.ImprimirButton.Size = new System.Drawing.Size(81, 40);
+            this.ImprimirButton.TabIndex = 17;
+            this.ImprimirButton.Text = "Imprimir";
+            this.ImprimirButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ImprimirButton.UseVisualStyleBackColor = true;
+            this.ImprimirButton.Click += new System.EventHandler(this.ImprimirButton_Click);
             // 
             // BuscarButton
             // 
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 368);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ImprimirButton);
             this.Controls.Add(this.DatosDataGridView);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.DatosTextBox);
@@ -138,7 +138,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ImprimirButton;
         private System.Windows.Forms.DataGridView DatosDataGridView;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.TextBox DatosTextBox;

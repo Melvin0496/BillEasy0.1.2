@@ -29,22 +29,23 @@
         private void InitializeComponent()
         {
             this.DatosVentasgroupBox = new System.Windows.Forms.GroupBox();
-            this.BuscarVentabutton = new System.Windows.Forms.Button();
+            this.TipoVentaComboBox = new System.Windows.Forms.ComboBox();
+            this.BuscarVentaButton = new System.Windows.Forms.Button();
             this.ProductogroupBox = new System.Windows.Forms.GroupBox();
-            this.Agregarbutton = new System.Windows.Forms.Button();
-            this.NombretextBox = new System.Windows.Forms.TextBox();
-            this.ITBIStextBox = new System.Windows.Forms.TextBox();
+            this.AgregarButton = new System.Windows.Forms.Button();
+            this.NombreTextBox = new System.Windows.Forms.TextBox();
+            this.ITBISTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.BuscarProductobutton = new System.Windows.Forms.Button();
-            this.ProductoIdtextBox = new System.Windows.Forms.TextBox();
-            this.PreciotextBox = new System.Windows.Forms.TextBox();
+            this.BuscarProductoButton = new System.Windows.Forms.Button();
+            this.ProductoIdTextBox = new System.Windows.Forms.TextBox();
+            this.PrecioTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.DescuentostextBox = new System.Windows.Forms.TextBox();
-            this.CantidadtextBox = new System.Windows.Forms.TextBox();
+            this.DescuentosTextBox = new System.Windows.Forms.TextBox();
+            this.CantidadTextBox = new System.Windows.Forms.TextBox();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.VentasdataGridView = new System.Windows.Forms.DataGridView();
@@ -56,9 +57,9 @@
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
-            this.TipoNFCtextBox = new System.Windows.Forms.TextBox();
-            this.NFCtextBox = new System.Windows.Forms.TextBox();
-            this.VentaIdtextBox = new System.Windows.Forms.TextBox();
+            this.TipoNFCTextBox = new System.Windows.Forms.TextBox();
+            this.NFCTextBox = new System.Windows.Forms.TextBox();
+            this.VentaIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,9 +67,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.TotaltextBox = new System.Windows.Forms.TextBox();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Guardarbutton = new System.Windows.Forms.Button();
+            this.TotalTextBox = new System.Windows.Forms.TextBox();
+            this.NuevoButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
@@ -77,16 +78,16 @@
             // 
             // DatosVentasgroupBox
             // 
-            this.DatosVentasgroupBox.Controls.Add(this.TipoVentacomboBox);
-            this.DatosVentasgroupBox.Controls.Add(this.BuscarVentabutton);
+            this.DatosVentasgroupBox.Controls.Add(this.TipoVentaComboBox);
+            this.DatosVentasgroupBox.Controls.Add(this.BuscarVentaButton);
             this.DatosVentasgroupBox.Controls.Add(this.ProductogroupBox);
             this.DatosVentasgroupBox.Controls.Add(this.FechadateTimePicker);
             this.DatosVentasgroupBox.Controls.Add(this.label10);
             this.DatosVentasgroupBox.Controls.Add(this.VentasdataGridView);
             this.DatosVentasgroupBox.Controls.Add(this.ClientecomboBox);
-            this.DatosVentasgroupBox.Controls.Add(this.TipoNFCtextBox);
-            this.DatosVentasgroupBox.Controls.Add(this.NFCtextBox);
-            this.DatosVentasgroupBox.Controls.Add(this.VentaIdtextBox);
+            this.DatosVentasgroupBox.Controls.Add(this.TipoNFCTextBox);
+            this.DatosVentasgroupBox.Controls.Add(this.NFCTextBox);
+            this.DatosVentasgroupBox.Controls.Add(this.VentaIdTextBox);
             this.DatosVentasgroupBox.Controls.Add(this.label6);
             this.DatosVentasgroupBox.Controls.Add(this.label5);
             this.DatosVentasgroupBox.Controls.Add(this.label4);
@@ -99,63 +100,75 @@
             this.DatosVentasgroupBox.TabStop = false;
             this.DatosVentasgroupBox.Text = "Datos Ventas";
             // 
-            // BuscarVentabutton
+            // TipoVentaComboBox
             // 
-            this.BuscarVentabutton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
-            this.BuscarVentabutton.Location = new System.Drawing.Point(180, 17);
-            this.BuscarVentabutton.Name = "BuscarVentabutton";
-            this.BuscarVentabutton.Size = new System.Drawing.Size(46, 31);
-            this.BuscarVentabutton.TabIndex = 2;
-            this.BuscarVentabutton.UseVisualStyleBackColor = true;
-            this.BuscarVentabutton.Click += new System.EventHandler(this.BuscarVentabutton_Click);
+            this.TipoVentaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoVentaComboBox.FormattingEnabled = true;
+            this.TipoVentaComboBox.Items.AddRange(new object[] {
+            "Credito",
+            "Contado"});
+            this.TipoVentaComboBox.Location = new System.Drawing.Point(313, 26);
+            this.TipoVentaComboBox.Name = "TipoVentaComboBox";
+            this.TipoVentaComboBox.Size = new System.Drawing.Size(141, 21);
+            this.TipoVentaComboBox.TabIndex = 22;
+            // 
+            // BuscarVentaButton
+            // 
+            this.BuscarVentaButton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
+            this.BuscarVentaButton.Location = new System.Drawing.Point(180, 17);
+            this.BuscarVentaButton.Name = "BuscarVentaButton";
+            this.BuscarVentaButton.Size = new System.Drawing.Size(46, 31);
+            this.BuscarVentaButton.TabIndex = 2;
+            this.BuscarVentaButton.UseVisualStyleBackColor = true;
+            this.BuscarVentaButton.Click += new System.EventHandler(this.BuscarVentaButton_Click);
             // 
             // ProductogroupBox
             // 
-            this.ProductogroupBox.Controls.Add(this.Agregarbutton);
-            this.ProductogroupBox.Controls.Add(this.NombretextBox);
-            this.ProductogroupBox.Controls.Add(this.ITBIStextBox);
+            this.ProductogroupBox.Controls.Add(this.AgregarButton);
+            this.ProductogroupBox.Controls.Add(this.NombreTextBox);
+            this.ProductogroupBox.Controls.Add(this.ITBISTextBox);
             this.ProductogroupBox.Controls.Add(this.label14);
             this.ProductogroupBox.Controls.Add(this.label13);
-            this.ProductogroupBox.Controls.Add(this.BuscarProductobutton);
-            this.ProductogroupBox.Controls.Add(this.ProductoIdtextBox);
-            this.ProductogroupBox.Controls.Add(this.PreciotextBox);
+            this.ProductogroupBox.Controls.Add(this.BuscarProductoButton);
+            this.ProductogroupBox.Controls.Add(this.ProductoIdTextBox);
+            this.ProductogroupBox.Controls.Add(this.PrecioTextBox);
             this.ProductogroupBox.Controls.Add(this.label9);
             this.ProductogroupBox.Controls.Add(this.label7);
             this.ProductogroupBox.Controls.Add(this.label8);
             this.ProductogroupBox.Controls.Add(this.label3);
-            this.ProductogroupBox.Controls.Add(this.DescuentostextBox);
-            this.ProductogroupBox.Controls.Add(this.CantidadtextBox);
+            this.ProductogroupBox.Controls.Add(this.DescuentosTextBox);
+            this.ProductogroupBox.Controls.Add(this.CantidadTextBox);
             this.ProductogroupBox.Location = new System.Drawing.Point(0, 87);
             this.ProductogroupBox.Name = "ProductogroupBox";
             this.ProductogroupBox.Size = new System.Drawing.Size(720, 100);
             this.ProductogroupBox.TabIndex = 21;
             this.ProductogroupBox.TabStop = false;
             // 
-            // Agregarbutton
+            // AgregarButton
             // 
-            this.Agregarbutton.Location = new System.Drawing.Point(686, 20);
-            this.Agregarbutton.Name = "Agregarbutton";
-            this.Agregarbutton.Size = new System.Drawing.Size(28, 30);
-            this.Agregarbutton.TabIndex = 10;
-            this.Agregarbutton.Text = ">>";
-            this.Agregarbutton.UseVisualStyleBackColor = true;
-            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
+            this.AgregarButton.Location = new System.Drawing.Point(686, 20);
+            this.AgregarButton.Name = "AgregarButton";
+            this.AgregarButton.Size = new System.Drawing.Size(28, 30);
+            this.AgregarButton.TabIndex = 10;
+            this.AgregarButton.Text = ">>";
+            this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
-            // NombretextBox
+            // NombreTextBox
             // 
-            this.NombretextBox.Location = new System.Drawing.Point(83, 54);
-            this.NombretextBox.Name = "NombretextBox";
-            this.NombretextBox.ReadOnly = true;
-            this.NombretextBox.Size = new System.Drawing.Size(143, 20);
-            this.NombretextBox.TabIndex = 19;
+            this.NombreTextBox.Location = new System.Drawing.Point(83, 54);
+            this.NombreTextBox.Name = "NombreTextBox";
+            this.NombreTextBox.ReadOnly = true;
+            this.NombreTextBox.Size = new System.Drawing.Size(143, 20);
+            this.NombreTextBox.TabIndex = 19;
             // 
-            // ITBIStextBox
+            // ITBISTextBox
             // 
-            this.ITBIStextBox.Location = new System.Drawing.Point(537, 26);
-            this.ITBIStextBox.Name = "ITBIStextBox";
-            this.ITBIStextBox.ReadOnly = true;
-            this.ITBIStextBox.Size = new System.Drawing.Size(143, 20);
-            this.ITBIStextBox.TabIndex = 18;
+            this.ITBISTextBox.Location = new System.Drawing.Point(537, 26);
+            this.ITBISTextBox.Name = "ITBISTextBox";
+            this.ITBISTextBox.ReadOnly = true;
+            this.ITBISTextBox.Size = new System.Drawing.Size(143, 20);
+            this.ITBISTextBox.TabIndex = 18;
             // 
             // label14
             // 
@@ -175,31 +188,31 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "ITBIS:";
             // 
-            // BuscarProductobutton
+            // BuscarProductoButton
             // 
-            this.BuscarProductobutton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
-            this.BuscarProductobutton.Location = new System.Drawing.Point(180, 20);
-            this.BuscarProductobutton.Name = "BuscarProductobutton";
-            this.BuscarProductobutton.Size = new System.Drawing.Size(46, 31);
-            this.BuscarProductobutton.TabIndex = 7;
-            this.BuscarProductobutton.UseVisualStyleBackColor = true;
-            this.BuscarProductobutton.Click += new System.EventHandler(this.BuscarProductobutton_Click);
+            this.BuscarProductoButton.Image = global::BillEasy0._1._0.Properties.Resources._1447807738_Search;
+            this.BuscarProductoButton.Location = new System.Drawing.Point(180, 20);
+            this.BuscarProductoButton.Name = "BuscarProductoButton";
+            this.BuscarProductoButton.Size = new System.Drawing.Size(46, 31);
+            this.BuscarProductoButton.TabIndex = 7;
+            this.BuscarProductoButton.UseVisualStyleBackColor = true;
+            this.BuscarProductoButton.Click += new System.EventHandler(this.BuscarProductoButton_Click);
             // 
-            // ProductoIdtextBox
+            // ProductoIdTextBox
             // 
-            this.ProductoIdtextBox.Location = new System.Drawing.Point(83, 26);
-            this.ProductoIdtextBox.Name = "ProductoIdtextBox";
-            this.ProductoIdtextBox.Size = new System.Drawing.Size(91, 20);
-            this.ProductoIdtextBox.TabIndex = 6;
-            this.ProductoIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductoIdtextBox_KeyPress);
+            this.ProductoIdTextBox.Location = new System.Drawing.Point(83, 26);
+            this.ProductoIdTextBox.Name = "ProductoIdTextBox";
+            this.ProductoIdTextBox.Size = new System.Drawing.Size(91, 20);
+            this.ProductoIdTextBox.TabIndex = 6;
+            this.ProductoIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductoIdtextBox_KeyPress);
             // 
-            // PreciotextBox
+            // PrecioTextBox
             // 
-            this.PreciotextBox.Location = new System.Drawing.Point(311, 53);
-            this.PreciotextBox.Name = "PreciotextBox";
-            this.PreciotextBox.ReadOnly = true;
-            this.PreciotextBox.Size = new System.Drawing.Size(143, 20);
-            this.PreciotextBox.TabIndex = 14;
+            this.PrecioTextBox.Location = new System.Drawing.Point(311, 53);
+            this.PrecioTextBox.Name = "PrecioTextBox";
+            this.PrecioTextBox.ReadOnly = true;
+            this.PrecioTextBox.Size = new System.Drawing.Size(143, 20);
+            this.PrecioTextBox.TabIndex = 14;
             // 
             // label9
             // 
@@ -237,21 +250,21 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Descuento:";
             // 
-            // DescuentostextBox
+            // DescuentosTextBox
             // 
-            this.DescuentostextBox.Location = new System.Drawing.Point(537, 54);
-            this.DescuentostextBox.Name = "DescuentostextBox";
-            this.DescuentostextBox.Size = new System.Drawing.Size(143, 20);
-            this.DescuentostextBox.TabIndex = 9;
-            this.DescuentostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescuentostextBox_KeyPress);
+            this.DescuentosTextBox.Location = new System.Drawing.Point(537, 54);
+            this.DescuentosTextBox.Name = "DescuentosTextBox";
+            this.DescuentosTextBox.Size = new System.Drawing.Size(143, 20);
+            this.DescuentosTextBox.TabIndex = 9;
+            this.DescuentosTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescuentostextBox_KeyPress);
             // 
-            // CantidadtextBox
+            // CantidadTextBox
             // 
-            this.CantidadtextBox.Location = new System.Drawing.Point(311, 26);
-            this.CantidadtextBox.Name = "CantidadtextBox";
-            this.CantidadtextBox.Size = new System.Drawing.Size(143, 20);
-            this.CantidadtextBox.TabIndex = 8;
-            this.CantidadtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadtextBox_KeyPress);
+            this.CantidadTextBox.Location = new System.Drawing.Point(311, 26);
+            this.CantidadTextBox.Name = "CantidadTextBox";
+            this.CantidadTextBox.Size = new System.Drawing.Size(143, 20);
+            this.CantidadTextBox.TabIndex = 8;
+            this.CantidadTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CantidadtextBox_KeyPress);
             // 
             // FechadateTimePicker
             // 
@@ -334,27 +347,27 @@
             this.ClientecomboBox.Size = new System.Drawing.Size(143, 21);
             this.ClientecomboBox.TabIndex = 17;
             // 
-            // TipoNFCtextBox
+            // TipoNFCTextBox
             // 
-            this.TipoNFCtextBox.Location = new System.Drawing.Point(537, 56);
-            this.TipoNFCtextBox.Name = "TipoNFCtextBox";
-            this.TipoNFCtextBox.Size = new System.Drawing.Size(143, 20);
-            this.TipoNFCtextBox.TabIndex = 5;
+            this.TipoNFCTextBox.Location = new System.Drawing.Point(537, 56);
+            this.TipoNFCTextBox.Name = "TipoNFCTextBox";
+            this.TipoNFCTextBox.Size = new System.Drawing.Size(143, 20);
+            this.TipoNFCTextBox.TabIndex = 5;
             // 
-            // NFCtextBox
+            // NFCTextBox
             // 
-            this.NFCtextBox.Location = new System.Drawing.Point(311, 56);
-            this.NFCtextBox.Name = "NFCtextBox";
-            this.NFCtextBox.Size = new System.Drawing.Size(143, 20);
-            this.NFCtextBox.TabIndex = 4;
+            this.NFCTextBox.Location = new System.Drawing.Point(311, 56);
+            this.NFCTextBox.Name = "NFCTextBox";
+            this.NFCTextBox.Size = new System.Drawing.Size(143, 20);
+            this.NFCTextBox.TabIndex = 4;
             // 
-            // VentaIdtextBox
+            // VentaIdTextBox
             // 
-            this.VentaIdtextBox.Location = new System.Drawing.Point(83, 23);
-            this.VentaIdtextBox.Name = "VentaIdtextBox";
-            this.VentaIdtextBox.Size = new System.Drawing.Size(91, 20);
-            this.VentaIdtextBox.TabIndex = 1;
-            this.VentaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VentaIdtextBox_KeyPress);
+            this.VentaIdTextBox.Location = new System.Drawing.Point(83, 23);
+            this.VentaIdTextBox.Name = "VentaIdTextBox";
+            this.VentaIdTextBox.Size = new System.Drawing.Size(91, 20);
+            this.VentaIdTextBox.TabIndex = 1;
+            this.VentaIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VentaIdtextBox_KeyPress);
             // 
             // label6
             // 
@@ -420,39 +433,39 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Total:";
             // 
-            // TotaltextBox
+            // TotalTextBox
             // 
-            this.TotaltextBox.Location = new System.Drawing.Point(58, 432);
-            this.TotaltextBox.Name = "TotaltextBox";
-            this.TotaltextBox.ReadOnly = true;
-            this.TotaltextBox.Size = new System.Drawing.Size(100, 20);
-            this.TotaltextBox.TabIndex = 5;
+            this.TotalTextBox.Location = new System.Drawing.Point(58, 432);
+            this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
+            this.TotalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.TotalTextBox.TabIndex = 5;
             // 
-            // Nuevobutton
+            // NuevoButton
             // 
-            this.Nuevobutton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
-            this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Nuevobutton.Location = new System.Drawing.Point(426, 435);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(87, 46);
-            this.Nuevobutton.TabIndex = 1;
-            this.Nuevobutton.Text = "Nuevo";
-            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            this.NuevoButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976554_Plus__Orange;
+            this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NuevoButton.Location = new System.Drawing.Point(426, 435);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(87, 46);
+            this.NuevoButton.TabIndex = 1;
+            this.NuevoButton.Text = "Nuevo";
+            this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
-            // Guardarbutton
+            // GuardarButton
             // 
-            this.Guardarbutton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
-            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Guardarbutton.Location = new System.Drawing.Point(533, 435);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(87, 46);
-            this.Guardarbutton.TabIndex = 2;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            this.GuardarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445977752_Save;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GuardarButton.Location = new System.Drawing.Point(533, 435);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(87, 46);
+            this.GuardarButton.TabIndex = 2;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // EliminarButton
             // 
@@ -467,19 +480,6 @@
             this.EliminarButton.UseVisualStyleBackColor = true;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
-            // Imprimirbutton
-            // 
-            this.Imprimirbutton.Image = global::BillEasy0._1._0.Properties.Resources._1446228633_kde_folder_print;
-            this.Imprimirbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Imprimirbutton.Location = new System.Drawing.Point(539, 435);
-            this.Imprimirbutton.Name = "Imprimirbutton";
-            this.Imprimirbutton.Size = new System.Drawing.Size(87, 46);
-            this.Imprimirbutton.TabIndex = 3;
-            this.Imprimirbutton.Text = "Imprimir";
-            this.Imprimirbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Imprimirbutton.UseVisualStyleBackColor = true;
-            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
-            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,9 +487,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(744, 493);
             this.Controls.Add(this.EliminarButton);
-            this.Controls.Add(this.Guardarbutton);
-            this.Controls.Add(this.Nuevobutton);
-            this.Controls.Add(this.TotaltextBox);
+            this.Controls.Add(this.GuardarButton);
+            this.Controls.Add(this.NuevoButton);
+            this.Controls.Add(this.TotalTextBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.DatosVentasgroupBox);
@@ -513,8 +513,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox DatosVentasgroupBox;
-        private System.Windows.Forms.TextBox VentaIdtextBox;
-        private System.Windows.Forms.TextBox DescuentostextBox;
+        private System.Windows.Forms.TextBox VentaIdTextBox;
+        private System.Windows.Forms.TextBox DescuentosTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -525,28 +525,28 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox ClientecomboBox;
-        private System.Windows.Forms.TextBox TipoNFCtextBox;
-        private System.Windows.Forms.TextBox NFCtextBox;
-        private System.Windows.Forms.TextBox PreciotextBox;
-        private System.Windows.Forms.TextBox CantidadtextBox;
-        private System.Windows.Forms.TextBox ProductoIdtextBox;
+        private System.Windows.Forms.TextBox TipoNFCTextBox;
+        private System.Windows.Forms.TextBox NFCTextBox;
+        private System.Windows.Forms.TextBox PrecioTextBox;
+        private System.Windows.Forms.TextBox CantidadTextBox;
+        private System.Windows.Forms.TextBox ProductoIdTextBox;
         private System.Windows.Forms.GroupBox ProductogroupBox;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView VentasdataGridView;
-        private System.Windows.Forms.Button BuscarProductobutton;
-        private System.Windows.Forms.Button BuscarVentabutton;
+        private System.Windows.Forms.Button BuscarProductoButton;
+        private System.Windows.Forms.Button BuscarVentaButton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TotaltextBox;
-        private System.Windows.Forms.Button Nuevobutton;
-        private System.Windows.Forms.Button Guardarbutton;
+        private System.Windows.Forms.TextBox TotalTextBox;
+        private System.Windows.Forms.Button NuevoButton;
+        private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
-        private System.Windows.Forms.TextBox NombretextBox;
-        private System.Windows.Forms.TextBox ITBIStextBox;
+        private System.Windows.Forms.TextBox NombreTextBox;
+        private System.Windows.Forms.TextBox ITBISTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button Agregarbutton;
+        private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
@@ -554,6 +554,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
-        private System.Windows.Forms.Button Imprimirbutton;
+        private System.Windows.Forms.ComboBox TipoVentaComboBox;
     }
 }

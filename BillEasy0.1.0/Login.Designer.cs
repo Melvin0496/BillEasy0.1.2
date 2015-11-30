@@ -31,10 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.UsuariotextBox = new System.Windows.Forms.TextBox();
-            this.ContrasenatextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Accederbutton = new System.Windows.Forms.Button();
+            this.UsuarioTextBox = new System.Windows.Forms.TextBox();
+            this.ContrasenaTextBox = new System.Windows.Forms.TextBox();
+            this.CancelarButton = new System.Windows.Forms.Button();
+            this.AccederButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -55,46 +55,46 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Contraseña:";
             // 
-            // UsuariotextBox
+            // UsuarioTextBox
             // 
-            this.UsuariotextBox.Location = new System.Drawing.Point(129, 48);
-            this.UsuariotextBox.Name = "UsuariotextBox";
-            this.UsuariotextBox.Size = new System.Drawing.Size(149, 20);
-            this.UsuariotextBox.TabIndex = 2;
+            this.UsuarioTextBox.Location = new System.Drawing.Point(129, 48);
+            this.UsuarioTextBox.Name = "UsuarioTextBox";
+            this.UsuarioTextBox.Size = new System.Drawing.Size(149, 20);
+            this.UsuarioTextBox.TabIndex = 2;
             // 
-            // ContrasenatextBox
+            // ContrasenaTextBox
             // 
-            this.ContrasenatextBox.Location = new System.Drawing.Point(129, 84);
-            this.ContrasenatextBox.Name = "ContrasenatextBox";
-            this.ContrasenatextBox.Size = new System.Drawing.Size(149, 20);
-            this.ContrasenatextBox.TabIndex = 3;
-            this.ContrasenatextBox.UseSystemPasswordChar = true;
+            this.ContrasenaTextBox.Location = new System.Drawing.Point(129, 84);
+            this.ContrasenaTextBox.Name = "ContrasenaTextBox";
+            this.ContrasenaTextBox.Size = new System.Drawing.Size(149, 20);
+            this.ContrasenaTextBox.TabIndex = 3;
+            this.ContrasenaTextBox.UseSystemPasswordChar = true;
             // 
-            // button1
+            // CancelarButton
             // 
-            this.button1.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(202, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 40);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Cancelar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.CancelarButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976510_Delete;
+            this.CancelarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CancelarButton.Location = new System.Drawing.Point(202, 139);
+            this.CancelarButton.Name = "CancelarButton";
+            this.CancelarButton.Size = new System.Drawing.Size(85, 40);
+            this.CancelarButton.TabIndex = 5;
+            this.CancelarButton.Text = "Cancelar";
+            this.CancelarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.CancelarButton.UseVisualStyleBackColor = true;
+            this.CancelarButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Accederbutton
+            // AccederButton
             // 
-            this.Accederbutton.Image = global::BillEasy0._1._0.Properties.Resources._1445976487_Check;
-            this.Accederbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Accederbutton.Location = new System.Drawing.Point(72, 139);
-            this.Accederbutton.Name = "Accederbutton";
-            this.Accederbutton.Size = new System.Drawing.Size(85, 40);
-            this.Accederbutton.TabIndex = 4;
-            this.Accederbutton.Text = "Acceder";
-            this.Accederbutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Accederbutton.UseVisualStyleBackColor = true;
-            this.Accederbutton.Click += new System.EventHandler(this.Accederbutton_Click);
+            this.AccederButton.Image = global::BillEasy0._1._0.Properties.Resources._1445976487_Check;
+            this.AccederButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AccederButton.Location = new System.Drawing.Point(72, 139);
+            this.AccederButton.Name = "AccederButton";
+            this.AccederButton.Size = new System.Drawing.Size(85, 40);
+            this.AccederButton.TabIndex = 4;
+            this.AccederButton.Text = "Acceder";
+            this.AccederButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AccederButton.UseVisualStyleBackColor = true;
+            this.AccederButton.Click += new System.EventHandler(this.AccederButton_Click);
             // 
             // Login
             // 
@@ -103,10 +103,10 @@
             this.BackgroundImage = global::BillEasy0._1._0.Properties.Resources.logo_admin;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(370, 201);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Accederbutton);
-            this.Controls.Add(this.ContrasenatextBox);
-            this.Controls.Add(this.UsuariotextBox);
+            this.Controls.Add(this.CancelarButton);
+            this.Controls.Add(this.AccederButton);
+            this.Controls.Add(this.ContrasenaTextBox);
+            this.Controls.Add(this.UsuarioTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
@@ -127,9 +127,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox UsuariotextBox;
-        private System.Windows.Forms.TextBox ContrasenatextBox;
-        private System.Windows.Forms.Button Accederbutton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox UsuarioTextBox;
+        private System.Windows.Forms.TextBox ContrasenaTextBox;
+        private System.Windows.Forms.Button AccederButton;
+        private System.Windows.Forms.Button CancelarButton;
     }
 }

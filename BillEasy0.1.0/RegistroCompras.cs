@@ -52,6 +52,15 @@ namespace BillEasy0._1._0
             {
                 error.Clear();
             }
+            if ((int)ProveedorComboBox.SelectedValue == 0)
+            {
+                error.SetError(ProveedorComboBox, "Debe seleccionar el proveedor");
+                contador = 1;
+            }
+            else
+            {
+                error.Clear();
+            }
             return retorno;
         }
         private int Validar()
@@ -65,7 +74,7 @@ namespace BillEasy0._1._0
             }
             else
             {
-                retorno += 1;
+                retorno = 1;
                 error.Clear();
             }
             if (!Regex.Match(TipoNFCTextBox.Text, "^\\w{1,20}$").Success)
@@ -75,7 +84,7 @@ namespace BillEasy0._1._0
             }
             else
             {
-                retorno += 1;
+                retorno = 1;
                 error.Clear();
             }
 
@@ -119,14 +128,14 @@ namespace BillEasy0._1._0
             ProveedorComboBox.DisplayMember = "NombreEmpresa";
             ProveedorComboBox.ValueMember = "ProveedorId";
         }
-        double total;
+        double monto;
         public int Convertir()
         {
             int id;
             int.TryParse(CompraIdTextBox.Text, out id);
             return id;
         }
-        private void BuscarVentaButton_Click(object sender, EventArgs e)
+        private void BuscarCompraButton_Click(object sender, EventArgs e)
         {
             Compras compras = new Compras();
             CompraIdTextBox.ReadOnly = true;
@@ -138,6 +147,7 @@ namespace BillEasy0._1._0
                 TipoNFCTextBox.Text = compras.TipoNFC;
                 FechaDateTimePicker.Text = compras.Fecha;
                 MontoTextBox.Text = compras.Monto.ToString();
+                monto = compras.Monto;
                 foreach (var compra in compras.Producto)
                 {
                     CompraDataGridView.Rows.Add(compra.ProductoId.ToString(), compra.Nombre, compra.Costo.ToString(), compra.Cantidad.ToString(), compra.ITBIS.ToString(), compra.Importe.ToString());
@@ -181,9 +191,9 @@ namespace BillEasy0._1._0
 
             itbis *= cantidad;
             importe = (costo * cantidad) + itbis;
-            total += importe + flete;
+            monto += importe + flete;
             CompraDataGridView.Rows.Add(ProductoIdTextBox.Text, NombreTextBox.Text, cantidad.ToString(), costo.ToString(), itbis.ToString(), importe.ToString());
-            MontoTextBox.Text = total.ToString();
+            MontoTextBox.Text = monto.ToString();
 
             FleteTextBox.Enabled = false;
             LimpiarProducto();

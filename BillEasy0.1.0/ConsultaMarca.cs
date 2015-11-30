@@ -45,7 +45,7 @@ namespace BillEasy0._1._0
             }
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void ImprimirButton_Click(object sender, System.EventArgs e)
         {
             VentanaReporteMarca marca = new VentanaReporteMarca();
             marca.Show();

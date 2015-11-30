@@ -16,7 +16,7 @@ namespace BillEasy0._1._0
         public ConsultaCompras()
         {
             InitializeComponent();
-            ComprascomboBox.SelectedIndex = 0;
+            ComprasComboBox.SelectedIndex = 0;
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -25,22 +25,22 @@ namespace BillEasy0._1._0
             Compras compras = new Compras();
             string condicion;
 
-            if(ComprascomboBox.SelectedIndex == 0)
+            if(ComprasComboBox.SelectedIndex == 0)
             {
-                if(ComprastextBox.TextLength == 0)
+                if(ComprasTextBox.TextLength == 0)
                 {
                     condicion = "1=1";
                 }
                 else
                 {
-                    condicion = "CompraId = " + ComprastextBox.Text;
+                    condicion = "CompraId = " + ComprasTextBox.Text;
                 }
                 dt = compras.Listado("*",condicion,"");
-                ComprasdataGridView.DataSource = dt;
+                ComprasDataGridView.DataSource = dt;
             }
         }
 
-        private void Imprimirbutton_Click(object sender, EventArgs e)
+        private void ImprimirButton_Click(object sender, EventArgs e)
         {
             VentanaReporteCompra compra = new VentanaReporteCompra();
             compra.Show();

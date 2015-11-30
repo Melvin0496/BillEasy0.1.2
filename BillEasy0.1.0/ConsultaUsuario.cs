@@ -71,7 +71,7 @@ namespace BillEasy0._1._0
 
         }
 
-        private void Imprimirbutton_Click(object sender, EventArgs e)
+        private void ImprimirButton_Click(object sender, EventArgs e)
         {
             VentanaReporteUsuario usuario = new VentanaReporteUsuario();
             usuario.Show();

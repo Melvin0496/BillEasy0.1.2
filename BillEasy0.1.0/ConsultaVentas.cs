@@ -16,31 +16,31 @@ namespace BillEasy0._1._0
         public ConsultaVentas()
         {
             InitializeComponent();
-            VentascomboBox.SelectedIndex = 0;
+            VentasComboBox.SelectedIndex = 0;
         }
 
-        private void Buscarbutton_Click(object sender, EventArgs e)
+        private void BuscarButton_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             Ventas ventas = new Ventas();
             string condicion;
 
-            if(VentascomboBox.SelectedIndex == 0)
+            if(VentasComboBox.SelectedIndex == 0)
             {
-                if(VentastextBox.TextLength == 0)
+                if(VentasTextBox.TextLength == 0)
                 {
                     condicion = "1=1";
                 }
                 else
                 {
-                    condicion = string.Format("VentaId = {0}", VentastextBox.Text);
+                    condicion = string.Format("VentaId = {0}", VentasTextBox.Text);
                 }
                 dt = ventas.Listado("*",condicion,"");
-                VentasdataGridView.DataSource = dt;
+                VentasDataGridView.DataSource = dt;
             }
         }
 
-        private void Imprimirbutton_Click(object sender, EventArgs e)
+        private void ImprimirButton_Click(object sender, EventArgs e)
         {
             VentanaReporteVenta venta = new VentanaReporteVenta();
             venta.Show();

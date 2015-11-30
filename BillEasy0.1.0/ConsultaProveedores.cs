@@ -76,7 +76,7 @@ namespace BillEasy0._1._0
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ImprimirButton_Click(object sender, EventArgs e)
         {
             VentanaReporteProveedor proveedor = new VentanaReporteProveedor();
             proveedor.Show();
