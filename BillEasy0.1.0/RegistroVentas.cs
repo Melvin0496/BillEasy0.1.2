@@ -43,15 +43,6 @@ namespace BillEasy0._1._0
         {
             int contador = 0;
 
-            if (TipoVentastextBox.TextLength == 0)
-            {
-                miError.SetError(TipoVentastextBox, "Debe llenar el Tipo de venta");
-                contador = 1;
-            }
-            else
-            {
-                miError.Clear();
-            }
             if (NFCtextBox.TextLength == 0)
             {
                 miError.SetError(NFCtextBox, "Debe llenar el NFC");
@@ -93,7 +84,6 @@ namespace BillEasy0._1._0
             PreciotextBox.Clear();
             NFCtextBox.Clear();
             TipoNFCtextBox.Clear();
-            TipoVentastextBox.Clear();
             DescuentostextBox.Clear();
             TotaltextBox.Clear();
             VentasdataGridView.Rows.Clear();
@@ -123,7 +113,7 @@ namespace BillEasy0._1._0
             int.TryParse(VentaIdtextBox.Text, out id);
             venta.VentaId = id;
             venta.ClienteId = (int)ClientecomboBox.SelectedValue;
-            venta.TipoVenta = TipoVentastextBox.Text;
+            venta.TipoVenta = TipoVentacomboBox.Text;
             venta.NFC = NFCtextBox.Text;
             venta.TipoNFC = TipoNFCtextBox.Text;
             venta.Fecha = FechadateTimePicker.Text;
@@ -214,7 +204,7 @@ namespace BillEasy0._1._0
             if (ventas.Buscar(Convertir()))
             {
                 ClientecomboBox.SelectedValue = ventas.ClienteId;
-                TipoVentastextBox.Text = ventas.TipoVenta;
+                TipoVentacomboBox.Text = ventas.TipoVenta;
                 NFCtextBox.Text = ventas.NFC;
                 TipoNFCtextBox.Text = ventas.TipoNFC;
                 FechadateTimePicker.Text = ventas.Fecha;
@@ -234,7 +224,7 @@ namespace BillEasy0._1._0
         
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-
+            Ventas venta = new Ventas();
             int cantidad;
             float precio, itbis, descuento;
             float.TryParse(PreciotextBox.Text, out precio);

@@ -112,6 +112,8 @@
             this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.ComprastextBox);
             this.Controls.Add(this.ComprascomboBox);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ConsultaCompras";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaCompras";

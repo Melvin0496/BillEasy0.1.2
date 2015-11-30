@@ -58,7 +58,6 @@
             this.ClientecomboBox = new System.Windows.Forms.ComboBox();
             this.TipoNFCtextBox = new System.Windows.Forms.TextBox();
             this.NFCtextBox = new System.Windows.Forms.TextBox();
-            this.TipoVentastextBox = new System.Windows.Forms.TextBox();
             this.VentaIdtextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -72,6 +71,7 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.Imprimirbutton = new System.Windows.Forms.Button();
+            this.TipoVentacomboBox = new System.Windows.Forms.ComboBox();
             this.DatosVentasgroupBox.SuspendLayout();
             this.ProductogroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VentasdataGridView)).BeginInit();
@@ -79,6 +79,7 @@
             // 
             // DatosVentasgroupBox
             // 
+            this.DatosVentasgroupBox.Controls.Add(this.TipoVentacomboBox);
             this.DatosVentasgroupBox.Controls.Add(this.BuscarVentabutton);
             this.DatosVentasgroupBox.Controls.Add(this.ProductogroupBox);
             this.DatosVentasgroupBox.Controls.Add(this.FechadateTimePicker);
@@ -87,7 +88,6 @@
             this.DatosVentasgroupBox.Controls.Add(this.ClientecomboBox);
             this.DatosVentasgroupBox.Controls.Add(this.TipoNFCtextBox);
             this.DatosVentasgroupBox.Controls.Add(this.NFCtextBox);
-            this.DatosVentasgroupBox.Controls.Add(this.TipoVentastextBox);
             this.DatosVentasgroupBox.Controls.Add(this.VentaIdtextBox);
             this.DatosVentasgroupBox.Controls.Add(this.label6);
             this.DatosVentasgroupBox.Controls.Add(this.label5);
@@ -350,13 +350,6 @@
             this.NFCtextBox.Size = new System.Drawing.Size(143, 20);
             this.NFCtextBox.TabIndex = 4;
             // 
-            // TipoVentastextBox
-            // 
-            this.TipoVentastextBox.Location = new System.Drawing.Point(312, 23);
-            this.TipoVentastextBox.Name = "TipoVentastextBox";
-            this.TipoVentastextBox.Size = new System.Drawing.Size(143, 20);
-            this.TipoVentastextBox.TabIndex = 3;
-            // 
             // VentaIdtextBox
             // 
             this.VentaIdtextBox.Location = new System.Drawing.Point(83, 23);
@@ -489,6 +482,18 @@
             this.Imprimirbutton.UseVisualStyleBackColor = true;
             this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
+            // TipoVentacomboBox
+            // 
+            this.TipoVentacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TipoVentacomboBox.FormattingEnabled = true;
+            this.TipoVentacomboBox.Items.AddRange(new object[] {
+            "Credito",
+            "Contado"});
+            this.TipoVentacomboBox.Location = new System.Drawing.Point(311, 23);
+            this.TipoVentacomboBox.Name = "TipoVentacomboBox";
+            this.TipoVentacomboBox.Size = new System.Drawing.Size(143, 21);
+            this.TipoVentacomboBox.TabIndex = 22;
+            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,7 +545,6 @@
         private System.Windows.Forms.TextBox PreciotextBox;
         private System.Windows.Forms.TextBox CantidadtextBox;
         private System.Windows.Forms.TextBox ProductoIdtextBox;
-        private System.Windows.Forms.TextBox TipoVentastextBox;
         private System.Windows.Forms.GroupBox ProductogroupBox;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
         private System.Windows.Forms.Label label10;
@@ -566,5 +570,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.Button Imprimirbutton;
+        private System.Windows.Forms.ComboBox TipoVentacomboBox;
     }
 }

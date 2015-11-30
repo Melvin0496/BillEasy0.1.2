@@ -132,7 +132,12 @@ namespace BLL
 
             return dt.Rows.Count > 0;
         }
+        public DataTable GetTotal()
+        {
+            ConexionDb conexion = new ConexionDb();
 
+            return conexion.ObtenerDatos("Select Total from Ventas where VentaId = " + this.VentaId);
+        }
         public override DataTable Listado(string campos, string condicion, string orden)
         {
             ConexionDb conexion = new ConexionDb();

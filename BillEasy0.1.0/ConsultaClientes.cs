@@ -50,7 +50,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Nombres = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Nombres like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
@@ -63,7 +63,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Apellidos = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Apellidos like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
@@ -76,7 +76,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Telefono = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Telefono like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
@@ -89,7 +89,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Celular = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Celular like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
@@ -102,7 +102,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Email = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Email like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
@@ -115,7 +115,7 @@ namespace BillEasy0._1._0
                 }
                 else
                 {
-                    condicion = String.Format("Cedula = '{0}' ", ClientesTextBox.Text);
+                    condicion = String.Format("Cedula like '{0}%' ", ClientesTextBox.Text);
                 }
                 dt = clientes.Listado("ClienteId,Nombres,Apellidos,CiudadId,Telefono,Celular,Email,Cedula", condicion, "");
                 ClientesDataGridView.DataSource = dt;
